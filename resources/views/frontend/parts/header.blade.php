@@ -322,23 +322,27 @@
                      <!--Menu-->
                      <ul class="sf-menu" data-back-text="Back">
                          <li class="menu-item">
-                             <a href="#"><span>Home</span></a>
+                             <a href="{{ route('home') }}"><span>Home</span></a>
                          </li>
 
                          <li class="menu-item-has-children">
                              <a href="#"><span>About us</span></a>
                              <ul class="sub-menu">
                                  <li class="menu-item left">
-                                     <a href="#"><span>About Al Douri</span></a>
+                                     <a href="{{ route('about') }}"><span>About Al Douri</span></a>
                                  </li>
                                  <li class="menu-item left">
-                                     <a href="#"><span>Mission & Vision</span></a>
+                                     <a href="{{ route('missionVision') }}"><span>Mission & Vision</span></a>
                                  </li>
                                  <li class="menu-item left">
-                                     <a href="#"><span>Our Heritage</span></a>
+                                     <a href="{{ route('our_heritage') }}"><span>Our Heritage</span></a>
                                  </li>
                                  <li class="menu-item left">
-                                     <a href="#"><span>Leadership</span></a>
+                                     <a href="{{ route('leadership') }}"><span>Leadership</span></a>
+                                 </li>
+                                 <li class="menu-item left">
+                                     <a href="{{ route('chairmans_message') }}"><span>Chairman's
+                                             message</span></a>
                                  </li>
                              </ul>
                          </li>
@@ -346,44 +350,34 @@
                          <li class="menu-item-has-children">
                              <a href="#"><span>Products</span></a>
                              <ul class="sub-menu">
-                                 <li class="menu-item left">
-                                     <a href="#"><span>Coffee</span></a>
-                                 </li>
-                                 <li class="menu-item left">
-                                     <a href="#"><span>Nuts</span></a>
-                                 </li>
-                                 <li class="menu-item left">
-                                     <a href="#"><span>Confectionery</span></a>
-                                 </li>
-                                 <li class="menu-item left">
-                                     <a href="#"><span>Special Products</span></a>
-                                 </li>
+
+                                 @foreach (menuCategory(0) as $category)
+                                     <li class="menu-item left">
+                                         <a href="{{ route('category', $category->slug) }}">
+                                             <span>{{ $category->getTranslation('title') }}</span>
+                                         </a>
+                                     </li>
+                                 @endforeach
                              </ul>
                          </li>
 
                          <li class="menu-item-has-children">
                              <a href="#"><span>Divisions</span></a>
                              <ul class="sub-menu">
-                                 <li class="menu-item left">
-                                     <a href="#"><span>Distribution</span></a>
-                                 </li>
-                                 <li class="menu-item left">
-                                     <a href="#"><span>Export/import</span></a>
-                                 </li>
-                                 <li class="menu-item left">
-                                     <a href="#"><span>Factories and private
-                                             labeling</span></a>
-                                 </li>
-                                 <li class="menu-item left">
-                                     <a href="#"><span>Retail</span></a>
-                                 </li>
+                                 @foreach (menuDivisions() as $division)
+                                     <li class="menu-item left">
+                                         <a href="{{ route('divisions', $division->slug) }}">
+                                             <span> {{ $division->getTranslation('title') }}</span>
+                                         </a>
+                                     </li>
+                                 @endforeach
                              </ul>
                          </li>
                          <li class="menu-item">
-                             <a href="#"><span>News</span></a>
+                             <a href="{{ route('news') }}"><span>News</span></a>
                          </li>
                          <li class="menu-item">
-                             <a href="#"><span>Contact Us </span></a>
+                             <a href="{{ route('contact_us') }}"><span>Contact Us </span></a>
                          </li>
                      </ul>
                  </div>
