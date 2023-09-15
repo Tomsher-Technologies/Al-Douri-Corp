@@ -25,7 +25,7 @@ class Division extends Model
 
     public function getTranslation($field = '', $lang = false)
     {
-        $lang = $lang == false ? App::getLocale() : $lang;
+        $lang = $lang == false ? getActiveLanguage() : $lang;
         $division_translations = $this->division_translations->where('lang', $lang)->first();
         return $division_translations != null ? $division_translations->$field : $this->$field;
     }

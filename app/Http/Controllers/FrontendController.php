@@ -6,6 +6,7 @@ use App\Models\Division;
 use App\Models\Product\Product;
 use App\Models\Product\ProductCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class FrontendController extends Controller
 {
@@ -72,5 +73,11 @@ class FrontendController extends Controller
             'status' => 1,
         ])->get();
         return view('frontend.sub_category', compact('category', 'products'));
+    }
+
+
+    public function changeLanguage(Request $request)
+    {
+        Session::put('locale', $request->locale);
     }
 }

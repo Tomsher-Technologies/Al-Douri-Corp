@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html class="no-js vlt-is--homepage-12 vlt-is--header-fullscreen vlt-is--footer-style-1 vlt-is--footer-fixed"
-    dir="@if (app()->getLocale() == 'en') {{ 'ltr' }} @else {{ 'rlt' }} @endif"
-    lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    dir="{{ getDirection() }}" lang="{{ getActiveLanguage() }}">
 
 <head>
     <meta charset="UTF-8">
@@ -38,12 +37,31 @@
         @yield('content')
     </main>
 
+
+
     @include('frontend.parts.footer')
 
     <script src="{{ asset('assets/vendors/jquery-3.5.1.min.js') }}"></script>
     <script src="{{ asset('assets/scripts/vlt-plugins.min.js') }}"></script>
     <script src="{{ asset('assets/scripts/vlt-helpers.js') }}"></script>
     <script src="{{ asset('assets/scripts/vlt-controllers.min.js') }}"></script>
+
+    <script>
+        if ($('#lang-change').length > 0) {
+            $('#lang-change').on('click', function(e) {
+                e.preventDefault();
+                var $this = $(this);
+                var locale = $this.data('locale');
+                $.post('{{ route('language.change') }}', {
+                    _token: '{{ csrf_token() }}',
+                    locale: locale
+                }, function(data) {
+                    location.reload();
+                });
+            });
+        }
+    </script>
+
 </body>
 
 </html>

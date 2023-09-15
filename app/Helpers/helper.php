@@ -3,6 +3,7 @@
 use App\Models\Division;
 use App\Models\Product\ProductCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -77,4 +78,20 @@ function menuCategory()
         'status' => 1,
         'parent_id' => 0,
     ])->get();
+}
+
+function getDirection()
+{
+    if (getActiveLanguage() == 'ar') {
+        return 'rtl';
+    }
+    return 'ltr';
+}
+
+function getActiveLanguage()
+{
+    if (Session::exists('locale')) {
+        return Session::get('locale');
+    }
+    return 'en';
 }

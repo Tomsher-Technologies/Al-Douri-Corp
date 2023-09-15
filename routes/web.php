@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/test', function () {
-   dd(menuCategory());
+    dd(menuCategory());
 });
 
 Route::get('/', [FrontendController::class, 'home'])->name('home');
@@ -30,6 +30,8 @@ Route::get('/chairmans_message', [FrontendController::class, 'chairmansMessage']
 Route::get('/divisions/{divisions}', [FrontendController::class, 'divisions'])->name('divisions');
 Route::get('/products/{category}', [FrontendController::class, 'category'])->name('category');
 Route::get('/products/{category}/{sub_category}', [FrontendController::class, 'sub_category'])->name('sub_category');
+
+Route::post('/language_change', [FrontendController::class, 'changeLanguage'])->name('language.change');
 
 
 include_once('admin.php');

@@ -192,7 +192,8 @@
                                                                  {{ $category->getTranslation('menu_text') }}
                                                              </p>
 
-                                                             <a href="{{ route('category', $category->slug) }}" class="menu-btn"><i
+                                                             <a href="{{ route('category', $category->slug) }}"
+                                                                 class="menu-btn"><i
                                                                      class="fa fa-arrow-right"></i></a>
                                                          </div>
                                                      </div>
@@ -265,12 +266,21 @@
                              </li>
 
                              <li class="d-none d-md-block">
-                                 <a href="#" class="lang-swt">
-                                     <i class="fa-solid fa-language"></i>
-                                     Arabic
-                                 </a>
-                             </li>
 
+                                 @if (getActiveLanguage() == 'en')
+                                     <a href="#" data-locale="ar" class="lang-swt" id="lang-change">
+                                         <i class="fa-solid fa-language"></i>
+                                         Arabic
+                                     </a>
+                                 @else
+                                     <a href="#" data-locale="en" class="lang-swt" id="lang-change">
+                                         <i class="fa-solid fa-language"></i>
+                                         English
+                                     </a>
+                                 @endif
+
+
+                             </li>
                              <li></li>
                          </ul>
                      </div>
