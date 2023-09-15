@@ -1,5 +1,8 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html class="no-js vlt-is--homepage-12 vlt-is--header-fullscreen vlt-is--footer-style-1 vlt-is--footer-fixed"
+    dir="@if (app()->getLocale() == 'en') {{ 'ltr' }} @else {{ 'rlt' }} @endif"
+    lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">

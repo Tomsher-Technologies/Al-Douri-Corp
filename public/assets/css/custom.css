@@ -1,0 +1,152 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300;400;500;600;700;800;900&display=swap');
+
+
+
+
+
+
+
+.bg-05{
+    background: rgb(161,105,56);
+    background: linear-gradient(90deg, rgba(161,105,56,1) 0%, rgba(229,170,112,1) 50%, rgba(162,106,56,1) 100%);
+
+}
+
+.title-area-client p.client-title {
+    max-width: max-content;
+    margin: auto;
+    font-weight: 700;
+    color: #A41E36;
+    text-transform: uppercase;
+}
+
+.mobile-app {
+    background: rgb(230, 191, 98);
+    background: linear-gradient(180deg, rgba(230, 191, 98, 1) 0%, rgba(230, 191, 98, 0) 100%);
+}
+
+
+.mobile-app .vlt-btn{
+    white-space: normal;
+}
+
+.mobile-app .left .left-content {
+    text-align: right;
+
+}
+
+.mobile-app .left .left-content .left-content-area {
+    padding-right: 150px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+
+
+
+.mobile-app .right .right-content {
+    text-align: left;
+
+}
+
+.mobile-app .right .right-content .right-content-area {
+    padding-left: 150px;
+    padding-top: 0px;
+    padding-bottom: 50px;
+}
+
+
+.mobile-app .vlt-section-title__title {
+    font-size: 30px;
+    margin-bottom: 50px;
+}
+
+.app-download-image img {
+    margin-top: 20px;
+}
+@media (max-width: 1200px){
+    .mobile-app .mobile-app-image-ad{
+        display: none;
+      }
+
+      .mobile-app .left .left-content .left-content-area {
+        padding-right: 0px;
+        text-align: center;
+}
+
+.mobile-app .right .right-content .right-content-area {
+    padding-left: 0px;
+    text-align: center;
+
+}
+
+.mobile-app .vlt-section-title__title {
+    font-size: 23px;
+    margin-bottom: 25px;
+}
+
+
+}
+@media (max-width: 992px){
+
+    .cta-area{
+    display: none;
+}
+}
+
+
+@media (max-width: 767px){
+
+    .vlt-navbar, .vlt-navbar.vlt-navbar--solid{
+        padding: 0px 0
+    }
+
+.mobile-app .mobile-app-image-ad{
+    display: none;
+  }
+
+  .mobile-app .left .left-content .left-content-area {
+    padding-right: 0px;
+
+}
+
+.mobile-app .right .right-content .right-content-area {
+    padding-left: 0px;
+
+}
+
+}
+
+
+.vlt-btn-nav{
+    padding: 10px 15px;
+    background-color: #d28a47;
+    border: 1px solid #d28a47;
+    color: #fff;
+    min-width: max-content;
+    font-size: 12px;
+    line-height: 30px;
+    font-weight: 500;
+    border-radius: 10px;
+    transition: all .3s;
+    font-family: 'Manrope', sans-serif;
+}
+
+.vlt-btn-nav:hover{
+    color: #d28a47;
+    background-color: #fff;
+    border: 1px solid #d28a47;
+
+}
+
+
+.footer-light .footer-content{
+    color: #fff;
+
+}
+
+.footer-light .vlt-widget ul li a{
+    color: #fff;
+
+}
