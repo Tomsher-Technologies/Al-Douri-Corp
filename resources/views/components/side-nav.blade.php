@@ -9,6 +9,23 @@
                     </a>
                 </li>
 
+                <li class="{{ request()->routeIs('admin.category*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.category.index') }}">
+                        <i class="simple-icon-picture"></i> Categories
+                    </a>
+                </li>
+
+                <li class="{{ request()->routeIs('admin.products*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.products.index') }}">
+                        <i class="simple-icon-picture"></i> Products
+                    </a>
+                </li>
+                <li class="{{ request()->routeIs('admin.divisions*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.divisions.index') }}">
+                        <i class="simple-icon-picture"></i> Divisions
+                    </a>
+                </li>
+
                 <li class="{{ request()->routeIs('admin.banner*') ? 'active' : '' }}">
                     <a href="{{ route('admin.banner.index') }}">
                         <i class="simple-icon-picture"></i> Home Banners
