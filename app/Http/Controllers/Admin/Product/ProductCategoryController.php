@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Admin\Product;
 
 use App\Http\Controllers\Controller;
 use App\Models\Product\ProductCategory;
+use App\Models\Product\ProductCategoryTranslation;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
+use Illuminate\Support\Str;
 
 class ProductCategoryController extends Controller
 {
@@ -33,8 +35,23 @@ class ProductCategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'image' => [
+            'menu_image' => [
                 'required',
+                File::image()
+                    ->max(2 * 1024)
+            ],
+            'banner_image' => [
+                'required',
+                File::image()
+                    ->max(2 * 1024)
+            ],
+            'image_1' => [
+                'nullable',
+                File::image()
+                    ->max(2 * 1024)
+            ],
+            'image_2' => [
+                'nullable',
                 File::image()
                     ->max(2 * 1024)
             ],
@@ -42,18 +59,43 @@ class ProductCategoryController extends Controller
             'ar_title' => 'required',
             'content' => 'required',
             'ar_content' => 'required',
+            'menu_text' => 'required',
+            'ar_menu_text' => 'required',
             'status' => 'required',
         ]);
 
         $category = ProductCategory::create($request->all());
 
-        $image = uploadImage($request, 'image', 'blogs');
+        $menu_image = uploadImage($request, 'menu_image', 'category');
+        $banner_image = uploadImage($request, 'banner_image', 'category');
+        $image_1 = uploadImage($request, 'image_1', 'category');
+        $image_2 = uploadImage($request, 'image_2', 'category');
 
-        $category->image = $image;
+        $category->menu_image = $menu_image;
+        $category->banner_image = $banner_image;
+        $category->image_1 = $image_1;
+        $category->image_2 = $image_2;
+        $category->slug = Str::slug($request->title);
+        $category->parent_id = $request->parent_id;
         $category->save();
 
-        return redirect()->route('admin.products.category.index')->with([
-            'status' => "ProductCategory Created"
+        ProductCategoryTranslation::create([
+            'product_category_id' => $category->id,
+            'title' => $request->title,
+            'menu_text' => $request->menu_text,
+            'description' => $request->content,
+            'lang' => 'en'
+        ]);
+        ProductCategoryTranslation::create([
+            'product_category_id' => $category->id,
+            'title' => $request->ar_title,
+            'menu_text' => $request->ar_menu_text,
+            'description' => $request->ar_content,
+            'lang' => 'ar'
+        ]);
+
+        return redirect()->route('admin.category.index')->with([
+            'status' => "Category Created"
         ]);
     }
 
@@ -69,7 +111,8 @@ class ProductCategoryController extends Controller
      */
     public function edit(ProductCategory $category)
     {
-        return view('admin.products.category.edit', compact('category'));
+        $categories = ProductCategory::where('parent_id', 0)->get();
+        return view('admin.products.category.edit', compact('category', 'categories'));
     }
 
     /**
@@ -77,8 +120,25 @@ class ProductCategoryController extends Controller
      */
     public function update(Request $request, ProductCategory $category)
     {
+
+
         $request->validate([
-            'image' => [
+            'menu_image' => [
+                'nullable',
+                File::image()
+                    ->max(2 * 1024)
+            ],
+            'banner_image' => [
+                'nullable',
+                File::image()
+                    ->max(2 * 1024)
+            ],
+            'image_1' => [
+                'nullable',
+                File::image()
+                    ->max(2 * 1024)
+            ],
+            'image_2' => [
                 'nullable',
                 File::image()
                     ->max(2 * 1024)
@@ -87,20 +147,56 @@ class ProductCategoryController extends Controller
             'ar_title' => 'required',
             'content' => 'required',
             'ar_content' => 'required',
+            'menu_text' => 'required',
+            'ar_menu_text' => 'required',
             'status' => 'required',
         ]);
 
         $category->update($request->all());
 
-        if ($request->hasFile('image')) {
-            $image = uploadImage($request, 'image', 'category');
-            deleteImage($category->image);
-            $category->image = $image;
-            $category->save();
+        if ($request->hasFile('menu_image')) {
+            $image = uploadImage($request, 'menu_image', 'category');
+            deleteImage($category->menu_image);
+            $category->menu_image = $image;
         }
+        if ($request->hasFile('banner_image')) {
+            $image = uploadImage($request, 'banner_image', 'category');
+            deleteImage($category->banner_image);
+            $category->banner_image = $image;
+        }
+        if ($request->hasFile('image_1')) {
+            $image = uploadImage($request, 'image_1', 'category');
+            deleteImage($category->image_1);
+            $category->image_1 = $image;
+        }
+        if ($request->hasFile('image_2')) {
+            $image = uploadImage($request, 'image_2', 'category');
+            deleteImage($category->image_2);
+            $category->image_2 = $image;
+        }
+        $category->slug = Str::slug($request->title);
+        $category->save();
+
+        ProductCategoryTranslation::updateOrCreate([
+            'lang' => 'en',
+            'product_category_id' => $category->id
+        ], [
+            'title' => $request->title,
+            'menu_text' => $request->menu_text,
+            'description' => $request->content,
+        ]);
+
+        ProductCategoryTranslation::updateOrCreate([
+            'lang' => 'ar',
+            'product_category_id' => $category->id
+        ], [
+            'title' => $request->ar_title,
+            'menu_text' => $request->ar_menu_text,
+            'description' => $request->ar_content,
+        ]);
 
         return back()->with([
-            'status' => 'ProductCategory Updated'
+            'status' => 'Category Updated'
         ]);
     }
 
@@ -109,11 +205,22 @@ class ProductCategoryController extends Controller
      */
     public function destroy(ProductCategory $category)
     {
-        $img = $category->image;
+        $menu_image = $category->menu_image;
+        $banner_image = $category->banner_image;
+        $image_1 = $category->image_1;
+        $image_2 = $category->image_2;
+
+        ProductCategoryTranslation::where([
+            'product_category_id' => $category->id
+        ])->delete();
+
         if ($category->delete()) {
-            deleteImage($img);
+            deleteImage($menu_image);
+            deleteImage($banner_image);
+            deleteImage($image_1);
+            deleteImage($image_2);
         }
-        return redirect()->route('admin.products.category.index')->with([
+        return redirect()->route('admin.category.index')->with([
             'status' => "ProductCategory Deleted"
         ]);
     }

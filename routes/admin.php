@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DivisionController;
 use App\Http\Controllers\Admin\HomeBannerController;
 use App\Http\Controllers\Admin\Product\ProductCategoryController;
+use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Admin\Users\ProfileController;
 use App\Http\Controllers\Admin\Users\UserController;
 use Illuminate\Support\Facades\Route;
@@ -51,5 +52,8 @@ Route::group(['prefix' => env('ADMIN_PREFIX', 'admin'), 'as' => 'admin.'], funct
 
         // Category
         Route::resource('category', ProductCategoryController::class)->except('show');
+
+        // Product
+        Route::resource('products', ProductController::class)->except('show');
     });
 });

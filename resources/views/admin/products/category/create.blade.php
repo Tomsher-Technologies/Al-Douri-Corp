@@ -35,7 +35,7 @@
                                 <select name="parent_id" class="form-control select2-single mb-3">
                                     <option value="0">---</option>
                                     @foreach ($categories as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        <option value="{{ $category->id }}">{{ $category->title }}</option>
                                     @endforeach
                                 </select>
                                 <x-input-error name='status' />
@@ -84,13 +84,13 @@
 
                             <div class="form-group position-relative error-l-50">
                                 <label>Content</label>
-                                <textarea class="form-control" id="engEditor" name="content_1" rows="2">{{ old('content_1') }}</textarea>
-                                <x-input-error name='content_1' />
+                                <textarea class="form-control" id="engEditor" name="content" rows="2">{{ old('content') }}</textarea>
+                                <x-input-error name='content' />
                             </div>
                             <div class="form-group position-relative error-l-50">
                                 <label>Arabic Content</label>
-                                <textarea class="form-control" id="arEditor" dir="rtl" name="ar_content_1" rows="2">{{ old('ar_content_1') }}</textarea>
-                                <x-input-error name='ar_content_1' />
+                                <textarea class="form-control" id="arEditor" dir="rtl" name="ar_content" rows="2">{{ old('ar_content') }}</textarea>
+                                <x-input-error name='ar_content' />
                             </div>
 
 
@@ -99,8 +99,8 @@
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="image_1" class="img" type="file" class="custom-file-input"
-                                            id="inputGroupFile03" accept="image/*">
-                                        <label class="custom-file-label" for="inputGroupFile03">Choose
+                                            id="inputGroupFile04" accept="image/*">
+                                        <label class="custom-file-label" for="inputGroupFile04">Choose
                                             file</label>
                                     </div>
                                 </div>
@@ -110,9 +110,9 @@
                                 <label for="exampleInputEmail1">Image 2</label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
-                                        <input name="image_1" class="img" type="file" class="custom-file-input"
-                                            id="inputGroupFile03" accept="image/*">
-                                        <label class="custom-file-label" for="inputGroupFile03">Choose
+                                        <input name="image_2" class="img" type="file" class="custom-file-input"
+                                            id="inputGroupFile05" accept="image/*">
+                                        <label class="custom-file-label" for="inputGroupFile05">Choose
                                             file</label>
                                     </div>
                                 </div>
