@@ -111,8 +111,7 @@
              <div class="col-12">
                  <div class="text-center">
                      <p>
-                         © 2023 Al Douri. All Rights Reserved. DESIGNED
-                         BY TOMSHER
+                         © 2023 Al Douri. All Rights Reserved. <span style="font-size:80%">Designed By Tomsher</span>
                      </p>
                  </div>
              </div>
