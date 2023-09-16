@@ -38,8 +38,8 @@
 
                                 {!! $division->getTranslation('content_2') !!}
 
-                                <div class="vlt-gap-60"></div>
-                                <div class="vlt-gap-80"></div>
+                        
+                                <div class="vlt-gap-30"></div>
                                 <!--Justified gallery-->
                                 <div class="vlt-justified-gallery" data-row-height="360" data-margins="30">
                                     <!--Simple image-->

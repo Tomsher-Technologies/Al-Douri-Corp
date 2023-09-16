@@ -45,9 +45,10 @@
                         <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
 
                             <div class="vlt-gap-40"></div>
-                            <p>Al-Douri Group is one of the institutions that keep pace with the approach of modernity and
+                            <p><strong>
+                                Al-Douri Group is one of the institutions that keep pace with the approach of modernity and
                                 technological development while preserving its identity and its ancient history, which dates
-                                back to the eighteenth century.</p>
+                                back to the eighteenth century. </strong></p>
                             <div class="vlt-gap-40"></div>
                             <div class="has-black-color">
                                 <!--Styled list-->

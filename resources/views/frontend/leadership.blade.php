@@ -20,7 +20,7 @@
             <div class="vlt-gap-120"></div>
             <div class="container position-relative">
 
-                <div class="row">
+                <div class="row  " style="justify-content: space-between;">
                     <div class="col-lg-3 col-md-6">
                         <!--Animated block-->
                         <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
