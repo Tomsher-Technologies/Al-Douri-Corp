@@ -38,9 +38,6 @@
     </main>
 
 
-
-    @include('frontend.parts.footer')
-
     <script src="{{ asset('assets/vendors/jquery-3.5.1.min.js') }}"></script>
     <script src="{{ asset('assets/scripts/vlt-plugins.min.js') }}"></script>
     <script src="{{ asset('assets/scripts/vlt-helpers.js') }}"></script>
@@ -61,6 +58,8 @@
             });
         }
     </script>
+
+    @include('frontend.parts.footer')
 
 </body>
 

@@ -28,8 +28,9 @@
                                  <div class="col-lg-3 m-auto">
                                      <!-- cta right -->
 
-                                     <a class="vlt-btn vlt-btn--primary vlt-btn--md" href="#" target="_self">Get
-                                         in touch</a>
+                                     <a class="vlt-btn vlt-btn--primary vlt-btn--md" href="#" target="_self">
+                                         {{ __('Get in touch') }}
+                                     </a>
 
                                      <!-- cta right End -->
                                  </div>
@@ -111,7 +112,8 @@
              <div class="col-12">
                  <div class="text-center">
                      <p>
-                         © 2023 Al Douri. All Rights Reserved. <span style="font-size:80%">Designed By Tomsher</span>
+                         © {{ date('Y') }} {{ __('Al Douri. All Rights Reserved') }} <span
+                             style="font-size:80%">{{ __('Designed By Tomsher') }}</span>
                      </p>
                  </div>
              </div>

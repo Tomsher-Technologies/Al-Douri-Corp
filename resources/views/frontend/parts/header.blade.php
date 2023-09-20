@@ -36,21 +36,14 @@
                  </button>
                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
                      <ul class="navbar-nav mx-lg-auto mb-2 mb-lg-0" id="navigation-menu">
-                         <!-- <li class="nav-item d-block d-lg-none">
-    <a class="d-block p-3 h-auto text-center" href="{{ route('home') }}">
-      <img src="../assets/images/logo-light.png" alt="" height="25" class="card-logo-dark mx-auto">
-      <img src="../assets/images/logo-light.png" alt="" height="25" class="card-logo-light mx-auto">
-    </a>
-  </li> -->
-
                          <li class="nav-item">
-                             <a class="nav-link" href="{{ route('home') }}" data-key="t-contact">Home</a>
+                             <a class="nav-link" href="{{ route('home') }}" data-key="t-contact">{{ __('Home') }}</a>
                          </li>
 
                          <li class="nav-item dropdown dropdown-hover dropdown-mega-full">
                              <a class="nav-link dropdown-toggle" data-key="t-catalog" href="#" role="button"
                                  data-bs-toggle="dropdown" aria-expanded="false">
-                                 Who We Are
+                                 {{ __('Who We Are') }}
                              </a>
                              <div class="dropdown-menu">
                                  <div class="container">
@@ -168,7 +161,7 @@
                          <li class="nav-item dropdown dropdown-hover dropdown-mega-full">
                              <a class="nav-link dropdown-toggle" data-key="t-catalog" href="#" role="button"
                                  data-bs-toggle="dropdown" aria-expanded="false">
-                                 Products
+                                 {{ __('Products') }}
                              </a>
                              <div class="dropdown-menu">
                                  <div class="container">
@@ -208,7 +201,7 @@
                          <li class="nav-item dropdown dropdown-hover dropdown-mega-full">
                              <a class="nav-link dropdown-toggle" data-key="t-catalog" href="#" role="button"
                                  data-bs-toggle="dropdown" aria-expanded="false">
-                                 Divisions
+                                 {{ __('Divisions') }}
                              </a>
                              <div class="dropdown-menu">
                                  <div class="container">
@@ -246,11 +239,14 @@
                          </li>
 
                          <li class="nav-item">
-                             <a class="nav-link" href="{{ route('news') }}" data-key="t-contact">News</a>
+                             <a class="nav-link" href="{{ route('news') }}"
+                                 data-key="t-contact">{{ __('News') }}</a>
                          </li>
 
                          <li class="nav-item">
-                             <a class="nav-link" href="{{ route('contact_us') }}" data-key="t-contact">Contact</a>
+                             <a class="nav-link" href="{{ route('contact_us') }}" data-key="t-contact">
+                                 {{ __('Contact') }}
+                             </a>
                          </li>
                      </ul>
                  </div>
@@ -262,7 +258,7 @@
                      <div class="dropdown header-item dropdown-hover-end">
                          <ul class="list-unstyled hstack gap-2 mb-0">
                              <li class="d-none d-md-block">
-                                 <a href="#" class="vlt-btn-nav">AL DOURI ONLINE</a>
+                                 <a href="#" class="vlt-btn-nav">{{ __('AL DOURI ONLINE') }}</a>
                              </li>
 
                              <li class="d-none d-md-block">
@@ -322,11 +318,11 @@
                      <!--Menu-->
                      <ul class="sf-menu" data-back-text="Back">
                          <li class="menu-item">
-                             <a href="{{ route('home') }}"><span>Home</span></a>
+                             <a href="{{ route('home') }}"><span>{{ __('Home') }}</span></a>
                          </li>
 
                          <li class="menu-item-has-children">
-                             <a href="#"><span>About us</span></a>
+                             <a href="#"><span>{{ __('About us') }}</span></a>
                              <ul class="sub-menu">
                                  <li class="menu-item left">
                                      <a href="{{ route('about') }}"><span>About Al Douri</span></a>
@@ -348,7 +344,7 @@
                          </li>
 
                          <li class="menu-item-has-children">
-                             <a href="#"><span>Products</span></a>
+                             <a href="#"><span>{{ __('Products') }}</span></a>
                              <ul class="sub-menu">
 
                                  @foreach (menuCategory(0) as $category)
@@ -362,7 +358,7 @@
                          </li>
 
                          <li class="menu-item-has-children">
-                             <a href="#"><span>Divisions</span></a>
+                             <a href="#"><span>{{ __('Divisions') }}</span></a>
                              <ul class="sub-menu">
                                  @foreach (menuDivisions() as $division)
                                      <li class="menu-item left">
@@ -374,10 +370,10 @@
                              </ul>
                          </li>
                          <li class="menu-item">
-                             <a href="{{ route('news') }}"><span>News</span></a>
+                             <a href="{{ route('news') }}"><span>{{ __('News') }}</span></a>
                          </li>
                          <li class="menu-item">
-                             <a href="{{ route('contact_us') }}"><span>Contact Us </span></a>
+                             <a href="{{ route('contact_us') }}"><span>{{ __('Contact Us') }}</span></a>
                          </li>
                      </ul>
                  </div>

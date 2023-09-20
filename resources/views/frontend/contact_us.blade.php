@@ -3,8 +3,8 @@
     <!--Page content-->
     <div class="vlt-page-content">
         <!--Page title-->
-        <div class="vlt-page-title vlt-page-title--style-3 jarallax"><img class="jarallax-img" src="{{ asset('assets/img/banner03.webp') }}"
-                alt="" loading="lazy">
+        <div class="vlt-page-title vlt-page-title--style-3 jarallax"><img class="jarallax-img"
+                src="{{ asset('assets/img/banner03.webp') }}" alt="" loading="lazy">
             <div class="vlt-page-title__overlay"></div><a class="vlt-page-title__scroll-to vlt-scroll-to" href="#content"><i
                     class="fa fa-arrow-down"></i></a>
             <div class="container">
@@ -30,45 +30,7 @@
                         <!--Animated block-->
                         <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
                             <!--Contact form-->
-                            <form class="vlt-contact-form vlt-contact-form--style-2" novalidate="novalidate">
-                                <div class="vlt-form-row two-col">
-                                    <div class="vlt-form-group">
-                                        <input class="vlt-form-control" type="text" name="name" required="required"
-                                            placeholder=" ">
-                                        <label class="vlt-form-label">Your name*</label>
-                                    </div>
-                                    <div class="vlt-form-group">
-                                        <input class="vlt-form-control" type="email" name="email" required="required"
-                                            placeholder=" ">
-                                        <label class="vlt-form-label">Email address*</label>
-                                    </div>
-                                </div>
-                                <div class="vlt-form-row two-col">
-                                    <div class="vlt-form-group">
-                                        <input class="vlt-form-control" type="tel" name="phone" placeholder=" ">
-                                        <label class="vlt-form-label">Phone number</label>
-                                    </div>
-                                    <div class="vlt-form-group">
-                                        <input class="vlt-form-control" type="text" name="company" placeholder=" ">
-                                        <label class="vlt-form-label">Company</label>
-                                    </div>
-                                </div>
-                                <div class="vlt-form-group">
-                                    <input class="vlt-form-control" type="text" name="title" required="required"
-                                        placeholder=" ">
-                                    <label class="vlt-form-label">Title*</label>
-                                </div>
-                                <div class="vlt-form-group">
-                                    <textarea class="vlt-form-control" name="message" rows="5" placeholder=" "></textarea>
-                                    <label class="vlt-form-label">Message*</label>
-                                </div>
-                                <div class="message success">Your message is successfully sent...</div>
-                                <div class="message danger">Sorry something went wrong!</div>
-                                <div class="vlt-gap-40"></div>
-                                <!--Button-->
-                                <button class="vlt-btn vlt-btn--secondary vlt-btn--lg">Submit
-                                </button>
-                            </form>
+                            @livewire('frontend.contact-form')
                         </div>
                         <div class="vlt-gap-60--md"></div>
                     </div>
@@ -78,7 +40,7 @@
                                 <div class="col-lg-12 col-md-6">
                                     <!--Animated block-->
                                     <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
-                                        <h5>General Info</h5>
+                                        <h5>{{ __('General Info') }}</h5>
                                         <div class="vlt-gap-20"></div>
                                         <p class="lh-2">Al Douri Group <br>2 56 Street - Dubai Investments Park -
                                             Dubai <br>
@@ -134,3 +96,8 @@
         </section>
     </div>
 @endsection
+
+@push('header')
+    @livewireScripts
+    @livewireStyles
+@endpush

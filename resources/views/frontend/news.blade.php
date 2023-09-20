@@ -16,85 +16,43 @@
         <div id="content"></div>
         <!--Section-->
 
-
-
-
         <section>
             <div class="vlt-gap-120"></div>
             <div class="container">
-
-
                 <div class="vlt-isotope-grid" data-columns="2" data-layout="masonry" data-x-gap="30|30" data-y-gap="30|30"
                     data-controls="#vlt-filter-blog-08" data-load-more-selector="#vlt-load-more-blog-08">
                     <div class="grid-sizer"></div>
-                    <div class=" grid-item filter-design">
-                        <!--Blog item-->
-                        <article class="vlt-post vlt-post--style-3">
-                            <div class="vlt-post__media"><a class="vlt-post__link" href="news-details.html"></a><img
-                                    src="{{ asset('assets/img/blog/blog-01.png') }}" alt="" loading="lazy">
-                            </div>
-                            <div class="vlt-post__content">
-                                <header class="vlt-post__header">
-                                    <div class="vlt-post-meta"><span>16 Jan, 2023</span>
-                                    </div>
-                                    <h3 class="vlt-post-title"><a href="#">Lorem ipsum dolor sit amet consectetur
-                                            adipisicing elit.</a>
-                                    </h3>
-                                </header>
-                            </div>
-                        </article>
-                    </div>
-                    <div class=" grid-item filter-business">
-                        <!--Blog item-->
-                        <article class="vlt-post vlt-post--style-3">
-                            <div class="vlt-post__media"><a class="vlt-post__link" href="#"></a><img
-                                    src="{{ asset('assets/img/blog/blog-02.png') }}" alt="" loading="lazy">
-                            </div>
-                            <div class="vlt-post__content">
-                                <header class="vlt-post__header">
-                                    <div class="vlt-post-meta"><span>15 Jan, 2023</span>
-                                    </div>
-                                    <h3 class="vlt-post-title"><a href="#">Lorem ipsum dolor sit amet consectetur
-                                            adipisicing elit.</a>
-                                    </h3>
-                                </header>
-                            </div>
-                        </article>
-                    </div>
-                    <div class=" grid-item filter-company">
-                        <!--Blog item-->
-                        <article class="vlt-post vlt-post--style-3">
-                            <div class="vlt-post__media"><a class="vlt-post__link" href="#"></a><img
-                                    src="{{ asset('assets/img/blog/blog-03.png') }}" alt="" loading="lazy">
-                            </div>
-                            <div class="vlt-post__content">
-                                <header class="vlt-post__header">
-                                    <div class="vlt-post-meta"><span>10 Jan, 2023</span>
-                                    </div>
-                                    <h3 class="vlt-post-title"><a href="#">Lorem ipsum dolor sit amet consectetur
-                                            adipisicing elit.</a>
-                                    </h3>
-                                </header>
-                            </div>
-                        </article>
-                    </div>
-                    <div class=" grid-item filter-lifestyle">
-                        <!--Blog item-->
-                        <article class="vlt-post vlt-post--style-3">
-                            <div class="vlt-post__media"><a class="vlt-post__link" href="#"></a><img
-                                    src="{{ asset('assets/img/blog/blog-04.png') }}" alt="" loading="lazy">
-                            </div>
-                            <div class="vlt-post__content">
-                                <header class="vlt-post__header">
-                                    <div class="vlt-post-meta"><span>09 Jan, 2023</span>
-                                    </div>
-                                    <h3 class="vlt-post-title"><a href="#">Lorem ipsum dolor sit amet consectetur
-                                            adipisicing elit.</a>
-                                    </h3>
-                                </header>
-                            </div>
-                        </article>
-                    </div>
+
+
+                    @foreach ($blogs as $blog)
+                        <div class=" grid-item filter-design">
+                            <!--Blog item-->
+                            <article class="vlt-post vlt-post--style-3">
+                                <div class="vlt-post__media">
+                                    <a class="vlt-post__link" href="{{ route('news.details', $blog) }}"
+                                        title="{{ $blog->getTranslation('title') }}"></a>
+                                    <img src="{{ $blog->getImage() }}" alt="{{ $blog->getTranslation('title') }}"
+                                        loading="lazy">
+                                </div>
+                                <div class="vlt-post__content">
+                                    <header class="vlt-post__header">
+                                        <div class="vlt-post-meta">
+                                            <span>
+                                                {{ $blog->getDate() }}
+                                            </span>
+                                        </div>
+                                        <h3 class="vlt-post-title">
+                                            <a href="{{ route('news.details', $blog) }}"
+                                                title="{{ $blog->getTranslation('title') }}">
+                                                {{ $blog->getTranslation('title') }}
+                                            </a>
+                                        </h3>
+                                    </header>
+                                </div>
+                            </article>
+                        </div>
+                    @endforeach
+
                 </div>
                 <div class="vlt-gap-100"></div>
                 <div class="text-center">

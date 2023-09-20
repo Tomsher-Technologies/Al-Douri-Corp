@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Blog;
 use App\Models\Division;
 use App\Models\Product\Product;
 use App\Models\Product\ProductCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 
 class FrontendController extends Controller
@@ -42,7 +44,20 @@ class FrontendController extends Controller
 
     public function news()
     {
-        return view('frontend.news');
+        $blogs  = Blog::whereStatus(1)->get();
+        return view('frontend.news', compact('blogs'));
+    }
+
+    public function news_details(Blog $blog)
+    {
+        $latest_news = Blog::where([
+            'status' => 1,
+        ])->where('id', "!=", $blog->id)->limit(5)->get();
+
+        $next_post = Blog::where('id', '>', $blog->id)->orderBy('id', 'asc')->first();;
+        $previous_post = Blog::where('id', '<', $blog->id)->orderBy('id', 'desc')->first();
+
+        return view('frontend.news_details', compact('blog', 'latest_news', 'previous_post', 'next_post'));
     }
 
     public function chairmansMessage()

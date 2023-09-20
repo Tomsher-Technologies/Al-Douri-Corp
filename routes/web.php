@@ -15,17 +15,16 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/test', function () {
-    dd(menuCategory());
-});
-
 Route::get('/', [FrontendController::class, 'home'])->name('home');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/mission_vision', [FrontendController::class, 'missionVision'])->name('missionVision');
 Route::get('/our_heritage', [FrontendController::class, 'our_heritage'])->name('our_heritage');
 Route::get('/leadership', [FrontendController::class, 'leadership'])->name('leadership');
 Route::get('/contact-us', [FrontendController::class, 'contact_us'])->name('contact_us');
+
 Route::get('/news', [FrontendController::class, 'news'])->name('news');
+Route::get('/news/{blog}', [FrontendController::class, 'news_details'])->name('news.details');
+
 Route::get('/chairmans_message', [FrontendController::class, 'chairmansMessage'])->name('chairmans_message');
 Route::get('/divisions/{divisions}', [FrontendController::class, 'divisions'])->name('divisions');
 Route::get('/products/{category}', [FrontendController::class, 'category'])->name('category');
