@@ -18,7 +18,7 @@ return new class extends Migration
 
             $table->string('title')->nullable();
             $table->string('menu_text')->nullable();
-            $table->string('description')->nullable();
+            $table->longText('description')->nullable();
 
             $table->string('lang');
             $table->timestamps();

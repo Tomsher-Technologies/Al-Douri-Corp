@@ -26,7 +26,7 @@ class ProductCategory extends Model
 
     public function getTranslation($field = '', $lang = false)
     {
-        $lang = $lang == false ? App::getLocale() : $lang;
+        $lang = $lang == false ? getActiveLanguage() : $lang;
         $category_translations = $this->category_translations->where('lang', $lang)->first();
         return $category_translations != null ? $category_translations->$field : $this->$field;
     }
