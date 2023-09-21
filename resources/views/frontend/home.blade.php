@@ -48,7 +48,7 @@
                                     <div class="vlt-project-showcase__item">
                                         <div class="vlt-project-showcase__image"
                                             style="
-                                            background-image: url({{$ban->img}});
+                                            background-image: url({{ URL::to($ban->img) }});
                                         ">
                                         </div>
                                         <div class="d-flex flex-grow-1 flex-shrink-1 align-items-center">
