@@ -47,15 +47,15 @@
              <div class="col-lg-3 col-sm-6 footer-col-st">
                  <!--Widget-->
                  <div class="vlt-widget vlt-widget--text vlt-widget--">
-                     <p class="footer-content">About</p>
+                     <p class="footer-content">{{ __('About') }}</p>
 
                      <ul>
-                         <li><a href="#"> Our story </a></li>
-                         <li><a href="#"> Who we are </a></li>
-                         <li><a href="#"> Mission & Vision </a></li>
-                         <li><a href="#"> Chairman Messages </a></li>
-                         <li><a href="#"> Our Team </a></li>
-                         <li><a href="#"> Contact Us </a></li>
+                         <li><a href="#"> {{ __('Our story') }} </a></li>
+                         <li><a href="#">{{ __('Who we are') }} </a></li>
+                         <li><a href="#"> {{ __('Mission & Vision') }} </a></li>
+                         <li><a href="#"> {{ __('Chairman Messages') }} </a></li>
+                         <li><a href="#"> {{ __('Our Team') }} </a></li>
+                         <li><a href="#"> {{ __('Contact Us') }} </a></li>
                      </ul>
                  </div>
              </div>
@@ -63,12 +63,11 @@
              <div class="col-lg-3 col-sm-6 footer-col-st">
                  <!--Widget-->
                  <div class="vlt-widget vlt-widget--text vlt-widget--">
-                     <p class="footer-content">Our Products range</p>
+                     <p class="footer-content">{{ __('Our Products range') }}</p>
                      <ul>
-                         <li><a href="#">Coffee</a></li>
-                         <li><a href="#">Nuts</a></li>
-                         <li><a href="#">Confectionery </a></li>
-                         <li><a href="#">Special Products </a></li>
+                        @foreach (menuCategory(0) as $category)
+                            <li><a href="{{ route('category', $category->slug) }}">{{ $category->getTranslation('title') }}</a></li>
+                        @endforeach
                      </ul>
                  </div>
              </div>
@@ -76,15 +75,11 @@
              <div class="col-lg-3 col-sm-6 footer-col-st">
                  <!--Widget-->
                  <div class="vlt-widget vlt-widget--text vlt-widget--">
-                     <p class="footer-content">Our DIVISION</p>
+                     <p class="footer-content">{{ __('Our Division') }}</p>
                      <ul>
-                         <li><a href="#"> Distribution</a></li>
-                         <li><a href="#">Export/import</a></li>
-                         <li>
-                             <a href="#">Factories and private labeling
-                             </a>
-                         </li>
-                         <li><a href="#"> Retail</a></li>
+                        @foreach (menuDivisions() as $division)
+                            <li><a href="{{ route('divisions', $division->slug) }}"> {{ $division->getTranslation('title') }}</a></li>
+                        @endforeach
                      </ul>
                  </div>
              </div>
@@ -92,14 +87,13 @@
              <div class="col-lg-3 col-sm-6 footer-col-st">
                  <!--Widget-->
                  <div class="vlt-widget vlt-widget--text vlt-widget--">
-                     <p class="footer-content">Company</p>
+                     <p class="footer-content">{{ __('Company') }}</p>
                      <ul>
-                         <li><a href="#"> News</a></li>
-                         <li><a href="#"> Our recipes</a></li>
-                         <li><a href="#"> Career</a></li>
-                         <li><a href="#"> Find Us</a></li>
-                         <li><a href="#"> Contact Us</a></li>
-                         <li><a href="#"> Brochure Download</a></li>
+                         <li><a href="#"> {{ __('News') }}</a></li>
+                         <li><a href="#"> {{ __('Our recipes') }}</a></li>
+                         <li><a href="#"> {{ __('Career') }}</a></li>
+                         <li><a href="#"> {{ __('Find Us') }}</a></li>
+                         <li><a href="#"> {{ __('Contact Us') }}</a></li>
                      </ul>
                  </div>
              </div>

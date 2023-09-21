@@ -51,11 +51,7 @@
                                                      style="
                                                     color: #a62122;
                                                 ">
-                                                     Shop
-                                                     anytime,
-                                                     anywhere
-                                                     with our
-                                                     mobile app
+                                                     {!! $page->getTranslation('heading11') !!}
                                                  </h2>
                                              </div>
                                          </div>
@@ -66,7 +62,7 @@
 
                                          <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
                                              <!--Button--><a class="vlt-btn vlt-btn--primary vlt-btn--md" href="#"
-                                                 target="_self">Download App</a>
+                                                 target="_self">{!! $page->getTranslation('button_text_2') !!}</a>
 
                                              <a class="app-download-image" href="#" target="_self">
                                                  <img src="{{ asset('assets/img/app.png') }}" alt=""
@@ -91,11 +87,7 @@
                                                      style="
                                                     color: #a62122;
                                                 ">
-                                                     Shop
-                                                     anytime,
-                                                     anywhere
-                                                     with our
-                                                     mobile app
+                                                     {!! $page->getTranslation('heading12') !!}
                                                  </h2>
                                              </div>
                                          </div>
@@ -106,7 +98,7 @@
 
                                          <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
                                              <!--Button--><a class="vlt-btn vlt-btn--primary vlt-btn--md" href="#"
-                                                 target="_self">Shop Now</a>
+                                                 target="_self">{!! $page->getTranslation('button_text_3') !!}</a>
                                          </div>
                                      </div>
                                  </div>

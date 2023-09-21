@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('banner_image')->nullable();
             $table->string('center_image')->nullable();
             $table->string('gallery_image')->nullable();
+            $table->string('home_image')->nullable();
             $table->boolean('status')->default(0);
             $table->string('slug')->nullable();
             $table->timestamps();

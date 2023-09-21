@@ -54,14 +54,14 @@
                                 @foreach ($latest_news as $item)
                                     <div class="vlt-widget-post">
                                         <div class="vlt-widget-post__thumbnail">
-                                            <a href="{{ route('news.details', $item) }}">
+                                            <a href="{{ route('news.details', ['blog' => $item->id ]) }}">
                                                 <img src="{{ $item->getImage() }}"
                                                     alt="{{ $item->getTranslation('title') }}" loading="lazy">
                                             </a>
                                         </div>
                                         <div class="vlt-widget-post__content"><span>{{ $item->getDate() }}</span>
                                             <h5>
-                                                <a href="{{ route('news.details', $item) }}">
+                                                <a href="{{ route('news.details', ['blog' => $item->id]) }}">
                                                     {{ $item->getTranslation('title') }}
                                                 </a>
                                             </h5>
@@ -86,7 +86,7 @@
                                     <i class="fa-solid fa-arrow-left"></i>{{ __('Previous') }}</span>
                                 <h5>
                                     <a
-                                        href="{{ route('news.details', $previous_post) }}">{{ $previous_post->getTranslation('title') }}</a>
+                                        href="{{ route('news.details', ['blog' => $previous_post->id]) }}">{{ $previous_post->getTranslation('title') }}</a>
                                 </h5>
                             </div>
                         @endif
@@ -106,7 +106,7 @@
                                 </span>
                                 <h5>
                                     <a
-                                        href="{{ route('news.details', $next_post) }}">{{ $next_post->getTranslation('title') }}</a>
+                                        href="{{ route('news.details', ['blog' => $next_post->id]) }}">{{ $next_post->getTranslation('title') }}</a>
                                 </h5>
                             </div>
                         @endif

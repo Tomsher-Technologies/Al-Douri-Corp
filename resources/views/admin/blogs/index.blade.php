@@ -41,7 +41,7 @@
                                             <td>{{ $blog->title }}</td>
                                             <td>{{ $blog->status == 1 ? 'Enabled' : 'Disabled' }}</td>
                                             <td>
-                                                <a href="{{ route('admin.blogs.edit', $blog) }}"
+                                                <a href="{{ route('admin.blogs.edit', $blog->id) }}"
                                                     class="btn btn-secondary mb-1">Edit</a>
                                             </td>
                                         </tr>

@@ -29,7 +29,7 @@
                             <!--Blog item-->
                             <article class="vlt-post vlt-post--style-3">
                                 <div class="vlt-post__media">
-                                    <a class="vlt-post__link" href="{{ route('news.details', $blog) }}"
+                                    <a class="vlt-post__link" href="{{ route('news.details', ['blog' => $blog->id]) }}"
                                         title="{{ $blog->getTranslation('title') }}"></a>
                                     <img src="{{ $blog->getImage() }}" alt="{{ $blog->getTranslation('title') }}"
                                         loading="lazy">
@@ -42,7 +42,7 @@
                                             </span>
                                         </div>
                                         <h3 class="vlt-post-title">
-                                            <a href="{{ route('news.details', $blog) }}"
+                                            <a href="{{ route('news.details', ['blog' => $blog->id]) }}"
                                                 title="{{ $blog->getTranslation('title') }}">
                                                 {{ $blog->getTranslation('title') }}
                                             </a>

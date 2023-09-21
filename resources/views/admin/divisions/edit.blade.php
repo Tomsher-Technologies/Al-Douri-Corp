@@ -147,6 +147,24 @@
                                 <x-input-error name='gallery_image' />
                             </div>
 
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Current Home Page Image</label>
+                                <img class="w-100" src="{{ $division->getImage('home_image') }}" alt="">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Home Page Image</label>
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <input name="home_image" class="img" type="file"
+                                            class="custom-file-input" id="inputGroupFile6" accept="image/*">
+                                        <label class="custom-file-label" for="inputGroupFile6">Choose
+                                            file</label>
+                                    </div>
+                                </div>
+                                <x-input-error name='home_image' />
+                            </div>
+
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Status</label>

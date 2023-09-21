@@ -1,5 +1,5 @@
 :root {
-    --pf: 'Playfair Display', serif;
+    /*--pf: 'Playfair Display', serif;*/
 }
 
 @-webkit-keyframes vlt_animate_icon_top_right {
@@ -1520,7 +1520,7 @@ h6 i {
 
 .h1,
 h1 {
-    font-size: 50px;
+    font-size: 70px;
     line-height: 1.15
 }
 
@@ -3034,7 +3034,7 @@ dl dd {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 16px;
-    font-family: var(--font-secondary);
+    /*font-family: var(--font-secondary);*/
 }
 
 .cta-area{
@@ -5971,7 +5971,7 @@ dl dd {
 
 .vlt-social-icon--style-1,
 .vlt-social-icon--style-2 {
-    font-size: 16px;
+    font-size: 22px;
     font-weight: 700
 }
 
@@ -6586,6 +6586,7 @@ dl dd {
 
 .vlt-btn {
     font-weight: 500;
+    text-transform: uppercase;
     line-height: 1.1;
     position: relative;
     z-index: 1;
@@ -7169,7 +7170,7 @@ dl dd {
 
 .vlt-page-title--style-2 .vlt-page-title__title {
     color: #fff;
-    font-family: 'Merienda', cursive;
+    /*font-family: 'Merienda', cursive;*/
 }
 
 .vlt-page-title--style-3 {
@@ -7234,7 +7235,7 @@ dl dd {
 }
 
 .vlt-page-title--style-4 .vlt-page-title__title {
-    font-family: 'Merienda', cursive;
+    /*font-family: 'Merienda', cursive;*/
     color: #fff;
     padding-bottom: 20px;
 }
@@ -8018,7 +8019,9 @@ dl dd {
     cursor: pointer;
     -webkit-transition: opacity .3s;
     transition: opacity .3s;
-    color: inherit
+    color: inherit;
+        font-weight: 100;
+    text-transform: uppercase;
 }
 
 .vlt-slider-controls .vlt-swiper-button-next:hover,
@@ -8097,7 +8100,8 @@ dl dd {
 .vlt-styled-list {
     margin: 0;
     padding: 0;
-    list-style-type: none
+    list-style-type: none;
+    font-family: 'Manrope', sans-serif;
 }
 
 .vlt-styled-list--style-1 li {
@@ -8145,6 +8149,7 @@ dl dd {
 
 .vlt-styled-list--style-2 li,
 .vlt-styled-list--style-3 li {
+        font-size: 15px;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;

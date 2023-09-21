@@ -1,6 +1,8 @@
 <?php
 
 use App\Models\Division;
+use App\Models\Brand;
+use App\Models\Blog;
 use App\Models\Product\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -70,6 +72,31 @@ function deleteImage($path)
 function menuDivisions()
 {
     return Division::where('status', 1)->get();
+}
+
+function getBrands()
+{
+    return Brand::where('status', 1)->orderBy('sort_order','ASC')->get();
+}
+
+function getFirstBlog()
+{
+    return Blog::where('status', 1)->orderBy('id','DESC')->take(1)->get();
+}
+
+function getSecondBlog()
+{
+    return Blog::where('status', 1)->orderBy('id','DESC')->skip(1)->take(1)->get();
+}
+
+function getThirdBlog()
+{
+    return Blog::where('status', 1)->orderBy('id','DESC')->skip(2)->take(1)->get();
+}
+
+function getForthBlog()
+{
+    return Blog::where('status', 1)->orderBy('id','DESC')->skip(3)->take(1)->get();
 }
 
 function menuCategory()

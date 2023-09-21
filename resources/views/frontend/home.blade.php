@@ -27,9 +27,9 @@
             </ul> -->
                     <!--Slider controls-->
                     <div class="vlt-slider-controls vlt-slider-controls--style-1 vlt-homepage-12-anchor has-white-color">
-                        <div class="vlt-swiper-button-prev">Prev</div>
+                        <div class="vlt-swiper-button-prev">{{ __('Prev') }}</div>
                         <span class="sep">|</span>
-                        <div class="vlt-swiper-button-next">Next</div>
+                        <div class="vlt-swiper-button-next">{{ __('Next') }}</div>
                     </div>
                     <div class="vlt-project-showcase__socials has-white-color">
                         <a class="vlt-social-icon vlt-social-icon--style-1" href="#">
@@ -42,134 +42,39 @@
                 </div>
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="vlt-project-showcase__item">
-                                <div class="vlt-project-showcase__image"
-                                    style="
-                                    background-image: url(assets/img/banner01.webp);
-                                ">
-                                </div>
-                                <div class="d-flex flex-grow-1 flex-shrink-1 align-items-center">
-                                    <div class="vlt-project-showcase__content">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-lg-7">
-                                                    <h1 class="vlt-project-showcase__title">
-                                                        Al Douri
-                                                        Passionate
-                                                        Experts
-                                                    </h1>
-                                                    <p class="vlt-project-showcase__text">
-                                                        Setting new
-                                                        standards in the
-                                                        food industry,
-                                                        through offering
-                                                        high quality
-                                                        products that
-                                                        have high
-                                                        nutritional
-                                                        value to help
-                                                        our customers
-                                                        enjoy healthier
-                                                        lifestyle
-                                                    </p>
+                        @if($banners)
+                            @foreach($banners as $ban)
+                                <div class="swiper-slide">
+                                    <div class="vlt-project-showcase__item">
+                                        <div class="vlt-project-showcase__image"
+                                            style="
+                                            background-image: url({{$ban->img}});
+                                        ">
+                                        </div>
+                                        <div class="d-flex flex-grow-1 flex-shrink-1 align-items-center">
+                                            <div class="vlt-project-showcase__content">
+                                                <div class="container">
+                                                    <div class="row">
+                                                        <div class="col-lg-7">
+                                                            <h1 class="vlt-project-showcase__title">
+                                                                {{$ban->getTranslation('heading')}}
+                                                            </h1>
+                                                            <p class="vlt-project-showcase__text">
+                                                                {!! $ban->getTranslation('content') !!}
+                                                            </p>
 
-                                                    <!--Button--><a class="vlt-btn vlt-btn--primary vlt-btn--md"
-                                                        href="#" target="_self">Explore
-                                                    </a>
+                                                            <!--Button--><a class="vlt-btn vlt-btn--primary vlt-btn--md"
+                                                                href="#" target="_self">{{$ban->getTranslation('btn_text')}}
+                                                            </a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="vlt-project-showcase__item">
-                                <div class="vlt-project-showcase__image"
-                                    style="
-                                    background-image: url(assets/img/banner02.webp);
-                                ">
-                                </div>
-                                <div class="d-flex flex-grow-1 flex-shrink-1 align-items-center">
-                                    <div class="vlt-project-showcase__content">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-lg-7">
-                                                    <h1 class="vlt-project-showcase__title">
-                                                        Nourishing your
-                                                        family, every
-                                                        day
-                                                    </h1>
-
-                                                    <p class="vlt-project-showcase__text">
-                                                        Setting new
-                                                        standards in the
-                                                        food industry,
-                                                        through offering
-                                                        high quality
-                                                        products that
-                                                        have high
-                                                        nutritional
-                                                        value to help
-                                                        our customers
-                                                        enjoy healthier
-                                                        lifestyle
-                                                    </p>
-
-                                                    <!--Button--><a class="vlt-btn vlt-btn--primary vlt-btn--md"
-                                                        href="#" target="_self">Explore
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="vlt-project-showcase__item">
-                                <div class="vlt-project-showcase__image"
-                                    style="
-                                    background-image: url(assets/img/banner03.webp);
-                                ">
-                                </div>
-                                <div class="d-flex flex-grow-1 flex-shrink-1 align-items-center">
-                                    <div class="vlt-project-showcase__content">
-                                        <div class="container">
-                                            <div class="row">
-                                                <div class="col-lg-7">
-                                                    <h1 class="vlt-project-showcase__title">
-                                                        Savor the moment
-                                                        with our food
-                                                    </h1>
-
-                                                    <p class="vlt-project-showcase__text">
-                                                        Setting new
-                                                        standards in the
-                                                        food industry,
-                                                        through offering
-                                                        high quality
-                                                        products that
-                                                        have high
-                                                        nutritional
-                                                        value to help
-                                                        our customers
-                                                        enjoy healthier
-                                                        lifestyle
-                                                    </p>
-
-                                                    <!--Button--><a class="vlt-btn vlt-btn--primary vlt-btn--md"
-                                                        href="#" target="_self">Explore
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
+                            @endforeach
+                        @endif
                         <div class="logo-showcase__info">
                             <img src="{{ asset('assets/img/logo-outline.png') }}" alt="" />
                         </div>
@@ -192,16 +97,11 @@
                             <!--Section title-->
                             <div class="vlt-section-title vlt-section-title--style-1">
                                 <h2 class="vlt-section-title__title">
-                                    Crafting deliciousness since
-                                    <span class="has-primary-color">1979</span>
+                                    {{ $page->getTranslation('title') }}
                                 </h2>
                                 <div class="vlt-gap-30"></div>
                                 <p>
-                                    Setting new standards in the food
-                                    industry, through offering high
-                                    quality products that have high
-                                    nutritional value to help our
-                                    customers enjoy healthier lifestyle
+                                {{ $page->getTranslation('sub_title') }}
                                 </p>
                             </div>
                         </div>
@@ -212,18 +112,11 @@
                         <!--Animated block-->
                         <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
                             <p class="fz-2">
-                                Al Douri Group is a privately-owned
-                                family business located in the United
-                                Arab Emirates. Al Douri Group emerged in
-                                1979 as a food service market leader in
-                                the GCC region with a two-century old
-                                heritage and exceptional experience that
-                                has grown through four generations of
-                                professional family management.
+                            {!! $page->getTranslation('description') !!}
                             </p>
                             <div class="vlt-gap-50"></div>
-                            <!--Button--><a class="vlt-btn vlt-btn--secondary vlt-btn--md" href="#"
-                                target="_self">Who we are</a>
+                            <!--Button--><a class="vlt-btn vlt-btn--secondary vlt-btn--md" href="{!! $page->getTranslation('button_link_1') !!}"
+                                target="_self">{!! $page->getTranslation('button_text_1') !!}</a>
                         </div>
                     </div>
                 </div>
@@ -237,7 +130,7 @@
                             <div class="vlt-simple-image__mask" data-aos="image-mask-animation" data-aos-delay="0">
                                 <div class="inside"></div>
                             </div>
-                            <img src="{{ asset('assets/img/about-img2.png') }}" alt="" loading="lazy" />
+                            <img src="{{asset($page->getImage1('image1'))}}" alt="" loading="lazy" />
                         </div>
                     </div>
                 </div>
@@ -249,20 +142,14 @@
                         <!--Animated block-->
                         <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
                             <h5 class="fz-7">
-                                Al Douri Group’s top priority is to
-                                offer the best and highest quality food
-                                products.
+                            {!! $page->getTranslation('heading1') !!}
                             </h5>
                         </div>
                         <div class="vlt-gap-30"></div>
                         <!--Animated block-->
                         <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
                             <p class="fz-2">
-                                Al Douri Group’s top priority is to
-                                offer the best and highest quality food
-                                products. To start a successful journey,
-                                you have to always prepare, innovate and
-                                follow a clear strategy.
+                            {!! $page->getTranslation('content1') !!}
                             </p>
                         </div>
                         <div class="vlt-gap-40"></div>
@@ -270,7 +157,7 @@
                         <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
                             <div class="has-black-color">
                                 <!--Simple link--><a class="vlt-simple-link vlt-simple-link--md" href="#"
-                                    target="_self">Read more
+                                    target="_self">{{ __('Read more') }}
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
                             </div>
@@ -283,7 +170,7 @@
                             <div class="vlt-simple-image__mask" data-aos="image-mask-animation" data-aos-delay="0">
                                 <div class="inside"></div>
                             </div>
-                            <img src="{{ asset('assets/img/about-img3.png') }}" alt="" loading="lazy" />
+                            <img src="{{asset($page->getImage2('image2'))}}" alt="" loading="lazy" />
                         </div>
                     </div>
                 </div>
@@ -296,67 +183,56 @@
                 <div class="vlt-types">
                     <div class="vlt-types-background">
                         <div class="vlt-types-background__image">
-                            <img src="{{ asset('assets/img/our-heritage.webp') }}" alt="" loading="lazy" />
+                            <img src="{{ asset($page->getImage3('image3')) }}" alt="" loading="lazy" />
                         </div>
                         <div class="vlt-types-background__image">
-                            <img src="{{ asset('assets/img/our-mission.webp') }}" alt="" loading="lazy" />
+                            <img src="{{ asset($page->getImage4('image4')) }}" alt="" loading="lazy" />
                         </div>
                         <div class="vlt-types-background__image">
-                            <img src="{{ asset('assets/img/our-vision.webp') }}" alt="" loading="lazy" />
+                            <img src="{{ asset($page->getImage5('image5')) }}" alt="" loading="lazy" />
                         </div>
                     </div>
                     <div class="vlt-types-list">
                         <div class="vlt-types-list__item">
                             <a class="has-cursor" href="#"></a>
                             <div class="vlt-types-list__background">
-                                <img src="{{ asset('assets/img/our-heritage.webp') }}" alt="" loading="lazy" />
+                                <img src="{{ asset($page->getImage3('image3')) }}" alt="" loading="lazy" />
                             </div>
                             <div class="vlt-types-list__content">
                                 <h4 class="vlt-types-list__title">
-                                    Our heritage
+                                {!! $page->getTranslation('heading2') !!}
                                 </h4>
-                                <span class="vlt-types-list__category">Al Douri is a modern enterprise
-                                    with an inspiring and proud heritage
-                                    that goes back to the 18th
-                                    century.The inspiring success story
-                                    of Al Douri in the UAE commenced in
-                                    1979 with the founding of the Al
-                                    Douri Foodstuff Trading Company and
-                                    Factory.</span>
+                                <span class="vlt-types-list__category">
+                                {!! $page->getTranslation('content2') !!}
+                                </span>
                             </div>
                         </div>
                         <div class="vlt-types-list__item">
                             <a class="has-cursor" href="#"></a>
                             <div class="vlt-types-list__background">
-                                <img src="{{ asset('assets/img/our-mission.webp') }}" alt="" loading="lazy" />
+                                <img src="{{ asset($page->getImage4('image4')) }}" alt="" loading="lazy" />
                             </div>
                             <div class="vlt-types-list__content">
                                 <h4 class="vlt-types-list__title">
-                                    Our Mission
+                                {!! $page->getTranslation('heading3') !!}
                                 </h4>
-                                <span class="vlt-types-list__category">“Deliver premium quality food to
-                                    our customers worldwide, which
-                                    enables them to enjoy the great
-                                    taste with the highest levels of
-                                    freshness and nutritional
-                                    value”.</span>
+                                <span class="vlt-types-list__category">
+                                {!! $page->getTranslation('content3') !!}
+                                </span>
                             </div>
                         </div>
                         <div class="vlt-types-list__item">
                             <a class="has-cursor" href="#"></a>
                             <div class="vlt-types-list__background">
-                                <img src="{{ asset('assets/img/our-vision.webp') }}" alt="" loading="lazy" />
+                                <img src="{{ asset($page->getImage5('image5')) }}" alt="" loading="lazy" />
                             </div>
                             <div class="vlt-types-list__content">
                                 <h4 class="vlt-types-list__title">
-                                    Our Vision
+                                {!! $page->getTranslation('heading4') !!}
                                 </h4>
-                                <span class="vlt-types-list__category">“Setting new standards in the food
-                                    industry, through offering high
-                                    quality products that have high
-                                    nutritional value to help our
-                                    customers enjoy healthier
-                                    lifestyle”.</span>
+                                <span class="vlt-types-list__category">
+                                {!! $page->getTranslation('content4') !!}
+                                </span>
                             </div>
                         </div>
                     </div>
@@ -374,18 +250,18 @@
                     <div class="col-lg-6">
                         <div class="vlt-stretch-block to-left">
                             <ul class="vlt-tabs-image">
-                                <li class="is-active">
-                                    <img src="{{ asset('assets/img/distribution.webp') }}" alt="" />
-                                </li>
-                                <li>
-                                    <img src="{{ asset('assets/img/export-and-import.webp') }}" alt="" />
-                                </li>
-                                <li>
-                                    <img src="{{ asset('assets/img/factories-and-private-labeling.webp') }}" alt="" />
-                                </li>
-                                <li>
-                                    <img src="{{ asset('assets/img/retail.webp') }}" alt="" />
-                                </li>
+                                @foreach (menuDivisions() as $keyY => $division)
+                                    @php
+                                        if($keyY == 0){
+                                            $status = 'is-active';
+                                        }else{
+                                            $status = '';
+                                        }
+                                    @endphp
+                                    <li class="{{$status}}">
+                                        <img src="{{ asset($division->getImage('home_image')) }}" alt="" />
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="vlt-gap-60--md"></div>
@@ -395,11 +271,10 @@
                         <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
                             <!--Section title-->
                             <div class="vlt-section-title vlt-section-title--style-1">
-                                <span class="vlt-section-title__subtitle">Our businesses
+                                <span class="vlt-section-title__subtitle">{!! $page->getTranslation('content5') !!}
                                 </span>
                                 <h2 class="vlt-section-title__title" style="color: #000">
-                                    Bringing Excellence <br />
-                                    to Every Market.
+                                {!! $page->getTranslation('content6') !!}
                                 </h2>
                             </div>
                         </div>
@@ -408,19 +283,18 @@
                         <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
                             <!--Tab image-->
                             <ul class="vlt-tabs">
-                                <li class="is-active">
-                                    <a href="javascript:;">01. Distribution</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">02. Export/import</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">03. Factories and private
-                                        labeling</a>
-                                </li>
-                                <li>
-                                    <a href="javascript:;">04. Retail</a>
-                                </li>
+                                @foreach (menuDivisions() as $keyY => $division)
+                                    @php
+                                        if($keyY == 0){
+                                            $status = 'is-active';
+                                        }else{
+                                            $status = '';
+                                        }
+                                    @endphp
+                                    <li class="{{$status}}">
+                                        <a href="javascript:;">0{{$keyY+1}}. {{ $division->getTranslation('title') }}</a>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="vlt-gap-60"></div>
@@ -440,10 +314,9 @@
                 <div class="vlt-animated-block text-center" data-aos="fade" data-aos-delay="0">
                     <!--Section title-->
                     <div class="vlt-section-title vlt-section-title--style-1">
-                        <span class="vlt-section-title__subtitle">Our product range</span>
+                        <span class="vlt-section-title__subtitle"> {!! $page->getTranslation('heading5') !!}</span>
                         <h2 class="vlt-section-title__title">
-                            Innovative food solutions for a healthier
-                            lifestyle
+                        {!! $page->getTranslation('heading6') !!}
                         </h2>
                     </div>
                 </div>
@@ -462,78 +335,25 @@
                             data-free-mode="" data-slider-offset="enable" data-mousewheel="enable">
                             <div class="swiper-container">
                                 <div class="swiper-wrapper">
+                                    @foreach (menuCategory(0) as $category)
                                     <div class="swiper-slide">
                                         <div>
                                             <!--Portfolio item-->
                                             <article class="vlt-work vlt-work--style-1">
                                                 <div class="vlt-work__media">
-                                                    <a class="vlt-work__link has-cursor" href="#"></a><img
-                                                        src="{{ asset('assets/img/coffee.png') }}" alt="" loading="lazy" />
+                                                    <a class="vlt-work__link has-cursor" href="{{ route('category', $category->slug) }}"></a><img
+                                                        src="{{ asset($category->getImage('menu_image')) }}" alt="" loading="lazy" />
                                                 </div>
                                                 <div class="vlt-work__meta">
                                                     <h5 class="vlt-work__title">
-                                                        <a href="#">Coffee</a>
+                                                        <a href="{{ route('category', $category->slug) }}">{{ $category->getTranslation('title') }}</a>
                                                     </h5>
                                                     <!-- <span class="vlt-work__category">Coffee</span> -->
                                                 </div>
                                             </article>
                                         </div>
                                     </div>
-                                    <div class="swiper-slide">
-                                        <div>
-                                            <!--Portfolio item-->
-                                            <article class="vlt-work vlt-work--style-1">
-                                                <div class="vlt-work__media">
-                                                    <a class="vlt-work__link has-cursor" href="#"></a><img
-                                                        src="{{ asset('assets/img/nuts.png') }}" alt="" loading="lazy" />
-                                                </div>
-                                                <div class="vlt-work__meta">
-                                                    <h5 class="vlt-work__title">
-                                                        <a href="#">Nuts</a>
-                                                    </h5>
-                                                    <!-- <span class="vlt-work__category">Coffe</span> -->
-                                                </div>
-                                            </article>
-                                        </div>
-                                    </div>
-
-                                    <div class="swiper-slide">
-                                        <div>
-                                            <!--Portfolio item-->
-                                            <article class="vlt-work vlt-work--style-1">
-                                                <div class="vlt-work__media">
-                                                    <a class="vlt-work__link has-cursor"
-                                                        href="product-detail.html"></a><img
-                                                        src="{{ asset('assets/img/Confectionery.png') }}" alt=""
-                                                        loading="lazy" />
-                                                </div>
-                                                <div class="vlt-work__meta">
-                                                    <h5 class="vlt-work__title">
-                                                        <a href="product-detail.html">Confectionery</a>
-                                                    </h5>
-                                                    <!--<span class="vlt-work__category">Cookies</span> -->
-                                                </div>
-                                            </article>
-                                        </div>
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <div>
-                                            <!--Portfolio item-->
-                                            <article class="vlt-work vlt-work--style-1">
-                                                <div class="vlt-work__media">
-                                                    <a class="vlt-work__link has-cursor" href="#"></a><img
-                                                        src="{{ asset('assets/img/special.png') }}" alt="" loading="lazy" />
-                                                </div>
-                                                <div class="vlt-work__meta">
-                                                    <h5 class="vlt-work__title">
-                                                        <a href="#">Special
-                                                            Products</a>
-                                                    </h5>
-                                                    <!--<span class="vlt-work__category">Hershey's</span> -->
-                                                </div>
-                                            </article>
-                                        </div>
-                                    </div>
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
@@ -548,11 +368,11 @@
                                 <!--Slider controls-->
                                 <div class="vlt-slider-controls vlt-slider-controls--style-1 vlt-work-carousel-grid">
                                     <div class="vlt-swiper-button-prev">
-                                        Prev
+                                    {{ __('Prev') }}
                                     </div>
                                     <span class="sep">|</span>
                                     <div class="vlt-swiper-button-next">
-                                        Next
+                                    {{ __('Next') }}
                                     </div>
                                 </div>
                             </div>
@@ -565,14 +385,14 @@
 
         <!--Section-->
         <section class="jarallax has-white-color">
-            <img class="jarallax-img" src="{{ asset('assets/img/video-banner-01.webp') }}" alt="" loading="lazy" />
+            <img class="jarallax-img" src="{{ asset($page->image6) }}" alt="" loading="lazy" />
             <div class="vlt-gap-240"></div>
             <div class="text-center">
                 <!--Video button-->
                 <div class="vlt-video-button">
-                    <a href="https://vimeo.com/367945766" data-fancybox data-small-btn="true" rel="nofollow"><i
+                    <a href="{{$page->video_link}}" data-fancybox data-small-btn="true" rel="nofollow"><i
                             class="fa-solid fa-play"></i></a>
-                    <h6>View Video</h6>
+                    <h6>{{ __('View Video') }}</h6>
                 </div>
             </div>
             <div class="vlt-gap-240"></div>
@@ -586,103 +406,27 @@
                 <div class="vlt-animated-block text-center" data-aos="fade" data-aos-delay="0">
                     <!--Section title-->
                     <div class="vlt-section-title vlt-section-title--style-1">
-                        <span class="vlt-section-title__subtitle">Our Brands</span>
+                        <span class="vlt-section-title__subtitle"> {!! $page->getTranslation('heading7') !!}</span>
                         <h2 class="vlt-section-title__title">
-                            Innovative food solutions for a healthier
-                            lifestyle
+                        {!! $page->getTranslation('heading8') !!}
                         </h2>
                     </div>
                 </div>
 
                 <div class="row">
+                    @foreach (getBrands() as $brand )
                     <div class="col-xs-6 col-sm-3 col-md-3">
                         <div class="vlt-gap-50"></div>
                         <!--Animated block-->
                         <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
                             <!--Partner-->
                             <div class="vlt-partner vlt-partner--center">
-                                <a href="#"><img src="{{ asset('assets/img/root/clients/client-logo-01.png') }}" alt=""
+                                <a href="#"><img src="{{ asset($brand->getImage()) }}" alt=""
                                         loading="lazy" /></a>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xs-6 col-sm-6 col-md-3">
-                        <div class="vlt-gap-50"></div>
-                        <!--Animated block-->
-                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
-                            <!--Partner-->
-                            <div class="vlt-partner vlt-partner--center">
-                                <a href="#"><img src="{{ asset('assets/img/root/clients/client-logo-02.png') }}" alt=""
-                                        loading="lazy" /></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                        <div class="vlt-gap-50"></div>
-                        <!--Animated block-->
-                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
-                            <!--Partner-->
-                            <div class="vlt-partner vlt-partner--center">
-                                <a href="#"><img src="{{ asset('assets/img/root/clients/client-logo-03.png') }}" alt=""
-                                        loading="lazy" /></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                        <div class="vlt-gap-50"></div>
-                        <!--Animated block-->
-                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="300">
-                            <!--Partner-->
-                            <div class="vlt-partner vlt-partner--center">
-                                <a href="#"><img src="{{ asset('assets/img/root/clients/client-logo-04.png') }}" alt=""
-                                        loading="lazy" /></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                        <div class="vlt-gap-50"></div>
-                        <!--Animated block-->
-                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
-                            <!--Partner-->
-                            <div class="vlt-partner vlt-partner--center">
-                                <a href="#"><img src="{{ asset('assets/img/root/clients/client-logo-05.png') }}" alt=""
-                                        loading="lazy" /></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                        <div class="vlt-gap-50"></div>
-                        <!--Animated block-->
-                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
-                            <!--Partner-->
-                            <div class="vlt-partner vlt-partner--center">
-                                <a href="#"><img src="{{ asset('assets/img/root/clients/client-logo-06.png') }}" alt=""
-                                        loading="lazy" /></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                        <div class="vlt-gap-50"></div>
-                        <!--Animated block-->
-                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
-                            <!--Partner-->
-                            <div class="vlt-partner vlt-partner--center">
-                                <a href="#"><img src="{{ asset('assets/img/root/clients/client-logo-07.png') }}" alt=""
-                                        loading="lazy" /></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-md-3">
-                        <div class="vlt-gap-50"></div>
-                        <!--Animated block-->
-                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="300">
-                            <!--Partner-->
-                            <div class="vlt-partner vlt-partner--center">
-                                <a href="#"><img src="{{ asset('assets/img/root/clients/client-logo-08.png') }}" alt=""
-                                        loading="lazy" /></a>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
             <div class="vlt-gap-120"></div>
@@ -696,10 +440,9 @@
                 <div class="vlt-animated-block text-center" data-aos="fade" data-aos-delay="0">
                     <!--Section title-->
                     <div class="vlt-section-title vlt-section-title--style-1">
-                        <span class="vlt-section-title__subtitle text-white">Our Blogs</span>
+                        <span class="vlt-section-title__subtitle text-white">  {!! $page->getTranslation('heading9') !!}</span>
                         <h2 class="vlt-section-title__title">
-                            Innovative food solutions for a healthier
-                            lifestyle
+                        {!! $page->getTranslation('heading10') !!}
                         </h2>
                     </div>
                 </div>
@@ -707,170 +450,183 @@
                 <div class="vlt-gap-60"></div>
 
                 <div class="row align-items-center">
-                    <div class="col-lg-3 p-0">
-                        <div class="to-left h-100">
-                            <div class="h-100">
-                                <img class="jarallax-img" src="{{ asset('assets/img//blog/blog-01.png') }}" alt=""
-                                    loading="lazy" />
+                    @php 
+                        $firstBlog = getFirstBlog(); 
+                    @endphp
+                    @if(isset($firstBlog[0]))
+                        @php 
+                            $firstBlog = $firstBlog[0];
+                        @endphp
+                        <div class="col-lg-3 p-0">
+                            <div class="to-left h-100">
+                                <div class="h-100">
+                                    <img class="jarallax-img" src="{{ asset($firstBlog->getImage()) }}" alt=""
+                                        loading="lazy" />
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-3 blog-item-content">
-                        <!-- <div class="vlt-gap-130"></div> -->
-                        <!--Animated block-->
-                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
-                            <!--Section title-->
-                            <div class="vlt-section-title vlt-section-title--style-1">
-                                <h3 class="vlt-section-title__title">
-                                    How Food Manufacturing is Responding
-                                    to the Plant-Based Revolution
-                                </h3>
+                        <div class="col-lg-3 blog-item-content">
+                            <!-- <div class="vlt-gap-130"></div> -->
+                            <!--Animated block-->
+                            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                                <!--Section title-->
+                                <div class="vlt-section-title vlt-section-title--style-1">
+                                    <h3 class="vlt-section-title__title">
+                                    {{ $firstBlog->getTranslation('title') }}
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="vlt-gap-20"></div>
+                            <!--Animated block-->
+                            <div class="vlt-animated-block blogs-description" data-aos="fade" data-aos-delay="100">
+                                <p class="fz-1" style="max-width: 415px">
+                                {{ mb_strimwidth(strip_tags($firstBlog->getTranslation('content')), 0, 200, '...') }}
+                                </p>
+                            </div>
+                            <div class="vlt-gap-20"></div>
+                            <!--Animated block-->
+                            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
+                                <div class="has-black-color">
+                                    <!--Simple link--><a class="vlt-simple-link vlt-simple-link--md" href="{{ route('news.details', ['blog' => $firstBlog->id]) }}"
+                                        target="_self">{{ __('Read more') }}<i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
                             </div>
                         </div>
-                        <div class="vlt-gap-20"></div>
-                        <!--Animated block-->
-                        <div class="vlt-animated-block blogs-description" data-aos="fade" data-aos-delay="100">
-                            <p class="fz-1" style="max-width: 415px">
-                                Darkness they're, moved whales great or
-                                void great man one man from blessed so
-                                our good face was fruitful sixth male
-                                kind.
-                            </p>
-                        </div>
-                        <div class="vlt-gap-20"></div>
-                        <!--Animated block-->
-                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
-                            <div class="has-black-color">
-                                <!--Simple link--><a class="vlt-simple-link vlt-simple-link--md" href="#"
-                                    target="_self">Read more<i class="fa-solid fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    @endif
 
-                    <div class="col-lg-3 col-md-6 col-sm-6 p-0">
-                        <div class="to-left h-100">
-                            <div class="h-100">
-                                <img class="jarallax-img" src="{{ asset('assets/img//blog/blog-02.png') }}" alt=""
-                                    loading="lazy" />
-                            </div>
-                        </div>
-                    </div>
+                    @php $secondBlog = getSecondBlog(); @endphp
 
-                    <div class="col-lg-3 blog-item-content">
-                        <!-- <div class="vlt-gap-130"></div> -->
-                        <!--Animated block-->
-                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
-                            <!--Section title-->
-                            <div class="vlt-section-title vlt-section-title--style-1">
-                                <h3 class="vlt-section-title__title">
-                                    How Food Manufacturing is Responding
-                                    to the Plant-Based Revolution
-                                </h3>
+                    @if(isset($secondBlog[0]))
+                        @php 
+                            $secondBlog = $secondBlog[0];
+                        @endphp
+                        <div class="col-lg-3 col-md-6 col-sm-6 p-0">
+                            <div class="to-left h-100">
+                                <div class="h-100">
+                                    <img class="jarallax-img" src="{{ asset($secondBlog->getImage()) }}" alt=""
+                                        loading="lazy" />
+                                </div>
                             </div>
                         </div>
-                        <div class="vlt-gap-20"></div>
-                        <!--Animated block-->
-                        <div class="vlt-animated-block blogs-description" data-aos="fade" data-aos-delay="100">
-                            <p class="fz-1" style="max-width: 415px">
-                                Darkness they're, moved whales great or
-                                void great man one man from blessed so
-                                our good face was fruitful sixth male
-                                kind.
-                            </p>
-                        </div>
-                        <div class="vlt-gap-20"></div>
-                        <!--Animated block-->
-                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
-                            <div class="has-black-color">
-                                <!--Simple link--><a class="vlt-simple-link vlt-simple-link--md" href="#"
-                                    target="_self">Read more<i class="fa-solid fa-arrow-right"></i></a>
+
+                        <div class="col-lg-3 blog-item-content">
+                            <!-- <div class="vlt-gap-130"></div> -->
+                            <!--Animated block-->
+                            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                                <!--Section title-->
+                                <div class="vlt-section-title vlt-section-title--style-1">
+                                    <h3 class="vlt-section-title__title">
+                                        {{ $secondBlog->getTranslation('title') }}
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="vlt-gap-20"></div>
+                            <!--Animated block-->
+                            <div class="vlt-animated-block blogs-description" data-aos="fade" data-aos-delay="100">
+                                <p class="fz-1" style="max-width: 415px">
+                                {{ mb_strimwidth(strip_tags($secondBlog->getTranslation('content')), 0, 200, '...') }}
+                                </p>
+                            </div>
+                            <div class="vlt-gap-20"></div>
+                            <!--Animated block-->
+                            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
+                                <div class="has-black-color">
+                                    <!--Simple link--><a class="vlt-simple-link vlt-simple-link--md" href="{{ route('news.details', ['blog' => $secondBlog->id ]) }}"
+                                        target="_self">{{ __('Read more') }}<i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                 </div>
 
                 <div class="row align-items-center flex-direction-column-reverse-in-mobile">
-                    <div class="col-lg-3 blog-item-content">
-                        <!-- <div class="vlt-gap-130"></div> -->
-                        <!--Animated block-->
-                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
-                            <!--Section title-->
-                            <div class="vlt-section-title vlt-section-title--style-1">
-                                <h3 class="vlt-section-title__title">
-                                    How Food Manufacturing is Responding
-                                    to the Plant-Based Revolution
-                                </h3>
-                            </div>
-                        </div>
-                        <div class="vlt-gap-20"></div>
-                        <!--Animated block-->
-                        <div class="vlt-animated-block blogs-description" data-aos="fade" data-aos-delay="100">
-                            <p class="fz-1" style="max-width: 415px">
-                                Darkness they're, moved whales great or
-                                void great man one man from blessed so
-                                our good face was fruitful sixth male
-                                kind.
-                            </p>
-                        </div>
-                        <div class="vlt-gap-20"></div>
-                        <!--Animated block-->
-                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
-                            <div class="has-black-color">
-                                <!--Simple link--><a class="vlt-simple-link vlt-simple-link--md" href="#"
-                                    target="_self">Read more<i class="fa-solid fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    @php $thirdBlog = getThirdBlog(); @endphp
 
-                    <div class="col-lg-3 p-0">
-                        <div class="to-left h-100">
-                            <div class="h-100">
-                                <img class="jarallax-img" src="{{ asset('assets/img//blog/blog-03.png') }}" alt=""
-                                    loading="lazy" />
+                    @if(isset($thirdBlog[0]))
+                        @php 
+                            $thirdBlog = $thirdBlog[0];
+                        @endphp
+                        <div class="col-lg-3 blog-item-content">
+                            <!-- <div class="vlt-gap-130"></div> -->
+                            <!--Animated block-->
+                            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                                <!--Section title-->
+                                <div class="vlt-section-title vlt-section-title--style-1">
+                                    <h3 class="vlt-section-title__title">
+                                        {{ $thirdBlog->getTranslation('title') }}
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="vlt-gap-20"></div>
+                            <!--Animated block-->
+                            <div class="vlt-animated-block blogs-description" data-aos="fade" data-aos-delay="100">
+                                <p class="fz-1" style="max-width: 415px">
+                                    {{ mb_strimwidth(strip_tags($thirdBlog->getTranslation('content')), 0, 200, '...') }}
+                                </p>
+                            </div>
+                            <div class="vlt-gap-20"></div>
+                            <!--Animated block-->
+                            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
+                                <div class="has-black-color">
+                                    <!--Simple link--><a class="vlt-simple-link vlt-simple-link--md" href="#"
+                                        target="_self">{{ __('Read more') }}<i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
 
-                    <div class="col-lg-3 blog-item-content">
-                        <!--Animated block-->
-                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
-                            <!--Section title-->
-                            <div class="vlt-section-title vlt-section-title--style-1">
-                                <h3 class="vlt-section-title__title">
-                                    How Food Manufacturing is Responding
-                                    to the Plant-Based Revolution
-                                </h3>
+                        <div class="col-lg-3 p-0">
+                            <div class="to-left h-100">
+                                <div class="h-100">
+                                    <img class="jarallax-img" src="{{ asset($thirdBlog->getImage()) }}" alt=""
+                                        loading="lazy" />
+                                </div>
                             </div>
                         </div>
-                        <div class="vlt-gap-20"></div>
-                        <!--Animated block-->
-                        <div class="vlt-animated-block blogs-description" data-aos="fade" data-aos-delay="100">
-                            <p class="fz-1" style="max-width: 415px">
-                                Darkness they're, moved whales great or
-                                void great man one man from blessed so
-                                our good face was fruitful sixth male
-                                kind.
-                            </p>
-                        </div>
-                        <div class="vlt-gap-20"></div>
-                        <!--Animated block-->
-                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
-                            <div class="has-black-color">
-                                <!--Simple link--><a class="vlt-simple-link vlt-simple-link--md" href="#"
-                                    target="_self">Download Al Douri App<i class="fa-solid fa-arrow-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+                    @endif
 
-                    <div class="col-lg-3 p-0">
-                        <div class="to-left h-100">
-                            <div class="h-100">
-                                <img class="jarallax-img" src="{{ asset('assets/img//blog/blog-04.png') }}" alt=""
-                                    loading="lazy" />
+                    @php $forthBlog = getForthBlog(); @endphp
+
+                    @if(isset($forthBlog[0]))
+                        @php 
+                            $forthBlog = $forthBlog[0];
+                        @endphp
+                        <div class="col-lg-3 blog-item-content">
+                            <!--Animated block-->
+                            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
+                                <!--Section title-->
+                                <div class="vlt-section-title vlt-section-title--style-1">
+                                    <h3 class="vlt-section-title__title">
+                                    {{ $forthBlog->getTranslation('title') }}
+                                    </h3>
+                                </div>
+                            </div>
+                            <div class="vlt-gap-20"></div>
+                            <!--Animated block-->
+                            <div class="vlt-animated-block blogs-description" data-aos="fade" data-aos-delay="100">
+                                <p class="fz-1" style="max-width: 415px">
+                                {{ mb_strimwidth(strip_tags($forthBlog->getTranslation('content')), 0, 200, '...') }}
+                                </p>
+                            </div>
+                            <div class="vlt-gap-20"></div>
+                            <!--Animated block-->
+                            <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
+                                <div class="has-black-color">
+                                    <!--Simple link--><a class="vlt-simple-link vlt-simple-link--md" href="#"
+                                        target="_self">{{ __('Read more') }}<i class="fa-solid fa-arrow-right"></i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
+
+                        <div class="col-lg-3 p-0">
+                            <div class="to-left h-100">
+                                <div class="h-100">
+                                    <img class="jarallax-img" src="{{ asset($forthBlog->getImage()) }}" alt=""
+                                        loading="lazy" />
+                                </div>
+                            </div>
+                        </div>
+                    @endif
                 </div>
             </div>
         </section>

@@ -66,16 +66,18 @@ class BlogController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Blog $blog)
+    public function edit(string $id)
     {
+        $blog = Blog::find($id);
         return view('admin.blogs.edit', compact('blog'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Blog $blog)
+    public function update(Request $request)
     {
+        $blog = Blog::find($request->blog);
         $request->validate([
             'image' => [
                 'nullable',
@@ -98,16 +100,15 @@ class BlogController extends Controller
             $blog->save();
         }
 
-        return back()->with([
-            'status' => 'Blog Updated'
-        ]);
+        return redirect()->route('admin.blogs.index')->with('status','Blog details updated successfully');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Blog $blog)
+    public function destroy(Request $request)
     {
+        $blog = Blog::find($request->blog);
         $img = $blog->image;
         if ($blog->delete()) {
             deleteImage($img);
