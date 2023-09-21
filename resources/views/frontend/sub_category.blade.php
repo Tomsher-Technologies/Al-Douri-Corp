@@ -119,5 +119,5 @@
         </section> --}}
     </div>
 
-    @include('frontend.parts.mobile-section')
+    <!-- @include('frontend.parts.mobile-section') -->
 @endsection

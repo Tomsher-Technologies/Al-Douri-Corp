@@ -28,4 +28,15 @@ class HomeBanner extends Model
     {
         return $this->img ? URL::to($this->img) : asset('img/placeholder.png');
     }
+
+    public function getTranslation($field = '', $lang = false)
+    {
+        $lang = $lang == false ? getActiveLanguage() : $lang;
+
+        if ($lang !== 'en') {
+            $field = 'ar_' . $field;
+        }
+
+        return $this->$field;
+    }
 }

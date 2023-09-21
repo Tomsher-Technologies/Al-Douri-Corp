@@ -74,7 +74,7 @@
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Arabic Button Text</label>
-                                <input type="text" name="btn_text" class="form-control"
+                                <input type="text" name="ar_btn_text" class="form-control"
                                     value="{{ old('ar_btn_text', $banner->ar_btn_text) }}" dir="rtl" required>
                                 <x-input-error name='ar_btn_text' />
                             </div>

@@ -6,6 +6,10 @@ use App\Models\Blog;
 use App\Models\Division;
 use App\Models\Product\Product;
 use App\Models\Product\ProductCategory;
+use App\Models\Pages;
+use App\Models\PageTranslations;
+use App\Models\PageSeos;
+use App\Models\HomeBanner;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
@@ -14,7 +18,9 @@ class FrontendController extends Controller
 {
     public function home()
     {
-        return view('frontend.home');
+        $page = Pages::with(['seo'])->where('page_name','home')->first();
+        $banners = HomeBanner::where('status',1)->orderBy('sort_order', 'ASC')->get();
+        return view('frontend.home',compact('page','banners'));
     }
 
     public function about()
@@ -48,8 +54,10 @@ class FrontendController extends Controller
         return view('frontend.news', compact('blogs'));
     }
 
-    public function news_details(Blog $blog)
+    public function news_details(Request $request)
     {
+        $id = $request->blog;
+        $blog = Blog::find($id);
         $latest_news = Blog::where([
             'status' => 1,
         ])->where('id', "!=", $blog->id)->limit(5)->get();

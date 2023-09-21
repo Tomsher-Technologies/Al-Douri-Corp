@@ -17,6 +17,7 @@ class Division extends Model
         'banner_image',
         'center_image',
         'gallery_image',
+        'home_image',
         'status',
         'slug'
     ];

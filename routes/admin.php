@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\Product\ProductCategoryController;
 use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Admin\Users\ProfileController;
 use App\Http\Controllers\Admin\Users\UserController;
+use App\Http\Controllers\Admin\PagesController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => env('ADMIN_PREFIX', 'admin'), 'as' => 'admin.'], function () {
@@ -55,5 +56,13 @@ Route::group(['prefix' => env('ADMIN_PREFIX', 'admin'), 'as' => 'admin.'], funct
 
         // Product
         Route::resource('products', ProductController::class)->except('show');
+
+        Route::group(['prefix' => 'pages', 'as' => 'page.'], function () {
+           
+            Route::get('/home', [PagesController::class, 'homePage'])->name('home');
+            Route::post('/store-home', [PagesController::class, 'storeHomePage'])->name('store-home');
+           
+        });
+
     });
 });

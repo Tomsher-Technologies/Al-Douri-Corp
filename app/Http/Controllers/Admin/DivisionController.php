@@ -54,6 +54,11 @@ class DivisionController extends Controller
                 File::image()
                     ->max(2 * 1024)
             ],
+            'home_image' => [
+                'required',
+                File::image()
+                    ->max(2 * 1024)
+            ],
             'title' => 'required',
             'ar_title' => 'required',
             'menu_text' => 'required',
@@ -69,6 +74,7 @@ class DivisionController extends Controller
         $banner_image = uploadImage($request, 'banner_image', 'divisions');
         $center_image = uploadImage($request, 'center_image', 'divisions');
         $gallery_image = uploadImage($request, 'gallery_image', 'divisions');
+        $home_image = uploadImage($request, 'home_image', 'divisions');
 
         $division = Division::create([
             'title' => $request->title,
@@ -76,6 +82,7 @@ class DivisionController extends Controller
             'banner_image' => $banner_image,
             'center_image' => $center_image,
             'gallery_image' => $gallery_image,
+            'home_image' => $home_image,
             'status' => $request->status,
             'slug' => Str::slug($request->title),
         ]);
@@ -142,6 +149,11 @@ class DivisionController extends Controller
                 File::image()
                     ->max(2 * 1024)
             ],
+            'home_image' => [
+                'nullable',
+                File::image()
+                    ->max(2 * 1024)
+            ],
             'title' => 'required',
             'ar_title' => 'required',
             'menu_text' => 'required',
@@ -174,6 +186,12 @@ class DivisionController extends Controller
             $image = uploadImage($request, 'gallery_image', 'divisions');
             deleteImage($division->gallery_image);
             $division->gallery_image = $image;
+        }
+
+        if ($request->hasFile('home_image')) {
+            $image = uploadImage($request, 'home_image', 'divisions');
+            deleteImage($division->home_image);
+            $division->home_image = $image;
         }
 
         $division->save();
@@ -212,6 +230,7 @@ class DivisionController extends Controller
         $banner_image = $division->banner_image;
         $center_image = $division->center_image;
         $gallery_image = $division->gallery_image;
+        $home_image = $division->home_image;
 
         DivisionTranslation::where('division_id', $division->id)->delete();
 
@@ -220,6 +239,7 @@ class DivisionController extends Controller
             deleteImage($banner_image);
             deleteImage($center_image);
             deleteImage($gallery_image);
+            deleteImage($home_image);
         }
 
         return redirect()->route('admin.divisions.index')->with([

@@ -16,7 +16,7 @@
                     <div class="card-body">
                         <form method="POST"
                             action="{{ route('admin.blogs.update', [
-                                'blog' => $blog,
+                                'blog' => $blog->id,
                             ]) }}"
                             enctype="multipart/form-data">
                             @csrf
@@ -85,7 +85,7 @@
                 </div>
                 <form id="deleteForm" method="POST"
                     action="{{ route('admin.blogs.destroy', [
-                        'blog' => $blog,
+                        'blog' => $blog->id,
                     ]) }}"
                     enctype="multipart/form-data">
                     @csrf
