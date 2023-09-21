@@ -223,19 +223,19 @@ class PagesController extends Controller
         );
 
         if(isset($data['image1']) ){
-            $image_array['image1'] = $data['image1'];
+            $image_array['image1'] = $data['image1'] ?? NULL;
         }
         if(isset($data['image2']) ){
-            $image_array['image2'] = $data['image2'];
+            $image_array['image2'] = $data['image2'] ?? NULL;
         }
         if(isset($data['image3']) ){
-            $image_array['image3'] = $data['image3'];
+            $image_array['image3'] = $data['image3'] ?? NULL;
         }      
         if(isset($data['image4']) ){
-            $image_array['image4'] = $data['image4'];
+            $image_array['image4'] = $data['image4'] ?? NULL;
         }
         if(isset($data['image6']) ){
-            $image_array['image6'] = $data['image6'];
+            $image_array['image6'] = $data['image6'] ?? NULL;
         }
         if(isset($data['image5']) ){
             $image_array['image5'] = $data['image5'];
@@ -339,5 +339,80 @@ class PagesController extends Controller
         $seo = PageSeos::updateOrCreate([
                     'page_id'   => $page->id,
                 ],$seo_Array);
+    }
+
+    public function aboutPage()
+    {
+        $data = Pages::with(['seo'])->where('page_name','about')->first();
+      
+        return view('admin.pages.about-us',compact('data'));
+    }
+
+    public function storeAboutPage(Request $request)
+    {
+        $request->validate([
+                        'title' => 'required',
+                        'ar_title' => 'required',
+                        'description' => 'required',
+                        'ar_description' => 'required',
+                        'sub_content' => 'required',
+                        'ar_sub_content' => 'required',
+                        'heading' => 'required',
+                        'ar_heading' => 'required',
+                        'content' => 'required',
+                        'ar_content' => 'required',
+                        'brand_heading' => 'required',
+                        'ar_brand_heading' => 'required',
+                        'brand_heading_sub' => 'required',
+                        'ar_brand_heading_sub' => 'required',
+                        'image1' => 'nullable|max:2048',
+                        'image2' => 'nullable|max:2048',
+                    ],[
+                        '*.required' => 'This field is required.',
+                        '*.max' => "Maximum file size to upload is 2MB."
+                    ]);
+        $data = [
+                'page_title'        => 'About Us',
+                'page_name'        => 'about',
+                'title'             => $request->title,
+                'description'       => $request->description,
+                'content1'          => $request->sub_content,
+                'heading1'          => $request->heading,
+                'content2'          => $request->content,
+                'heading2'          => $request->brand_heading,
+                'heading3'          => $request->brand_heading_sub,
+                'ar_title'             => $request->ar_title,
+                'ar_description'       => $request->ar_description,
+                'ar_content1'          => $request->ar_sub_content,
+                'ar_heading1'          => $request->ar_heading,
+                'ar_content2'          => $request->ar_content,
+                'ar_heading2'          => $request->ar_brand_heading,
+                'ar_heading3'          => $request->ar_brand_heading_sub,
+                'seotitle'             => $request->seotitle,
+                'ogtitle'              => $request->ogtitle,
+                'twtitle'              => $request->twtitle,
+                'seodescription'       => $request->seodescription, 
+                'og_description'       => $request->og_description,
+                'twitter_description'  => $request->twitter_description,
+                'seokeywords'          => $request->seokeywords,
+        ];
+
+        $pageData = Pages::where('page_name','home')->first();
+        if ($request->hasFile('image1')) {
+            $image = uploadImage($request, 'image1', 'pages/about');
+            deleteImage($pageData->image1);
+            $data['image1'] = $image;
+        }
+        if ($request->hasFile('image2')) {
+            $image = uploadImage($request, 'image2', 'pages/about');
+            deleteImage($pageData->image2);
+            $data['image2'] = $image;
+        }
+
+      
+        $this->savePageSettings($data);
+        return redirect()->back()->with([
+            'status' => "Page details updated"
+        ]);
     }
 }

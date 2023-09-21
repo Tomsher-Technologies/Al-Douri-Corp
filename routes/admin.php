@@ -61,6 +61,9 @@ Route::group(['prefix' => env('ADMIN_PREFIX', 'admin'), 'as' => 'admin.'], funct
            
             Route::get('/home', [PagesController::class, 'homePage'])->name('home');
             Route::post('/store-home', [PagesController::class, 'storeHomePage'])->name('store-home');
+
+            Route::get('/about', [PagesController::class, 'aboutPage'])->name('about');
+            Route::post('/store-about', [PagesController::class, 'storeAboutPage'])->name('store-about');
            
         });
 

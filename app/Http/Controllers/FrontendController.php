@@ -25,7 +25,8 @@ class FrontendController extends Controller
 
     public function about()
     {
-        return view('frontend.about');
+        $page = Pages::with(['seo'])->where('page_name','about')->first();
+        return view('frontend.about',compact('page'));
     }
 
     public function missionVision()
@@ -86,7 +87,8 @@ class FrontendController extends Controller
             'parent_id' => $category->id,
             'status' => 1,
         ])->get();
-        return view('frontend.category', compact('category', 'sub_category'));
+        $page = Pages::with(['seo'])->where('page_name','home')->first();
+        return view('frontend.category', compact('category', 'sub_category','page'));
     }
     public function sub_category($category_slug, $sub_category_slug)
     {
@@ -95,7 +97,8 @@ class FrontendController extends Controller
             'product_category_id' => $category->id,
             'status' => 1,
         ])->get();
-        return view('frontend.sub_category', compact('category', 'products'));
+        $page = Pages::with(['seo'])->where('page_name','home')->first();
+        return view('frontend.sub_category', compact('category', 'products','page'));
     }
 
 

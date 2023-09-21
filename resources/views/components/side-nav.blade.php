@@ -67,11 +67,19 @@
     <div class="sub-menu">
         <div class="scroll">
             <ul class="list-unstyled" data-link="pages">
+                <li class="{{ (request()->routeIs('admin.page.about') ) ? 'active' : '' }}">
+                    <a href="{{ route('admin.page.about') }}">
+                        <i class="simple-icon-doc"></i> <span class="d-inline-block">About Us</span>
+                    </a>
+                </li>
+
                 <li class="{{ (request()->routeIs('admin.page.home') ) ? 'active' : '' }}">
                     <a href="{{ route('admin.page.home') }}">
                         <i class="simple-icon-doc"></i> <span class="d-inline-block">Home</span>
                     </a>
                 </li>
+
+               
             </ul>
         </div>
     </div>
