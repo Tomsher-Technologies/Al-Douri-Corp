@@ -120,4 +120,10 @@ class FrontendController extends Controller
      
         return view('frontend.career');
     }
+
+    public function careerDetails()
+    {
+     
+        return view('frontend.career-details');
+    }
 }

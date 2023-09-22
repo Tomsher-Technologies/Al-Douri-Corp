@@ -1240,12 +1240,10 @@ dl dd {
 }
 
 .center-mode {
-    position: absolute !important;
-    z-index: 1;
-    top: 50%;
-    left: 50%;
-    -webkit-transform: translate3d(-50%, -50%, 0);
-    transform: translate3d(-50%, -50%, 0)
+
+    font-size: 50px;
+    text-align: center;
+    margin: auto;
 }
 
 .alignfull {
@@ -3835,7 +3833,8 @@ dl dd {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
     -webkit-flex-direction: row;
-    -ms-flex-direction: row
+    -ms-flex-direction: row;
+    justify-content: space-between;
 }
 
 @media only screen and (max-width:767px) {
@@ -3854,13 +3853,16 @@ dl dd {
 
 .vlt-post--style-5 .vlt-post-date {
     font-weight: 700;
-    margin-right: 120px;
+    margin-right: 15px;
     -webkit-transition: opacity .3s;
     transition: opacity .3s;
     text-align: center;
     text-transform: uppercase;
     opacity: .5;
-    color: #101010
+    display: flex;
+    color: #101010;
+    gap: 15px;
+    align-items: center;
 }
 
 @media only screen and (max-width:767px) {
@@ -3885,13 +3887,13 @@ dl dd {
 .vlt-post--style-5 .vlt-post-title {
     font-size: 26px;
     line-height: 1.4;
-    margin-right: 100px;
+    margin-right: 15px;
     -webkit-transition: opacity .3s;
     transition: opacity .3s;
-    opacity: .5;
-    -webkit-flex-basis: 100%;
-    -ms-flex-preferred-size: 100%;
-    flex-basis: 100%
+    /*opacity: .5;*/
+    /*-webkit-flex-basis: 100%;*/
+    /*-ms-flex-preferred-size: 100%;*/
+    /*flex-basis: 100%*/
 }
 
 .vlt-post--style-5 .vlt-post-title a {
@@ -3907,7 +3909,7 @@ dl dd {
     margin-left: 40px;
     -webkit-transition: opacity .3s;
     transition: opacity .3s;
-    opacity: .5;
+    /*opacity: .5;*/
     color: #101010
 }
 
@@ -7540,12 +7542,12 @@ dl dd {
 }
 
 .vlt-section-title--style-2 .vlt-section-title__title {
-    font-size: 130px
+    font-size: 40px
 }
 
 @media only screen and (max-width:767px) {
     .vlt-section-title--style-2 .vlt-section-title__title {
-        font-size: 84px
+        font-size: 35px
     }
 
     .blog-item-content{
@@ -7572,7 +7574,7 @@ dl dd {
 
 @media only screen and (max-width:575px) {
     .vlt-section-title--style-2 .vlt-section-title__title {
-        font-size: 70px
+        font-size: 30px
     }
 }
 

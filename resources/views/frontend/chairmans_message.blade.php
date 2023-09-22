@@ -42,14 +42,18 @@
                                         style="position: absolute; top: -65px; right: -100px; max-width: 130px; z-index: 1;"
                                         loading="lazy">
                                 </div>
-                                <h1 class="fz-6 has-primary-color center-mode text-nowrap">{!! $page->getTranslation('heading1') !!}</h1>
+                               
                             </div>
                         </div>
                     </div>
                     <div class="col-md-8 offset-md-2">
                         <div class="text-center">
-                            <div class="vlt-gap-80"></div>
+                            <div class="vlt-gap-40"></div>
                             <!--Animated block-->
+                             <h1 class="fz-6 has-primary-color center-mode text-nowrap">{!! $page->getTranslation('heading1') !!}</h1>
+                             
+                                <div class="vlt-gap-40"></div>
+                             
                             <div class="vlt-animated-block fz-4"  style="padding: 0 30px; font-style: italic;" data-aos="fade" data-aos-delay="100">
                                 
                                 {!! $page->getTranslation('content1') !!}

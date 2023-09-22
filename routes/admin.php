@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\BlogController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\DivisionController;
+use App\Http\Controllers\Admin\CareerController;
 use App\Http\Controllers\Admin\HomeBannerController;
 use App\Http\Controllers\Admin\Product\ProductCategoryController;
 use App\Http\Controllers\Admin\Product\ProductController;
@@ -59,6 +60,9 @@ Route::group(['prefix' => env('ADMIN_PREFIX', 'admin'), 'as' => 'admin.'], funct
 
         // Product
         Route::resource('products', ProductController::class)->except('show');
+
+        Route::resource('careers', CareerController::class);
+        Route::post('careers/change_status', [CareerController::class, 'change_status'])->name('careers.change_status');
 
         Route::group(['prefix' => 'pages', 'as' => 'page.'], function () {
            
