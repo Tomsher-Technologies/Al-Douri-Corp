@@ -32,7 +32,7 @@ class Blog extends Model
 
     public function getImage()
     {
-        return $this->image ? URL::to($this->image) : asset('img/placeholder.png');
+        return $this->image ? URL::to($this->image) : asset('adminassets/img/placeholder.png');
     }
 
     public function getTranslation($field = '', $lang = false)
