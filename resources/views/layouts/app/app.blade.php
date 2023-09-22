@@ -30,6 +30,7 @@
 
 
 <body>
+    
     @include('frontend.parts.header')
 
 

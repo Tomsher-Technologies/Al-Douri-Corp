@@ -53,63 +53,53 @@
                                                  <li>
                                                      <p class="text-uppercase fw-medium text-muted menu-title"
                                                          data-key="t-men">
-                                                         Who We Are
+                                                         {{ __('Who We Are') }}
                                                      </p>
                                                  </li>
                                                  <li class="nav-item">
                                                      <a href="{{ route('about') }}" class="nav-link"
-                                                         data-key="t-clothing">About
-                                                         Al
-                                                         Douri</a>
+                                                         data-key="t-clothing">{{ __('About Al Douri') }}</a>
                                                  </li>
                                                  <li class="nav-item">
                                                      <a href="{{ route('missionVision') }}" class="nav-link"
-                                                         data-key="t-watches">Mission &
-                                                         Vision</a>
+                                                         data-key="t-watches">{{ __('Mission & Vision') }}</a>
                                                  </li>
                                                  <li class="nav-item">
                                                      <a href="{{ route('our_heritage') }}" class="nav-link"
-                                                         data-key="t-bags-Luggage">Our Heritage</a>
+                                                         data-key="t-bags-Luggage">{{ __('Our Heritage') }}</a>
                                                  </li>
                                                  <li class="nav-item">
                                                      <a href="{{ route('leadership') }}" class="nav-link"
-                                                         data-key="t-footwear">Leadership</a>
+                                                         data-key="t-footwear">{{ __('Leadership') }}</a>
                                                  </li>
 
                                                  <li class="nav-item">
                                                      <a href="{{ route('chairmans_message') }}" class="nav-link"
-                                                         data-key="t-footwear">Chairman's
-                                                         message</a>
+                                                         data-key="t-footwear">{{ __("Chairman's Message") }}</a>
                                                  </li>
                                              </ul>
                                          </div>
+                                         @php  
+                                            $general = getSettings();
+                                         @endphp
                                          <div class="col-lg-6 d-none d-lg-block">
                                              <div class="card border-0 h-100 mb-0 overflow-hidden"
                                                  style="
-                                                    background-image: url('{{ asset('assets/img/Support.jpg') }}');
+                                                    background-image: url('{{ URL::to($general->header_image) }}');
                                                     background-size: cover;
                                                 ">
                                                  <div class="bg-overlay bg-light bg-opacity-25"></div>
                                                  <div class="card-body d-flex align-items-end">
                                                      <div class="text-left">
                                                          <h3 class="a-title">
-                                                             <a href="#">Crafting
-                                                                 deliciousness
-                                                                 since
-                                                                 1979</a>
+                                                             <a href="{{ $general->image_link }}">{{ $general->getTranslation('image_title') }}</a>
                                                          </h3>
                                                          <p>
-                                                             Setting new
-                                                             standards in
-                                                             the food
-                                                             industry,
-                                                             through
-                                                             offering
-                                                             high quality
-                                                             products
+                                                         {{ $general->getTranslation('image_title_sub') }}
+                                        
                                                          </p>
 
-                                                         <a href="#" class="menu-btn"><i
+                                                         <a href="{{ $general->image_link }}" class="menu-btn"><i
                                                                  class="fa fa-arrow-right"></i></a>
                                                      </div>
                                                  </div>
@@ -124,30 +114,14 @@
                                                  <div class="card-body d-flex align-items-end">
                                                      <div class="text-left">
                                                          <h3 class="a-title">
-                                                             <a href="#">Al
-                                                                 Douri
-                                                                 Group’s
-                                                                 offer
-                                                                 the best
-                                                                 and
-                                                                 highest
-                                                                 quality
-                                                                 food
-                                                                 products.
+                                                             <a href="{{ $general->header_link }}">
+                                                             {{ $general->getTranslation('heading') }}
                                                              </a>
                                                          </h3>
                                                          <p>
-                                                             Al Douri
-                                                             Group is a
-                                                             privately-owned
-                                                             family
-                                                             business
-                                                             located in
-                                                             the United
-                                                             Arab
-                                                             Emirates.
+                                                         {{ $general->getTranslation('heading_sub') }}
                                                          </p>
-                                                         <a href="#" class="menu-btn"><i
+                                                         <a href="{{ $general->header_link }}" class="menu-btn"><i
                                                                  class="fa fa-arrow-right"></i></a>
                                                      </div>
                                                  </div>
@@ -325,20 +299,19 @@
                              <a href="#"><span>{{ __('About us') }}</span></a>
                              <ul class="sub-menu">
                                  <li class="menu-item left">
-                                     <a href="{{ route('about') }}"><span>About Al Douri</span></a>
+                                     <a href="{{ route('about') }}"><span>{{ __('About Al Douri') }}</span></a>
                                  </li>
                                  <li class="menu-item left">
-                                     <a href="{{ route('missionVision') }}"><span>Mission & Vision</span></a>
+                                     <a href="{{ route('missionVision') }}"><span>{{ __('Mission & Vision') }}</span></a>
                                  </li>
                                  <li class="menu-item left">
-                                     <a href="{{ route('our_heritage') }}"><span>Our Heritage</span></a>
+                                     <a href="{{ route('our_heritage') }}"><span>{{ __('Our Heritage') }}</span></a>
                                  </li>
                                  <li class="menu-item left">
-                                     <a href="{{ route('leadership') }}"><span>Leadership</span></a>
+                                     <a href="{{ route('leadership') }}"><span>{{ __('Leadership') }}</span></a>
                                  </li>
                                  <li class="menu-item left">
-                                     <a href="{{ route('chairmans_message') }}"><span>Chairman's
-                                             message</span></a>
+                                     <a href="{{ route('chairmans_message') }}"><span>{{ __("Chairman's Message") }}</span></a>
                                  </li>
                              </ul>
                          </li>
@@ -385,10 +358,10 @@
                      <div class="d-flex justify-content-between align-items-end">
                          <!--Widget-->
                          <div class="vlt-widget vlt-widget--socials">
-                             <a class="vlt-social-icon vlt-social-icon--style-1" href="#">Fb.</a><a
-                                 class="vlt-social-icon vlt-social-icon--style-1" href="#">Tw.</a><a
-                                 class="vlt-social-icon vlt-social-icon--style-1" href="#">In.</a><a
-                                 class="vlt-social-icon vlt-social-icon--style-1" href="#">Ln.</a>
+                             <a class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="{{ $general->facebook }}">Fb.</a><a
+                                 class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="{{ $general->twitter }}">Tw.</a><a
+                                 class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="{{ $general->instagram }}">In.</a><a
+                                 class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="{{ $general->linkedin }}">Ln.</a>
                          </div>
                          <!--Widget-->
                          <div class="vlt-widget vlt-widget--html">

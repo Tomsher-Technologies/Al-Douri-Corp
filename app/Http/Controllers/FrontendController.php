@@ -31,7 +31,8 @@ class FrontendController extends Controller
 
     public function missionVision()
     {
-        return view('frontend.mission_vision');
+        $page = Pages::with(['seo'])->where('page_name','mission')->first();
+        return view('frontend.mission_vision',compact('page'));
     }
 
     public function our_heritage()
@@ -46,7 +47,8 @@ class FrontendController extends Controller
 
     public function contact_us()
     {
-        return view('frontend.contact_us');
+        $page = Pages::with(['seo'])->where('page_name','contact')->first();
+        return view('frontend.contact_us', compact('page'));
     }
 
     public function news()
@@ -71,7 +73,8 @@ class FrontendController extends Controller
 
     public function chairmansMessage()
     {
-        return view('frontend.chairmans_message');
+        $page = Pages::with(['seo'])->where('page_name','message')->first();
+        return view('frontend.chairmans_message', compact('page'));
     }
 
     public function divisions($division)

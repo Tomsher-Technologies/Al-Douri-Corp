@@ -44,6 +44,13 @@
                     </a>
                 </li>
                 @if (auth()->user()->can('manage-settings'))
+                    <li class="{{ request()->routeIs('admin.settings') ? 'active' : '' }}">
+                        <a href="{{ route('admin.settings') }}">
+                            <i class="simple-icon-notebook"></i> General Settings
+                        </a>
+                    </li>
+                @endif
+                @if (auth()->user()->can('manage-settings'))
                     <li class="{{ request()->routeIs('admin.page*') ? 'active' : '' }}">
                         <a href="#pages">
                             <i class="simple-icon-notebook"></i> Page Settings
@@ -69,13 +76,31 @@
             <ul class="list-unstyled" data-link="pages">
                 <li class="{{ (request()->routeIs('admin.page.about') ) ? 'active' : '' }}">
                     <a href="{{ route('admin.page.about') }}">
-                        <i class="simple-icon-doc"></i> <span class="d-inline-block">About Us</span>
+                        <i class="simple-icon-doc"></i> <span class="d-inline-block">ABOUT US</span>
+                    </a>
+                </li>
+
+                <li class="{{ (request()->routeIs('admin.page.message') ) ? 'active' : '' }}">
+                    <a href="{{ route('admin.page.message') }}">
+                        <i class="simple-icon-doc"></i> <span class="d-inline-block">CHAIRMAN'S MESSAGE</span>
+                    </a>
+                </li>
+
+                <li class="{{ (request()->routeIs('admin.page.contact') ) ? 'active' : '' }}">
+                    <a href="{{ route('admin.page.contact') }}">
+                        <i class="simple-icon-doc"></i> <span class="d-inline-block">CONTACT US</span>
                     </a>
                 </li>
 
                 <li class="{{ (request()->routeIs('admin.page.home') ) ? 'active' : '' }}">
                     <a href="{{ route('admin.page.home') }}">
-                        <i class="simple-icon-doc"></i> <span class="d-inline-block">Home</span>
+                        <i class="simple-icon-doc"></i> <span class="d-inline-block">HOME</span>
+                    </a>
+                </li>
+
+                <li class="{{ (request()->routeIs('admin.page.mission') ) ? 'active' : '' }}">
+                    <a href="{{ route('admin.page.mission') }}">
+                        <i class="simple-icon-doc"></i> <span class="d-inline-block">MISSION & VISION</span>
                     </a>
                 </li>
 

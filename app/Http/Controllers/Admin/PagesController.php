@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Pages;
 use App\Models\PageTranslations;
 use App\Models\PageSeos;
+use App\Models\GeneralSettings;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
 use Illuminate\Support\Str;
@@ -397,7 +398,7 @@ class PagesController extends Controller
                 'seokeywords'          => $request->seokeywords,
         ];
 
-        $pageData = Pages::where('page_name','home')->first();
+        $pageData = Pages::where('page_name','about')->first();
         if ($request->hasFile('image1')) {
             $image = uploadImage($request, 'image1', 'pages/about');
             deleteImage($pageData->image1);
@@ -410,6 +411,249 @@ class PagesController extends Controller
         }
 
       
+        $this->savePageSettings($data);
+        return redirect()->back()->with([
+            'status' => "Page details updated"
+        ]);
+    }
+
+    public function generalSettings(Request $request){
+        $data = getGeneralSettings();
+        return view('admin.pages.settings',compact('data'));
+    }
+
+    public function storeSettings(Request $request)
+    {
+        $request->validate([
+            'address' => 'required|min:6|max:100',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'facebook' => 'required',
+            'instagram' => 'required',
+            'twitter' => 'required',
+            'linkedin' => 'required',
+            'footer_content' => 'required',
+            'footer_content_ar' => 'required',
+            'image' => 'nullable|max:2048',
+            'title' => 'required', 
+            'ar_title' => 'required',
+            'sub_title' => 'required', 
+            'ar_sub_title' => 'required',
+            'heading' => 'required',
+            'ar_heading' => 'required',
+            'heading_sub' => 'required',
+            'heading_sub_ar' => 'required',
+            'header_link' => 'required',
+            'image_link' => 'required'
+        ],[
+            '*.required' => 'This field is required.'
+        ]);
+
+        $data = $request->all();
+        
+        unset($data['_token']);
+        $set = GeneralSettings::find(1);
+        $set->address = $request->address;
+        $set->email = $request->email;
+        $set->phone = $request->phone;
+        $set->facebook = $request->facebook;
+        $set->instagram = $request->instagram;
+        $set->twitter = $request->twitter;
+        $set->linkedin = $request->linkedin;
+        $set->footer_content = $request->footer_content;
+        $set->footer_content_ar = $request->footer_content_ar;
+
+        if ($request->hasFile('image')) {
+            $image = uploadImage($request, 'image', 'pages/settings');
+            deleteImage($set->header_image);
+            $set->header_image = $image;
+        }
+
+        $set->image_title = $request->title;
+        $set->image_title_ar = $request->ar_title;
+        $set->image_title_sub = $request->sub_title;
+        $set->image_title_sub_ar = $request->ar_sub_title;
+        $set->heading = $request->heading;
+        $set->heading_ar = $request->ar_heading;
+        $set->heading_sub = $request->heading_sub;
+        $set->heading_sub_ar = $request->heading_sub_ar;
+        $set->header_link = $request->header_link;
+        $set->image_link = $request->image_link;
+        $set->save();
+        
+        return redirect()->back()->with(['status' => "Details updated"]);
+    }
+
+    public function missionPage()
+    {
+        $data = Pages::with(['seo'])->where('page_name','mission')->first();
+      
+        return view('admin.pages.mission',compact('data'));
+    }
+
+    public function storeMissionPage(Request $request)
+    {
+        $request->validate([
+                        'title' => 'required',
+                        'ar_title' => 'required',
+                        'heading' => 'required',
+                        'ar_heading' => 'required',
+                        'content' => 'required',
+                        'ar_content' => 'required',
+                        'vision_heading' => 'required',
+                        'ar_vision_heading' => 'required',
+                        'vision_content' => 'required',
+                        'ar_vision_content' => 'required',
+                        'image1' => 'nullable|max:2048'
+                    ],[
+                        '*.required' => 'This field is required.',
+                        '*.max' => "Maximum file size to upload is 2MB."
+                    ]);
+        $data = [
+                'page_title'        => 'Mission & Vision',
+                'page_name'        => 'mission',
+                'title'             => $request->title,
+                'content1'          => $request->content,
+                'heading1'          => $request->heading,
+                'content2'          => $request->vision_content,
+                'heading2'          => $request->vision_heading,
+
+                'ar_title'             => $request->ar_title,
+                'ar_content1'          => $request->ar_content,
+                'ar_heading1'          => $request->ar_heading,
+                'ar_content2'          => $request->ar_vision_content,
+                'ar_heading2'          => $request->ar_vision_heading,
+                
+                'seotitle'             => $request->seotitle,
+                'ogtitle'              => $request->ogtitle,
+                'twtitle'              => $request->twtitle,
+                'seodescription'       => $request->seodescription, 
+                'og_description'       => $request->og_description,
+                'twitter_description'  => $request->twitter_description,
+                'seokeywords'          => $request->seokeywords,
+        ];
+
+        $pageData = Pages::where('page_name','mission')->first();
+        if ($request->hasFile('image1')) {
+            $image = uploadImage($request, 'image1', 'pages/mission');
+            deleteImage($pageData->image1);
+            $data['image1'] = $image;
+        }
+       
+        $this->savePageSettings($data);
+        return redirect()->back()->with([
+            'status' => "Page details updated"
+        ]);
+    }
+
+    public function messagePage()
+    {
+        $data = Pages::with(['seo'])->where('page_name','message')->first();
+      
+        return view('admin.pages.message',compact('data'));
+    }
+
+    public function storeMessagePage(Request $request)
+    {
+        $request->validate([
+                        'title' => 'required',
+                        'ar_title' => 'required',
+                        'heading' => 'required',
+                        'ar_heading' => 'required',
+                        'content' => 'required',
+                        'ar_content' => 'required',
+                        'image1' => 'nullable|max:2048',
+                        'image2' => 'nullable|max:2048'
+                    ],[
+                        '*.required' => 'This field is required.',
+                        '*.max' => "Maximum file size to upload is 2MB."
+                    ]);
+        $data = [
+                'page_title'        => 'Chairmans Message',
+                'page_name'        => 'message',
+                'title'             => $request->title,
+                'content1'          => $request->content,
+                'heading1'          => $request->heading,
+
+                'ar_title'             => $request->ar_title,
+                'ar_content1'          => $request->ar_content,
+                'ar_heading1'          => $request->ar_heading,
+                
+                'seotitle'             => $request->seotitle,
+                'ogtitle'              => $request->ogtitle,
+                'twtitle'              => $request->twtitle,
+                'seodescription'       => $request->seodescription, 
+                'og_description'       => $request->og_description,
+                'twitter_description'  => $request->twitter_description,
+                'seokeywords'          => $request->seokeywords,
+        ];
+
+        $pageData = Pages::where('page_name','message')->first();
+        if ($request->hasFile('image1')) {
+            $image = uploadImage($request, 'image1', 'pages/message');
+            deleteImage($pageData->image1);
+            $data['image1'] = $image;
+        }
+        if ($request->hasFile('image2')) {
+            $image = uploadImage($request, 'image2', 'pages/message');
+            deleteImage($pageData->image2);
+            $data['image2'] = $image;
+        }
+       
+        $this->savePageSettings($data);
+        return redirect()->back()->with([
+            'status' => "Page details updated"
+        ]);
+    }
+
+    public function contactPage()
+    {
+        $data = Pages::with(['seo'])->where('page_name','contact')->first();
+      
+        return view('admin.pages.contact',compact('data'));
+    }
+
+    public function storeContactPage(Request $request)
+    {
+        $request->validate([
+                        'title' => 'required',
+                        'ar_title' => 'required',
+                        'heading' => 'required',
+                        'ar_heading' => 'required',
+                        'info_heading' => 'required',
+                        'ar_info_heading' => 'required',
+                        'image1' => 'nullable|max:2048'
+                    ],[
+                        '*.required' => 'This field is required.',
+                        '*.max' => "Maximum file size to upload is 2MB."
+                    ]);
+        $data = [
+                'page_title'        => 'Contact Us',
+                'page_name'        => 'contact',
+                'title'             => $request->title,
+                'heading1'          => $request->heading,
+                'heading2'          => $request->info_heading,
+
+                'ar_title'             => $request->ar_title,
+                'ar_heading1'          => $request->ar_heading,
+                'ar_heading2'          => $request->ar_info_heading,
+                
+                'seotitle'             => $request->seotitle,
+                'ogtitle'              => $request->ogtitle,
+                'twtitle'              => $request->twtitle,
+                'seodescription'       => $request->seodescription, 
+                'og_description'       => $request->og_description,
+                'twitter_description'  => $request->twitter_description,
+                'seokeywords'          => $request->seokeywords,
+        ];
+
+        $pageData = Pages::where('page_name','contact')->first();
+        if ($request->hasFile('image1')) {
+            $image = uploadImage($request, 'image1', 'pages/message');
+            deleteImage($pageData->image1);
+            $data['image1'] = $image;
+        }
+       
         $this->savePageSettings($data);
         return redirect()->back()->with([
             'status' => "Page details updated"
