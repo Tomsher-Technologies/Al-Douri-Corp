@@ -58,7 +58,8 @@ class FrontendController extends Controller
     public function news()
     {
         $blogs  = Blog::whereStatus(1)->get();
-        return view('frontend.news', compact('blogs'));
+        $page = Pages::with(['seo'])->where('page_name','news')->first();
+        return view('frontend.news', compact('blogs','page'));
     }
 
     public function news_details(Request $request)
@@ -71,8 +72,8 @@ class FrontendController extends Controller
 
         $next_post = Blog::where('id', '>', $blog->id)->orderBy('id', 'asc')->first();;
         $previous_post = Blog::where('id', '<', $blog->id)->orderBy('id', 'desc')->first();
-
-        return view('frontend.news_details', compact('blog', 'latest_news', 'previous_post', 'next_post'));
+        $page = Pages::with(['seo'])->where('page_name','news')->first();
+        return view('frontend.news_details', compact('blog', 'latest_news', 'previous_post', 'next_post','page'));
     }
 
     public function chairmansMessage()
