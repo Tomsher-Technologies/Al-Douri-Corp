@@ -47,7 +47,7 @@
                              </a>
                              <div class="dropdown-menu">
                                  <div class="container">
-                                     <div class="row g-0 g-lg-4">
+                                     <div class="row g-0 g-lg-2">
                                          <div class="col-lg-3">
                                              <ul class="dropdown-menu-list list-unstyled mb-0 py-3">
                                                  <li>
@@ -132,14 +132,14 @@
                              </div>
                          </li>
 
-                         <li class="nav-item dropdown dropdown-hover dropdown-mega-full">
+                         <li class="nav-item dropdown dropdown-hover dropdown-mega-full ">
                              <a class="nav-link dropdown-toggle" data-key="t-catalog" href="#" role="button"
                                  data-bs-toggle="dropdown" aria-expanded="false">
                                  {{ __('Products') }}
                              </a>
-                             <div class="dropdown-menu">
-                                 <div class="container">
-                                     <div class="row g-0 g-lg-4">
+                             <div  id="products" class="dropdown-menu">
+                                 <div class="container pro-cc">
+                                     <div class="row g-0 g-lg-2">
                                          @foreach (menuCategory(0) as $category)
                                              <div class="col-lg-3 d-none d-lg-block">
                                                  <div class="card border-0 h-100 mb-0 overflow-hidden"
