@@ -4,12 +4,12 @@
     <div class="vlt-page-content">
         <!--Page title-->
         <div class="vlt-page-title vlt-page-title--style-3 jarallax"><img class="jarallax-img"
-                src="{{ asset('assets/img/banner03.webp') }}" alt="" loading="lazy">
+                src="{{ asset($page->getImage1('image1')) }}" alt="" loading="lazy">
             <div class="vlt-page-title__overlay"></div><a class="vlt-page-title__scroll-to vlt-scroll-to" href="#content"><i
                     class="fa fa-arrow-down"></i></a>
             <div class="container">
                 <h1 class="vlt-page-title__title lax" data-lax-translate-y="0 0, vh (vw*0.25)"
-                    data-lax-opacity="1 1, (vh*0.5) 0" data-lax-anchor=".vlt-page-title">Contact
+                    data-lax-opacity="1 1, (vh*0.5) 0" data-lax-anchor=".vlt-page-title">{{ $page->getTranslation('title') }}
                 </h1>
             </div>
         </div>
@@ -22,7 +22,7 @@
                     <div class="col-lg-12">
                         <!--Animated block-->
                         <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
-                            <h2>Get in Touch</h2>
+                            <h2>{!! $page->getTranslation('heading1') !!}</h2>
                         </div>
                         <div class="vlt-gap-60"></div>
                     </div>
@@ -40,12 +40,16 @@
                                 <div class="col-lg-12 col-md-6">
                                     <!--Animated block-->
                                     <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
-                                        <h5>{{ __('General Info') }}</h5>
+                                        <h5>{!! $page->getTranslation('heading2') !!}</h5>
+                                        @php  
+                                            $general = getSettings();
+                                         @endphp
                                         <div class="vlt-gap-20"></div>
-                                        <p class="lh-2">Al Douri Group <br>2 56 Street - Dubai Investments Park -
-                                            Dubai <br>
-                                            +971 6 534 8833
-                                            <br>info@aldouri.com
+                                        <p class="lh-2">
+                                            {{ $general->address }}
+                                        <br>
+                                        {{ $general->phone }}
+                                            <br>{{ $general->email }}
                                         </p>
                                     </div>
 
@@ -60,13 +64,13 @@
                                     <div class="vlt-animated-block" data-aos="fade" data-aos-delay="400">
                                         <div class="has-black-color">
 
-                                            <a class="vlt-social-icon vlt-social-icon--style-1" href="#"> <i
+                                            <a class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="{{ $general->facebook }}"> <i
                                                     class="fa-brands fa-facebook"></i></a><a
-                                                class="vlt-social-icon vlt-social-icon--style-1" href="#"><i
+                                                class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="{{ $general->twitter }}"><i
                                                     class="fa-brands fa-twitter"></i></a><a
-                                                class="vlt-social-icon vlt-social-icon--style-1" href="#"><i
+                                                class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="{{ $general->instagram }}"><i
                                                     class="fa-brands fa-instagram"></i></a><a
-                                                class="vlt-social-icon vlt-social-icon--style-1" href="#"><i
+                                                class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="{{ $general->linkedin }}"><i
                                                     class="fa-brands fa-linkedin"></i></a>
 
                                         </div>

@@ -26,18 +26,27 @@
                 our food</li>
             </ul> -->
                     <!--Slider controls-->
+                    @php  
+                        $general = getSettings();
+                    @endphp
                     <div class="vlt-slider-controls vlt-slider-controls--style-1 vlt-homepage-12-anchor has-white-color">
                         <div class="vlt-swiper-button-prev">{{ __('Prev') }}</div>
                         <span class="sep">|</span>
                         <div class="vlt-swiper-button-next">{{ __('Next') }}</div>
                     </div>
                     <div class="vlt-project-showcase__socials has-white-color">
-                        <a class="vlt-social-icon vlt-social-icon--style-1" href="#">
-                            <i class="fa-brands fa-facebook"></i></a><a class="vlt-social-icon vlt-social-icon--style-1"
-                            href="#"><i class="fa-brands fa-twitter"></i></a><a
-                            class="vlt-social-icon vlt-social-icon--style-1" href="#"><i
-                                class="fa-brands fa-instagram"></i></a><a class="vlt-social-icon vlt-social-icon--style-1"
-                            href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        <a class="vlt-social-icon vlt-social-icon--style-1"  target="_blank" href="{{ $general->facebook }}">
+                            <i class="fa-brands fa-facebook"></i>
+                        </a>
+                        <a class="vlt-social-icon vlt-social-icon--style-1"
+                        target="_blank" href="{{ $general->twitter }}"><i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a  class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="{{ $general->instagram }}"><i
+                                class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a class="vlt-social-icon vlt-social-icon--style-1"  target="_blank"
+                            href="{{ $general->linkedin }}"><i class="fa-brands fa-linkedin"></i>
+                        </a>
                     </div>
                 </div>
                 <div class="swiper-container">

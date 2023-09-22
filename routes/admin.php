@@ -25,6 +25,9 @@ Route::group(['prefix' => env('ADMIN_PREFIX', 'admin'), 'as' => 'admin.'], funct
 
         Route::get('/search', [DashboardController::class, 'search'])->name('search');
 
+        Route::get('/settings', [PagesController::class, 'generalSettings'])->name('settings');
+        Route::post('/store-settings', [PagesController::class, 'storeSettings'])->name('store-settings');
+
         // Logged-in user profile
         Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
             Route::get('/profile', function () {
@@ -64,7 +67,15 @@ Route::group(['prefix' => env('ADMIN_PREFIX', 'admin'), 'as' => 'admin.'], funct
 
             Route::get('/about', [PagesController::class, 'aboutPage'])->name('about');
             Route::post('/store-about', [PagesController::class, 'storeAboutPage'])->name('store-about');
+
+            Route::get('/mission', [PagesController::class, 'missionPage'])->name('mission');
+            Route::post('/store-mission', [PagesController::class, 'storeMissionPage'])->name('store-mission');
+
+            Route::get('/message', [PagesController::class, 'messagePage'])->name('message');
+            Route::post('/store-message', [PagesController::class, 'storeMessagePage'])->name('store-message');
            
+            Route::get('/contact', [PagesController::class, 'contactPage'])->name('contact');
+            Route::post('/store-contact', [PagesController::class, 'storeContactPage'])->name('store-contact');
         });
 
     });

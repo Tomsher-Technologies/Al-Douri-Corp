@@ -3,6 +3,7 @@
 use App\Models\Division;
 use App\Models\Brand;
 use App\Models\Blog;
+use App\Models\GeneralSettings;
 use App\Models\Product\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
@@ -121,4 +122,13 @@ function getActiveLanguage()
         return Session::get('locale');
     }
     return 'en';
+}
+
+function getGeneralSettings(){
+    return GeneralSettings::firstOrFail()->toArray();
+}
+
+function getSettings(){
+    $sett =  GeneralSettings::firstOrFail()->first();
+    return $sett;
 }

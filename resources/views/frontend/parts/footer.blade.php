@@ -8,12 +8,13 @@
                          <div class="background-cta">
                              <div class="row align-items-center">
                                  <!-- cta-left -->
+                                 @php  
+                                    $general = getSettings();
+                                @endphp
                                  <div class="col-lg-6">
                                      <div class="cta-left-wrapepr">
                                          <h3 class="title animated fadeIn">
-                                             Planning to something?
-                                             <br />
-                                             Let's discuss.
+                                         {{ $general->getTranslation('footer_content') }}
                                          </h3>
                                      </div>
                                  </div>
@@ -28,7 +29,7 @@
                                  <div class="col-lg-3 m-auto">
                                      <!-- cta right -->
 
-                                     <a class="vlt-btn vlt-btn--primary vlt-btn--md" href="#" target="_self">
+                                     <a class="vlt-btn vlt-btn--primary vlt-btn--md" href="{{ route('contact_us') }}" target="_self">
                                          {{ __('Get in touch') }}
                                      </a>
 
