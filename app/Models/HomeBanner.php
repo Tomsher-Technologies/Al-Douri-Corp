@@ -26,7 +26,7 @@ class HomeBanner extends Model
 
     public function getImage()
     {
-        return $this->img ? URL::to($this->img) : asset('img/placeholder.png');
+        return $this->img ? URL::to($this->img) : asset('adminassets/img/placeholder.png');
     }
 
     public function getTranslation($field = '', $lang = false)

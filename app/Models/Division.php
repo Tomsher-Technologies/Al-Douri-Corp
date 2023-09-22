@@ -38,6 +38,6 @@ class Division extends Model
 
     public function getImage($field)
     {
-        return $this->$field ? URL::to($this->$field) : asset('img/placeholder.png');
+        return $this->$field ? URL::to($this->$field) : asset('adminassets/img/placeholder.png');
     }
 }
