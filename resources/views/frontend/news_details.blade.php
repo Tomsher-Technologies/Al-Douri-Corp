@@ -3,7 +3,7 @@
     <!--Section-->
     <section>
         <div class="vlt-post-media-title vlt-post-media-title--style-2 jarallax"><img class="jarallax-img"
-                src="{{ asset('assets/img/Support.jpg') }}" alt="" loading="lazy">
+                src="{{ asset($page->getImage1('image1')) }}" alt="" loading="lazy">
             <div class="vlt-post-media-title__overlay"></div>
             <div class="container">
                 <div class="row">

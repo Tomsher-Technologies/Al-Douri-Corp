@@ -69,7 +69,7 @@
                                             <article class="vlt-work vlt-work--style-3">
                                                 <div class="vlt-work__media">
                                                     <a class="vlt-work__link has-cursor" href="#"></a>
-                                                    <img src="{{ $product->getImage('image') }}" alt="" loading="lazy">
+                                                    <img src="{{ $product->getImage('en') }}" alt="" loading="lazy">
                                                 </div>
                                             </article>
                                         </div>
@@ -118,6 +118,8 @@
             </div>
         </section> --}}
     </div>
-
-    <!-- @include('frontend.parts.mobile-section') -->
+    @php  
+        $general = getSettings();
+    @endphp
+    @include('frontend.parts.mobile-section')
 @endsection

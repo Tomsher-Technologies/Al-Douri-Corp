@@ -43,7 +43,7 @@
             <div class="vlt-gap-50"></div>
         </section>
         <!--Section-->
-        <section class="jarallax"><img class="jarallax-img" src="{{ asset($page->getImage1('image2')) }}" alt=""
+        <section class="jarallax"><img class="jarallax-img" src="{{ asset($page->getImage2('image2')) }}" alt=""
                 loading="lazy">
             <div class="vlt-gap-120"></div>
             <div class="container">

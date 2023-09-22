@@ -17,7 +17,7 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        $products = Product::paginate(10);
         return view('admin.products.product.index', compact('products'));
     }
 
@@ -41,6 +41,11 @@ class ProductController extends Controller
                 File::image()
                     ->max(2 * 1024)
             ],
+            'ar_image' => [
+                'required',
+                File::image()
+                    ->max(2 * 1024)
+            ],
             'title' => 'required',
             'product_category_id' => 'required',
             'status' => 'required',
@@ -49,6 +54,8 @@ class ProductController extends Controller
         $product = Product::create($request->all());
 
         $image = uploadImage($request, 'image', 'product');
+        $ar_image = uploadImage($request, 'ar_image', 'product');
+        $product->ar_image = $ar_image;
         $product->image = $image;
         $product->save();
 
@@ -84,12 +91,24 @@ class ProductController extends Controller
                 File::image()
                     ->max(2 * 1024)
             ],
+            'ar_image' => [
+                'nullable',
+                File::image()
+                    ->max(2 * 1024)
+            ],
             'title' => 'required',
             'product_category_id' => 'required',
             'status' => 'required',
         ]);
 
         $product->update($request->all());
+
+        if ($request->hasFile('ar_image')) {
+            $ar_image = uploadImage($request, 'ar_image', 'product');
+            deleteImage($product->ar_image);
+            $product->ar_image = $ar_image;
+            $product->save();
+        }
 
         if ($request->hasFile('image')) {
             $image = uploadImage($request, 'image', 'product');

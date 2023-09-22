@@ -429,6 +429,8 @@ class PagesController extends Controller
             'address' => 'required|min:6|max:100',
             'email' => 'required|email',
             'phone' => 'required',
+            'play_store' => 'required',
+            'app_store' => 'required',
             'facebook' => 'required',
             'instagram' => 'required',
             'twitter' => 'required',
@@ -457,6 +459,8 @@ class PagesController extends Controller
         $set->address = $request->address;
         $set->email = $request->email;
         $set->phone = $request->phone;
+        $set->play_store = $request->play_store;
+        $set->app_store = $request->app_store;
         $set->facebook = $request->facebook;
         $set->instagram = $request->instagram;
         $set->twitter = $request->twitter;
@@ -743,5 +747,49 @@ class PagesController extends Controller
         }
 
         return redirect()->back()->with(['status' => "Page details updated"]);
+    }
+
+    public function newsPage()
+    {
+        $data = Pages::with(['seo'])->where('page_name','news')->first();
+      
+        return view('admin.pages.news',compact('data'));
+    }
+
+    public function storeNewsPage(Request $request)
+    {
+        $request->validate([
+                        'title' => 'required',
+                        'ar_title' => 'required',
+                        'image1' => 'nullable|max:2048'
+                    ],[
+                        '*.required' => 'This field is required.',
+                        '*.max' => "Maximum file size to upload is 2MB."
+                    ]);
+        $data = [
+                'page_title'        => 'News',
+                'page_name'        => 'news',
+                'title'             => $request->title,
+                'ar_title'             => $request->ar_title,
+                'seotitle'             => $request->seotitle,
+                'ogtitle'              => $request->ogtitle,
+                'twtitle'              => $request->twtitle,
+                'seodescription'       => $request->seodescription, 
+                'og_description'       => $request->og_description,
+                'twitter_description'  => $request->twitter_description,
+                'seokeywords'          => $request->seokeywords,
+        ];
+
+        $pageData = Pages::where('page_name','news')->first();
+        if ($request->hasFile('image1')) {
+            $image = uploadImage($request, 'image1', 'pages/message');
+            deleteImage($pageData->image1);
+            $data['image1'] = $image;
+        }
+       
+        $this->savePageSettings($data);
+        return redirect()->back()->with([
+            'status' => "Page details updated"
+        ]);
     }
 }

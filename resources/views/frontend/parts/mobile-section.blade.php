@@ -64,9 +64,14 @@
                                              <!--Button--><a class="vlt-btn vlt-btn--primary vlt-btn--md" href="#"
                                                  target="_self">{!! $page->getTranslation('button_text_2') !!}</a>
 
-                                             <a class="app-download-image" href="#" target="_self">
-                                                 <img src="{{ asset('assets/img/app.png') }}" alt=""
-                                                     loading="lazy" /></a>
+                                             <a class="app-download-image" href="{{ $general->play_store }}" target="_blank">
+                                                 <img src="{{ asset('assets/img/store_play.png') }}" alt=""
+                                                     loading="lazy" />
+                                            </a>
+                                            <a class="app-download-image" href="{{ $general->app_store }}" target="_blank">
+                                                 <img src="{{ asset('assets/img/store_app.png') }}" alt=""
+                                                     loading="lazy" />
+                                            </a>
                                          </div>
                                      </div>
                                  </div>

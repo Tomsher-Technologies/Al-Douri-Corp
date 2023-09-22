@@ -22,10 +22,10 @@
         </a>
 
         <div class="search" data-search-path="{{ route('admin.search') }}?q=">
-            <input name="q" value="{{ request()->q }}" placeholder="Search...">
+            <!-- <input name="q" value="{{ request()->q }}" placeholder="Search...">
             <span class="search-icon">
                 <i class="simple-icon-magnifier"></i>
-            </span>
+            </span> -->
         </div>
     </div>
 
@@ -38,11 +38,11 @@
     <div class="navbar-right">
         <div class="header-icons d-inline-block align-middle">
             <div class="d-none d-md-inline-block align-text-bottom mr-3">
-                <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1" data-container="html"
+                <!-- <div class="custom-switch custom-switch-primary-inverse custom-switch-small pl-1" data-container="html"
                     data-toggle="tooltip" data-placement="left" title="Dark Mode">
                     <input class="custom-switch-input" id="switchDark" type="checkbox" checked>
                     <label class="custom-switch-btn" for="switchDark"></label>
-                </div>
+                </div> -->
             </div>
 
             <button class="header-icon btn btn-empty d-none d-sm-inline-block" type="button" id="fullScreenButton">

@@ -4,12 +4,14 @@
     <div class="vlt-page-content">
         <!--Page title-->
         <div class="vlt-page-title vlt-page-title--style-3 jarallax"><img class="jarallax-img"
-                src="{{ asset('assets/img/banner01.webp') }}" alt="" loading="lazy">
-            <div class="vlt-page-title__overlay"></div><a class="vlt-page-title__scroll-to vlt-scroll-to" href="#content"><i
-                    class="fa fa-arrow-down"></i></a>
+                src="{{ asset($page->getImage1('image1')) }}" alt="" loading="lazy">
+            <div class="vlt-page-title__overlay"></div>
+            <a class="vlt-page-title__scroll-to vlt-scroll-to" href="#content">
+                <i class="fa fa-arrow-down"></i>
+            </a>
             <div class="container">
                 <h1 class="vlt-page-title__title lax" data-lax-translate-y="0 0, vh (vw*0.25)"
-                    data-lax-opacity="1 1, (vh*0.5) 0" data-lax-anchor=".vlt-page-title">News
+                    data-lax-opacity="1 1, (vh*0.5) 0" data-lax-anchor=".vlt-page-title">{{ $page->getTranslation('title') }}
                 </h1>
             </div>
         </div>

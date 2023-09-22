@@ -74,6 +74,9 @@
                 <div class="vlt-gap-120"></div>
             </section>
         </div>
+        @php  
+            $general = getSettings();
+        @endphp
 
         @include('frontend.parts.mobile-section')
     </div>

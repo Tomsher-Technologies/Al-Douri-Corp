@@ -32,8 +32,13 @@ class Product extends Model
         return $this->hasMany(ProductTranslation::class);
     }
 
-    public function getImage($field)
+    public function getImage($lang = false)
     {
+        $lang = $lang == false ? getActiveLanguage() : $lang;
+        $field = 'image';
+        if ($lang !== 'en') {
+            $field = 'ar_'.$field;
+        }
         return $this->$field ? URL::to($this->$field) : asset('adminassets/img/placeholder.png');
     }
 }
