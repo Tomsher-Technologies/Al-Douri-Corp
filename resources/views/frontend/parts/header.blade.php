@@ -232,7 +232,7 @@
                      <div class="dropdown header-item dropdown-hover-end">
                          <ul class="list-unstyled hstack gap-2 mb-0">
                              <li class="d-none d-md-block">
-                                 <a href="#" class="vlt-btn-nav">{{ __('AL DOURI ONLINE') }}</a>
+                                 <a href="https://aldouri.online/" class="vlt-btn-nav" target="_blank">{{ __('AL DOURI ONLINE') }}</a>
                              </li>
 
                              <li class="d-none d-md-block">
