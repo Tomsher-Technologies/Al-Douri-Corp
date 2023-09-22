@@ -10,6 +10,7 @@ use App\Models\Pages;
 use App\Models\PageTranslations;
 use App\Models\PageSeos;
 use App\Models\HomeBanner;
+use App\Models\Careers;
 use App\Models\HeritageLists;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -117,8 +118,9 @@ class FrontendController extends Controller
 
     public function career()
     {
-     
-        return view('frontend.career');
+        $careers = Careers::where('status',1)->orderBy('id','DESC')->get();
+        
+        return view('frontend.career',compact('careers'));
     }
 
     public function careerDetails()

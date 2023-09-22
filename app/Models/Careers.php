@@ -12,4 +12,15 @@ class Careers extends Model
     protected $fillable = [
         'type','title', 'ar_title', 'description', 'ar_description', 'slug', 'last_date', 'status'
     ];
+
+    public function getTranslation($field = '', $lang = false)
+    {
+        $lang = $lang == false ? getActiveLanguage() : $lang;
+
+        if ($lang !== 'en') {
+            $field = 'ar_' . $field;
+        }
+
+        return $this->$field;
+    }
 }

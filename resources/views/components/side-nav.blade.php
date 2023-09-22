@@ -43,6 +43,12 @@
                         <i class="iconsminds-newspaper"></i>News
                     </a>
                 </li>
+                <li class="{{ request()->routeIs('admin.careers*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.careers.index') }}">
+                        <i class="iconsminds-newspaper"></i>Career
+                    </a>
+                </li>
+
                 @if (auth()->user()->can('manage-settings'))
                     <li class="{{ request()->routeIs('admin.settings') ? 'active' : '' }}">
                         <a href="{{ route('admin.settings') }}">
