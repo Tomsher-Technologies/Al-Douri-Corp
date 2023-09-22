@@ -39,7 +39,8 @@ class FrontendController extends Controller
     public function our_heritage()
     {
         $page = Pages::with(['seo'])->where('page_name','heritage')->first();
-        $heritageLists = HeritageLists::all();
+        $heritageLists = HeritageLists::orderBy('id','ASC')->get();
+      
         return view('frontend.our_heritage',compact('page','heritageLists'));
     }
 
