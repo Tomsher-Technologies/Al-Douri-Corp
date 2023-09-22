@@ -54,6 +54,19 @@
                                 <x-input-error name='image' />
                             </div>
 
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Arabic Image</label>
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <input name="ar_image" class="img" type="file" class="custom-file-input"
+                                            id="inputGroupFile2" accept="image/*">
+                                        <label class="custom-file-label" for="inputGroupFile2">Choose
+                                            file</label>
+                                    </div>
+                                </div>
+                                <x-input-error name='ar_image' />
+                            </div>
+
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Status</label>

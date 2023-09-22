@@ -35,9 +35,9 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($products as $product)
+                                    @foreach ($products as $key => $product)
                                         <tr>
-                                            <th scope="row">{{ $loop->iteration }}</th>
+                                            <th scope="row">{{ $key + 1 + ($products->currentPage() - 1) * $products->perPage() }}</th>
                                             <td>{{ $product->title }}</td>
                                             <td>{{ $product->status == 1 ? 'Enabled' : 'Disabled' }}</td>
                                             <td>
@@ -48,6 +48,9 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            <div class="pagination">
+                                {{ $products->appends(request()->input())->links('pagination::bootstrap-4') }}
+                            </div>
                         </div>
                     </div>
                 </div>

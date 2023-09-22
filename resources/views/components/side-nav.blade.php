@@ -11,18 +11,18 @@
 
                 <li class="{{ request()->routeIs('admin.category*') ? 'active' : '' }}">
                     <a href="{{ route('admin.category.index') }}">
-                        <i class="simple-icon-picture"></i> Categories
+                        <i class="simple-icon-layers"></i> Categories
                     </a>
                 </li>
 
                 <li class="{{ request()->routeIs('admin.products*') ? 'active' : '' }}">
                     <a href="{{ route('admin.products.index') }}">
-                        <i class="simple-icon-picture"></i> Products
+                        <i class="simple-icon-basket"></i> Products
                     </a>
                 </li>
                 <li class="{{ request()->routeIs('admin.divisions*') ? 'active' : '' }}">
                     <a href="{{ route('admin.divisions.index') }}">
-                        <i class="simple-icon-picture"></i> Divisions
+                        <i class="simple-icon-grid"></i> Divisions
                     </a>
                 </li>
 
@@ -46,14 +46,14 @@
                 @if (auth()->user()->can('manage-settings'))
                     <li class="{{ request()->routeIs('admin.settings') ? 'active' : '' }}">
                         <a href="{{ route('admin.settings') }}">
-                            <i class="simple-icon-notebook"></i> General Settings
+                            <i class="simple-icon-wrench"></i> General Settings
                         </a>
                     </li>
                 @endif
                 @if (auth()->user()->can('manage-settings'))
                     <li class="{{ request()->routeIs('admin.page*') ? 'active' : '' }}">
                         <a href="#pages">
-                            <i class="simple-icon-notebook"></i> Page Settings
+                            <i class="simple-icon-settings"></i> Page Settings
                         </a>
                     </li>
                 @endif
@@ -76,37 +76,37 @@
             <ul class="list-unstyled" data-link="pages">
                 <li class="{{ (request()->routeIs('admin.page.about') ) ? 'active' : '' }}">
                     <a href="{{ route('admin.page.about') }}">
-                        <i class="simple-icon-doc"></i> <span class="d-inline-block">ABOUT US</span>
+                        <i class="simple-icon-doc"></i> <span class="d-inline-block">About Us</span>
                     </a>
                 </li>
 
                 <li class="{{ (request()->routeIs('admin.page.message') ) ? 'active' : '' }}">
                     <a href="{{ route('admin.page.message') }}">
-                        <i class="simple-icon-doc"></i> <span class="d-inline-block">CHAIRMAN'S MESSAGE</span>
+                        <i class="simple-icon-doc"></i> <span class="d-inline-block">Chairman's Message</span>
                     </a>
                 </li>
 
                 <li class="{{ (request()->routeIs('admin.page.contact') ) ? 'active' : '' }}">
                     <a href="{{ route('admin.page.contact') }}">
-                        <i class="simple-icon-doc"></i> <span class="d-inline-block">CONTACT US</span>
+                        <i class="simple-icon-doc"></i> <span class="d-inline-block">Contact Us</span>
                     </a>
                 </li>
 
                 <li class="{{ (request()->routeIs('admin.page.home') ) ? 'active' : '' }}">
                     <a href="{{ route('admin.page.home') }}">
-                        <i class="simple-icon-doc"></i> <span class="d-inline-block">HOME</span>
+                        <i class="simple-icon-doc"></i> <span class="d-inline-block">Home</span>
                     </a>
                 </li>
 
                 <li class="{{ (request()->routeIs('admin.page.mission') ) ? 'active' : '' }}">
                     <a href="{{ route('admin.page.mission') }}">
-                        <i class="simple-icon-doc"></i> <span class="d-inline-block">MISSION & VISION</span>
+                        <i class="simple-icon-doc"></i> <span class="d-inline-block">Mission & Vision</span>
                     </a>
                 </li>
 
                 <li class="{{ (request()->routeIs('admin.page.heritage') ) ? 'active' : '' }}">
                     <a href="{{ route('admin.page.heritage') }}">
-                        <i class="simple-icon-doc"></i> <span class="d-inline-block">OUR HERITAGE</span>
+                        <i class="simple-icon-doc"></i> <span class="d-inline-block">Our Heritage</span>
                     </a>
                 </li>
 

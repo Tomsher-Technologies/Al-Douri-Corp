@@ -375,7 +375,7 @@
                         <div class="row d-flex justify-content-center align-items-center">
                             <div class="col-auto">
                                 <!--Slider controls-->
-                                <div class="vlt-slider-controls vlt-slider-controls--style-1 vlt-work-carousel-grid">
+                                <!-- <div class="vlt-slider-controls vlt-slider-controls--style-1 vlt-work-carousel-grid">
                                     <div class="vlt-swiper-button-prev">
                                     {{ __('Prev') }}
                                     </div>
@@ -383,7 +383,7 @@
                                     <div class="vlt-swiper-button-next">
                                     {{ __('Next') }}
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                         <div class="vlt-gap-50"></div>

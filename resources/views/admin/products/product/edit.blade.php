@@ -31,7 +31,7 @@
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Category</label>
-                                <select name="product_category_id" class="form-control select2-single mb-3" required>
+                                <select name="product_category_id" id="product_category_id" class="form-control select2-single mb-3" required>
                                     @foreach ($categories as $category)
                                         <option @checked($category->id == $product->product_category_id) value="{{ $category->id }}">
                                             {{ $category->title }}</option>
@@ -42,7 +42,7 @@
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Current Image</label>
-                                <img class="w-100" src="{{ $product->getImage('image') }}" alt="">
+                                <img class="w-100" src="{{ $product->getImage('en') }}" alt="">
                             </div>
 
                             <div class="form-group">
@@ -56,6 +56,24 @@
                                     </div>
                                 </div>
                                 <x-input-error name='image' />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Arabic Image</label>
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <input name="ar_image" class="img" type="file" class="custom-file-input"
+                                            id="inputGroupFile2" accept="image/*">
+                                        <label class="custom-file-label" for="inputGroupFile2">Choose
+                                            file</label>
+                                    </div>
+                                </div>
+                                <x-input-error name='ar_image' />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Current Arabic Image</label>
+                                <img class="w-100" src="{{ $product->getImage('ar') }}" alt="">
                             </div>
 
                             <div class="form-group">
@@ -102,6 +120,7 @@
     <script src="{{ adminAsset('js/vendor/select2.full.js') }}"></script>
 
     <script>
+        $('#product_category_id').val('{{ $product->product_category_id }}').trigger('change');
         $('.img').on('change', function() {
             var text = 'Choose file';
 
