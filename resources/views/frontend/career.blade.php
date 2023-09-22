@@ -21,9 +21,6 @@
         <div class="vlt-gap-50"></div>
         <div class="container">
             <div class="row">
-
-
-
                 <div class="col-md-10 offset-md-1">
 
                     <div class="text-center">
@@ -37,69 +34,22 @@
                     </div>
                     <div class="vlt-gap-100"></div>
 
-
-
-
-
-
-
-
-                    <!--Animated block-->
-                    <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
-                        <!--Wanted position-->
-                        <div class="vlt-wanted-position"><a class="vlt-wanted-position__link" href="{{ route('career-details') }}"></a>
-
-                            <div class="vlt-wanted-position__position">Back-End Developer
+                    @if($careers)
+                        @foreach($careers as $cr)
+                        <!--Animated block-->
+                        <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
+                            <!--Wanted position-->
+                            <div class="vlt-wanted-position"><a class="vlt-wanted-position__link" href="{{ route('career-details') }}"></a>
+                                <div class="vlt-wanted-position__position">{{ $cr->getTranslation('title') }}
+                                </div>
+                                <div class="vlt-wanted-position__time">{{ ($cr->type == 'full') ? 'Full Time' : 'Part Time' }}
+                                </div>
+                                <div class="vlt-wanted-position__icon"><i class="fa fa-arrow-right"></i></div>
                             </div>
-
-
-
-                            <div class="vlt-wanted-position__time">Full-time
-                            </div>
-                            <div class="vlt-wanted-position__icon"><i class="fa fa-arrow-right"></i></div>
                         </div>
-                    </div>
+                        @endforeach
+                    @endif
 
-
-
-
-
-                    <!--Animated block-->
-                    <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
-                        <!--Wanted position-->
-                        <div class="vlt-wanted-position"><a class="vlt-wanted-position__link" href="#"></a>
-
-                            <div class="vlt-wanted-position__position">UX Designer
-                            </div>
-                            <div class="vlt-wanted-position__time">Full-time
-                            </div>
-                            <div class="vlt-wanted-position__icon"><i class="fa fa-arrow-right"></i></div>
-                        </div>
-                    </div>
-                    <!--Animated block-->
-                    <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
-                        <!--Wanted position-->
-                        <div class="vlt-wanted-position"><a class="vlt-wanted-position__link" href="#"></a>
-
-                            <div class="vlt-wanted-position__position">Software Developer
-                            </div>
-                            <div class="vlt-wanted-position__time">Full-time
-                            </div>
-                            <div class="vlt-wanted-position__icon"><i class="fa fa-arrow-right"></i></div>
-                        </div>
-                    </div>
-                    <!--Animated block-->
-                    <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
-                        <!--Wanted position-->
-                        <div class="vlt-wanted-position"><a class="vlt-wanted-position__link" href="#"></a>
-
-                            <div class="vlt-wanted-position__position">Senior Manager
-                            </div>
-                            <div class="vlt-wanted-position__time">Full-time
-                            </div>
-                            <div class="vlt-wanted-position__icon"><i class="fa fa-arrow-right"></i></div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
