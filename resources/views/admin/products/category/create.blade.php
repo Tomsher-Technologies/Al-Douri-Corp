@@ -120,6 +120,19 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="exampleInputEmail1">Home Page Image</label>
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <input name="home_image" class="img" type="file"
+                                            class="custom-file-input" id="inputGroupFile6" accept="image/*">
+                                        <label class="custom-file-label" for="inputGroupFile6">Choose
+                                            file</label>
+                                    </div>
+                                </div>
+                                <x-input-error name='home_image' />
+                            </div>
+
+                            <div class="form-group">
                                 <label for="exampleInputEmail1">Status</label>
                                 <select name="status" class="form-control select2-single mb-3">
                                     <option {{ old('status') == '1' ? 'selected' : '' }} value="1">
