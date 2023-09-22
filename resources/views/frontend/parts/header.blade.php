@@ -68,10 +68,10 @@
                                                      <a href="{{ route('our_heritage') }}" class="nav-link"
                                                          data-key="t-bags-Luggage">{{ __('Our Heritage') }}</a>
                                                  </li>
-                                                 <li class="nav-item">
+                                                 <!-- <li class="nav-item">
                                                      <a href="{{ route('leadership') }}" class="nav-link"
                                                          data-key="t-footwear">{{ __('Leadership') }}</a>
-                                                 </li>
+                                                 </li> -->
 
                                                  <li class="nav-item">
                                                      <a href="{{ route('chairmans_message') }}" class="nav-link"
@@ -307,9 +307,9 @@
                                  <li class="menu-item left">
                                      <a href="{{ route('our_heritage') }}"><span>{{ __('Our Heritage') }}</span></a>
                                  </li>
-                                 <li class="menu-item left">
+                                 <!-- <li class="menu-item left">
                                      <a href="{{ route('leadership') }}"><span>{{ __('Leadership') }}</span></a>
-                                 </li>
+                                 </li> -->
                                  <li class="menu-item left">
                                      <a href="{{ route('chairmans_message') }}"><span>{{ __("Chairman's Message") }}</span></a>
                                  </li>
