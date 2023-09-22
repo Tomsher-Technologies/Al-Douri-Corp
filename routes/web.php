@@ -22,6 +22,7 @@ Route::get('/our_heritage', [FrontendController::class, 'our_heritage'])->name('
 Route::get('/leadership', [FrontendController::class, 'leadership'])->name('leadership');
 Route::get('/contact-us', [FrontendController::class, 'contact_us'])->name('contact_us');
 
+Route::get('/career', [FrontendController::class, 'career'])->name('career');
 Route::get('/news', [FrontendController::class, 'news'])->name('news');
 Route::get('/news/{blog}', [FrontendController::class, 'news_details'])->name('news.details');
 

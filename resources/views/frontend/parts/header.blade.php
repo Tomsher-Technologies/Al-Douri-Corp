@@ -218,6 +218,10 @@
                          </li>
 
                          <li class="nav-item">
+                             <a class="nav-link" href="{{ route('career') }}" data-key="t-contact">{{ __('Career') }}</a>
+                         </li>
+
+                         <li class="nav-item">
                              <a class="nav-link" href="{{ route('contact_us') }}" data-key="t-contact">
                                  {{ __('Contact') }}
                              </a>
@@ -344,6 +348,9 @@
                          </li>
                          <li class="menu-item">
                              <a href="{{ route('news') }}"><span>{{ __('News') }}</span></a>
+                         </li>
+                         <li class="menu-item">
+                             <a href="{{ route('career') }}"><span>{{ __('Career') }}</span></a>
                          </li>
                          <li class="menu-item">
                              <a href="{{ route('contact_us') }}"><span>{{ __('Contact Us') }}</span></a>
