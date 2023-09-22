@@ -118,6 +118,8 @@
             </div>
         </section> --}}
     </div>
-
-    <!-- @include('frontend.parts.mobile-section') -->
+    @php  
+        $general = getSettings();
+    @endphp
+    @include('frontend.parts.mobile-section')
 @endsection

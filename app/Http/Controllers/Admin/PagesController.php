@@ -429,6 +429,8 @@ class PagesController extends Controller
             'address' => 'required|min:6|max:100',
             'email' => 'required|email',
             'phone' => 'required',
+            'play_store' => 'required',
+            'app_store' => 'required',
             'facebook' => 'required',
             'instagram' => 'required',
             'twitter' => 'required',
@@ -457,6 +459,8 @@ class PagesController extends Controller
         $set->address = $request->address;
         $set->email = $request->email;
         $set->phone = $request->phone;
+        $set->play_store = $request->play_store;
+        $set->app_store = $request->app_store;
         $set->facebook = $request->facebook;
         $set->instagram = $request->instagram;
         $set->twitter = $request->twitter;

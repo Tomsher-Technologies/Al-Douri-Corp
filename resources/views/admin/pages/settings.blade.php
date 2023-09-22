@@ -46,6 +46,18 @@
                                 <x-input-error name='footer_content_ar' />
                             </div>
 
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Google Play Store Link</label>
+                                <input class="form-control" type="text" value="{{ old('play_store',$data['play_store'] ?? '') }}" name="play_store" id="play_store">
+                                <x-input-error name='play_store' />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">App Store Link</label>
+                                <input class="form-control" type="text" value="{{ old('app_store',$data['app_store'] ?? '') }}" name="app_store" id="app_store">
+                                <x-input-error name='app_store' />
+                            </div>
+
 
                             <div class="form-group">
                                 <h4> Social Links</h4>

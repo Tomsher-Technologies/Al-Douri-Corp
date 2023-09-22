@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->text("address")->nullable();
             $table->string("email")->nullable();       
-            $table->string("phone")->nullable();         
+            $table->string("phone")->nullable();    
+            $table->string("play_store")->nullable();         
+            $table->string("app_store")->nullable();       
             $table->string("facebook")->nullable();         
             $table->string("instagram")->nullable();           
             $table->string("twitter")->nullable();         

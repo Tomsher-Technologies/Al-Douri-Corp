@@ -90,9 +90,8 @@
                      <ul>
                          <li><a href="{{ route('news') }}"> {{ __('News') }}</a></li>
                          <li><a href="#"> {{ __('Career') }}</a></li>
-                         <li><a href="#"> {{ __('Find Us') }}</a></li>
                          <li><a href="{{ route('contact_us') }}"> {{ __('Contact Us') }}</a></li>
-                         <li><a href="#"> {{ __('Download Brochure') }}</a></li>
+                         <li><a href="{{ asset('assets/docs/Corporate_brochure.pdf') }}" target="_blank"> {{ __('Download Brochure') }}</a></li>
                      </ul>
                  </div>
              </div>
