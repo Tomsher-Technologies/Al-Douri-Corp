@@ -55,6 +55,11 @@ class ProductCategoryController extends Controller
                 File::image()
                     ->max(2 * 1024)
             ],
+            'home_image' => [
+                'nullable',
+                File::image()
+                    ->max(2 * 1024)
+            ],
             'title' => 'required',
             'ar_title' => 'required',
             'content' => 'required',
@@ -70,11 +75,13 @@ class ProductCategoryController extends Controller
         $banner_image = uploadImage($request, 'banner_image', 'category');
         $image_1 = uploadImage($request, 'image_1', 'category');
         $image_2 = uploadImage($request, 'image_2', 'category');
+        $home_image = uploadImage($request, 'home_image', 'category');
 
         $category->menu_image = $menu_image;
         $category->banner_image = $banner_image;
         $category->image_1 = $image_1;
         $category->image_2 = $image_2;
+        $category->home_image = $home_image;
         $category->slug = Str::slug($request->title);
         $category->parent_id = $request->parent_id;
         $category->save();
@@ -143,6 +150,11 @@ class ProductCategoryController extends Controller
                 File::image()
                     ->max(2 * 1024)
             ],
+            'home_image' => [
+                'nullable',
+                File::image()
+                    ->max(2 * 1024)
+            ],
             'title' => 'required',
             'ar_title' => 'required',
             'content' => 'required',
@@ -173,6 +185,11 @@ class ProductCategoryController extends Controller
             $image = uploadImage($request, 'image_2', 'category');
             deleteImage($category->image_2);
             $category->image_2 = $image;
+        }
+        if ($request->hasFile('home_image')) {
+            $image = uploadImage($request, 'home_image', 'category');
+            deleteImage($category->home_image);
+            $category->home_image = $image;
         }
         $category->slug = Str::slug($request->title);
         $category->save();
@@ -209,6 +226,7 @@ class ProductCategoryController extends Controller
         $banner_image = $category->banner_image;
         $image_1 = $category->image_1;
         $image_2 = $category->image_2;
+        $home_image = $category->home_image;
 
         ProductCategoryTranslation::where([
             'product_category_id' => $category->id
@@ -219,6 +237,7 @@ class ProductCategoryController extends Controller
             deleteImage($banner_image);
             deleteImage($image_1);
             deleteImage($image_2);
+            deleteImage($home_image);
         }
         return redirect()->route('admin.category.index')->with([
             'status' => "ProductCategory Deleted"

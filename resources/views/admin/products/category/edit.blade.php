@@ -125,6 +125,24 @@
                                 <x-input-error name='image_1' />
                             </div>
 
+                            <div class="form-group" @if($category->parent_id != 0) style="display:none;" @endif>
+                                <label for="exampleInputEmail1">Current Home Page Image</label>
+                                <img class="w-100" src="{{ $category->getImage('home_image') }}" alt="">
+                            </div>
+
+                            <div class="form-group" @if($category->parent_id != 0) style="display:none;" @endif>
+                                <label for="exampleInputEmail1">Home Page Image</label>
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <input name="home_image" class="img" type="file"
+                                            class="custom-file-input" id="inputGroupFile6" accept="image/*">
+                                        <label class="custom-file-label" for="inputGroupFile6">Choose
+                                            file</label>
+                                    </div>
+                                </div>
+                                <x-input-error name='home_image' />
+                            </div>
+
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Status</label>
                                 <select name="status" class="form-control select2-single mb-3">

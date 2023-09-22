@@ -351,7 +351,7 @@
                                             <article class="vlt-work vlt-work--style-1">
                                                 <div class="vlt-work__media">
                                                     <a class="vlt-work__link has-cursor" href="{{ route('category', $category->slug) }}"></a><img
-                                                        src="{{ asset($category->getImage('menu_image')) }}" alt="" loading="lazy" />
+                                                        src="{{ asset($category->getImage('home_image')) }}" alt="" loading="lazy" />
                                                 </div>
                                                 <div class="vlt-work__meta">
                                                     <h5 class="vlt-work__title">
