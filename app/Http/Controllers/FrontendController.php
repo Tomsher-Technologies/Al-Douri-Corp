@@ -114,4 +114,10 @@ class FrontendController extends Controller
     {
         Session::put('locale', $request->locale);
     }
+
+    public function career()
+    {
+     
+        return view('frontend.career');
+    }
 }
