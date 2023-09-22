@@ -53,8 +53,10 @@
                                 <ul class="vlt-styled-list vlt-styled-list--style-3">
                                     @if(!empty($heritageLists))
                                         @foreach($heritageLists as $list)
-                                            <li>The inspiring story of Al-Douri began in the United Arab Emirates in 1979 with the
-                                                establishment of Al-Douri Company and Factory for Foodstuff Trading.
+
+
+                                            <li>
+                                            {!! $list->getTranslation('content') !!}
                                             </li>
                                         @endforeach
                                     @endif
