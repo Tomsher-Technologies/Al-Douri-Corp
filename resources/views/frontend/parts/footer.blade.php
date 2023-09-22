@@ -51,12 +51,10 @@
                      <p class="footer-content">{{ __('About') }}</p>
 
                      <ul>
-                         <li><a href="#"> {{ __('Our story') }} </a></li>
-                         <li><a href="#">{{ __('Who we are') }} </a></li>
-                         <li><a href="#"> {{ __('Mission & Vision') }} </a></li>
-                         <li><a href="#"> {{ __('Chairman Messages') }} </a></li>
-                         <li><a href="#"> {{ __('Our Team') }} </a></li>
-                         <li><a href="#"> {{ __('Contact Us') }} </a></li>
+                         <li><a href="{{ route('about') }}"> {{ __('About Al Douri') }} </a></li>
+                         <li><a href="{{ route('missionVision') }}"> {{ __('Mission & Vision') }} </a></li>
+                         <li><a href="{{ route('our_heritage') }}"> {{ __('Our Heritage') }} </a></li>
+                         <li><a href="{{ route('chairmans_message') }}"> {{ __("Chairman's Message") }} </a></li>
                      </ul>
                  </div>
              </div>
@@ -90,11 +88,11 @@
                  <div class="vlt-widget vlt-widget--text vlt-widget--">
                      <p class="footer-content">{{ __('Company') }}</p>
                      <ul>
-                         <li><a href="#"> {{ __('News') }}</a></li>
-                         <li><a href="#"> {{ __('Our recipes') }}</a></li>
+                         <li><a href="{{ route('news') }}"> {{ __('News') }}</a></li>
                          <li><a href="#"> {{ __('Career') }}</a></li>
                          <li><a href="#"> {{ __('Find Us') }}</a></li>
-                         <li><a href="#"> {{ __('Contact Us') }}</a></li>
+                         <li><a href="{{ route('contact_us') }}"> {{ __('Contact Us') }}</a></li>
+                         <li><a href="#"> {{ __('Download Brochure') }}</a></li>
                      </ul>
                  </div>
              </div>
