@@ -40,7 +40,7 @@
 
                 <li class="{{ request()->routeIs('admin.blogs*') ? 'active' : '' }}">
                     <a href="{{ route('admin.blogs.index') }}">
-                        <i class="simple-icon-picture"></i>Blogs
+                        <i class="iconsminds-newspaper"></i>News
                     </a>
                 </li>
                 @if (auth()->user()->can('manage-settings'))
