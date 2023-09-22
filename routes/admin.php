@@ -76,6 +76,9 @@ Route::group(['prefix' => env('ADMIN_PREFIX', 'admin'), 'as' => 'admin.'], funct
            
             Route::get('/contact', [PagesController::class, 'contactPage'])->name('contact');
             Route::post('/store-contact', [PagesController::class, 'storeContactPage'])->name('store-contact');
+
+            Route::get('/heritage', [PagesController::class, 'heritagePage'])->name('heritage');
+            Route::post('/store-heritage', [PagesController::class, 'storeHeritagePage'])->name('store-heritage');
         });
 
     });

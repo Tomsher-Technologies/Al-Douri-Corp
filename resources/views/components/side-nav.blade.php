@@ -104,7 +104,12 @@
                     </a>
                 </li>
 
-               
+                <li class="{{ (request()->routeIs('admin.page.heritage') ) ? 'active' : '' }}">
+                    <a href="{{ route('admin.page.heritage') }}">
+                        <i class="simple-icon-doc"></i> <span class="d-inline-block">OUR HERITAGE</span>
+                    </a>
+                </li>
+
             </ul>
         </div>
     </div>

@@ -10,6 +10,7 @@ use App\Models\Pages;
 use App\Models\PageTranslations;
 use App\Models\PageSeos;
 use App\Models\HomeBanner;
+use App\Models\HeritageLists;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
@@ -37,7 +38,9 @@ class FrontendController extends Controller
 
     public function our_heritage()
     {
-        return view('frontend.our_heritage');
+        $page = Pages::with(['seo'])->where('page_name','heritage')->first();
+        $heritageLists = HeritageLists::all();
+        return view('frontend.our_heritage',compact('page','heritageLists'));
     }
 
     public function leadership()

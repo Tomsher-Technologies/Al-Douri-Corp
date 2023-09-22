@@ -7,6 +7,7 @@ use App\Models\Pages;
 use App\Models\PageTranslations;
 use App\Models\PageSeos;
 use App\Models\GeneralSettings;
+use App\Models\HeritageLists;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
 use Illuminate\Support\Str;
@@ -658,5 +659,89 @@ class PagesController extends Controller
         return redirect()->back()->with([
             'status' => "Page details updated"
         ]);
+    }
+
+    public function heritagePage()
+    {
+        $data = Pages::with(['seo'])->where('page_name','heritage')->first();
+        $heritageLists = HeritageLists::all();
+
+        $lists = [];
+
+        foreach ($heritageLists as $i) {
+            $arr = [];
+            $arr['heritage'] = $i->content;
+            $arr['ar_heritage'] = $i->ar_content;
+            $lists[] = $arr;
+        }
+
+        $lists = json_encode($lists);
+
+        return view('admin.pages.heritage',compact('data','lists'));
+    }
+
+    public function storeHeritagePage(Request $request){
+        $request->validate([
+                    'title' => 'required',
+                    'ar_title' => 'required',
+                    'content' => 'required',
+                    'ar_content' => 'required',
+                    'image1' => 'nullable|max:2048',
+                    'image2' => 'nullable|max:2048',
+                    'image3' => 'nullable|max:2048'
+                ],[
+                    '*.required' => 'This field is required.',
+                    '*.max' => "Maximum file size to upload is 2MB."
+                ]);
+        $data = [
+            'page_title'        => 'Our Heritage',
+            'page_name'        => 'heritage',
+            'title'             => $request->title,
+            'content1'          => $request->content,
+            'ar_title'             => $request->ar_title,
+            'ar_content1'          => $request->ar_content,
+            'seotitle'             => $request->seotitle,
+            'ogtitle'              => $request->ogtitle,
+            'twtitle'              => $request->twtitle,
+            'seodescription'       => $request->seodescription, 
+            'og_description'       => $request->og_description,
+            'twitter_description'  => $request->twitter_description,
+            'seokeywords'          => $request->seokeywords,
+        ];
+
+        $pageData = Pages::where('page_name','heritage')->first();
+
+        if ($request->hasFile('image1')) {
+            $image = uploadImage($request, 'image1', 'pages/heritage');
+            deleteImage($pageData->image1);
+            $data['image1'] = $image;
+        }
+        if ($request->hasFile('image2')) {
+            $image = uploadImage($request, 'image2', 'pages/heritage');
+            deleteImage($pageData->image2);
+            $data['image2'] = $image;
+        }
+
+        if ($request->hasFile('image3')) {
+            $image = uploadImage($request, 'image3', 'pages/heritage');
+            deleteImage($pageData->image3);
+            $data['image3'] = $image;
+        }
+
+        $this->savePageSettings($data);
+
+        if ($request->heritage_list) {
+            HeritageLists::truncate();
+            $listdata = [];
+            foreach ($request->heritage_list as $list) {
+                $listdata[] = [
+                    'content' => $list['heritage'],
+                    'ar_content' => $list['ar_heritage'],
+                ];
+            }
+            HeritageLists::insert($listdata);
+        }
+
+        return redirect()->back()->with(['status' => "Page details updated"]);
     }
 }
