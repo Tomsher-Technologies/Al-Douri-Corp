@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\Product\ProductController;
 use App\Http\Controllers\Admin\Users\ProfileController;
 use App\Http\Controllers\Admin\Users\UserController;
 use App\Http\Controllers\Admin\PagesController;
+use App\Http\Controllers\Admin\BranchController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => env('ADMIN_PREFIX', 'admin'), 'as' => 'admin.'], function () {
@@ -63,6 +64,9 @@ Route::group(['prefix' => env('ADMIN_PREFIX', 'admin'), 'as' => 'admin.'], funct
 
         Route::resource('careers', CareerController::class);
         Route::post('careers/change_status', [CareerController::class, 'change_status'])->name('careers.change_status');
+        Route::get('/careers/view/{id}', [CareerController::class, 'viewApplications'])->name('careers.view');
+
+        Route::resource('branch', BranchController::class);
 
         Route::group(['prefix' => 'pages', 'as' => 'page.'], function () {
            
@@ -86,6 +90,9 @@ Route::group(['prefix' => env('ADMIN_PREFIX', 'admin'), 'as' => 'admin.'], funct
 
             Route::get('/news', [PagesController::class, 'newsPage'])->name('news');
             Route::post('/store-news', [PagesController::class, 'storeNewsPage'])->name('store-news');
+
+            Route::get('/career', [PagesController::class, 'careerPage'])->name('career');
+            Route::post('/store-career', [PagesController::class, 'storeCareerPage'])->name('store-career');
         });
 
     });

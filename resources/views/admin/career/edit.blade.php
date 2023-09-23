@@ -36,10 +36,10 @@
                                 <label for="exampleInputEmail1">Job Type</label>
                                 <select name="type" class="form-control select2-single mb-3">
                                     <option {{ old('type', $career->type ) == 'full' ? 'selected' : '' }} value="full">
-                                        Full Time
+                                        Full-Time
                                     </option>
                                     <option {{ old('type', $career->type) == 'part' ? 'selected' : '' }} value="part">
-                                        Part Time
+                                        Part-Time
                                     </option>
                                 </select>
                                 <x-input-error name='type' />
@@ -58,7 +58,7 @@
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Application Last Date</label>
-                                <input type="text" name="last_date" class="form-control" value="{{ old('last_date', $career->last_date) }}">
+                                <input type="text" name="last_date" id="last_date" class="form-control" value="{{ old('last_date', $career->last_date) }}">
                                 <x-input-error name='last_date' />
                             </div>
 
@@ -90,9 +90,11 @@
 @push('header')
     <link rel="stylesheet" href="{{ adminAsset('css/vendor/select2.min.css') }}" />
     <link rel="stylesheet" href="{{ adminAsset('css/vendor/select2-bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ adminAsset('css/vendor/bootstrap-datepicker3.min.css') }}" />
 @endpush
 @push('footer')
     <script src="{{ adminAsset('js/vendor/select2.full.js') }}"></script>
+    <script src="{{ adminAsset('js/vendor/bootstrap-datepicker.js') }}"></script>
 
     <script>
         $('#img').on('change', function() {
@@ -101,6 +103,12 @@
             } else {
                 $('#imgname').text('Choose file')
             }
+        });
+        $("#last_date").datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            todayHighlight: true,
+            startDate: '{{$career->last_date}}'
         });
     </script>
 

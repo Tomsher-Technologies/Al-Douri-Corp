@@ -23,7 +23,7 @@ Route::get('/leadership', [FrontendController::class, 'leadership'])->name('lead
 Route::get('/contact-us', [FrontendController::class, 'contact_us'])->name('contact_us');
 
 Route::get('/career', [FrontendController::class, 'career'])->name('career');
-Route::get('/career/details', [FrontendController::class, 'careerDetails'])->name('career-details');
+Route::get('/career/details/{slug}', [FrontendController::class, 'careerDetails'])->name('career-details');
 Route::get('/news', [FrontendController::class, 'news'])->name('news');
 Route::get('/news/{blog}', [FrontendController::class, 'news_details'])->name('news.details');
 
@@ -33,6 +33,6 @@ Route::get('/products/{category}', [FrontendController::class, 'category'])->nam
 Route::get('/products/{category}/{sub_category}', [FrontendController::class, 'sub_category'])->name('sub_category');
 
 Route::post('/language_change', [FrontendController::class, 'changeLanguage'])->name('language.change');
-
+Route::post('/apply-job', [FrontendController::class, 'applyJob'])->name('apply.job');
 
 include_once('admin.php');

@@ -8,6 +8,7 @@ use App\Models\PageTranslations;
 use App\Models\PageSeos;
 use App\Models\GeneralSettings;
 use App\Models\Careers;
+use App\Models\CareerApplications;
 use App\Models\HeritageLists;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
@@ -31,7 +32,7 @@ class CareerController extends Controller
             $sort_search = $request->search;
         }
 
-        $careers = $query->paginate(15);
+        $careers = $query->paginate(10);
 
         return view('admin.career.index', compact('careers', 'sort_search'));
     }
@@ -72,7 +73,16 @@ class CareerController extends Controller
         $career->description = $request->description;
         $career->ar_title = $request->ar_title;
         $career->ar_description = $request->ar_description;
-        $career->slug = $request->slug;
+
+        $slug = Str::slug($request->title);
+
+        $checkSlug =  Careers::where('slug',$slug)->count();
+        if($checkSlug == 0){
+            $career->slug = $slug;
+        }else{
+            $career->slug = $slug.'-'.rand(1,10);
+        }
+        
         $career->last_date = $request->last_date;
         $career->save();
 
@@ -105,7 +115,16 @@ class CareerController extends Controller
             '*.required' => 'This field is required.'
         ]);
 
-        $career->update($request->all());
+        $data = $request->all();
+        $data['slug'] = Str::slug($request->title);
+        $checkSlug =  Careers::where('slug',$data['slug'])->where('id', '!=',$career->id)->count();
+        if($checkSlug == 0){
+            $career->update($data);
+        }else{
+            $data['slug'] = $data['slug'].'-'.rand(1,10);
+            $career->update($data);
+        }
+        
         return redirect()->route('admin.careers.index')->with(['status' => "Career updated succesfully"]);
     }
 
@@ -134,5 +153,12 @@ class CareerController extends Controller
         ]);
 
         return 1;
+    }
+
+    public function viewApplications(Request $request){
+        $query = CareerApplications::where('career_id',$request->id);
+        $careers = $query->paginate(10);
+
+        return view('admin.career.view', compact('careers'));
     }
 }

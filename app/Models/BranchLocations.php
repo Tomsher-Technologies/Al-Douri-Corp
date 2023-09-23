@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Careers extends Model
+class BranchLocations extends Model
 {
     use HasFactory;
 
     protected $fillable = [
-        'type','title', 'ar_title', 'description', 'ar_description', 'slug', 'last_date', 'status'
+        'branch_id', 'location', 'ar_location', 'phone', 'working_hours', 'link'
     ];
 
     public function getTranslation($field = '', $lang = false)
@@ -22,10 +22,5 @@ class Careers extends Model
         }
 
         return $this->$field;
-    }
-
-    public function career_applications()
-    {
-        return $this->hasMany(CareerApplications::class,'career_id');
     }
 }

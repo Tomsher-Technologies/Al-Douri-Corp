@@ -3,11 +3,10 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <h1>Careers</h1>
+                <h1>Applications</h1>
                 <div class="text-zero top-right-button-container">
-                    <a href="{{ route('admin.careers.create') }}"
-                        class="btn btn-primary btn-lg top-right-button mr-1 text-uppercase">ADD NEW
-                        Job</a>
+                    <a href="{{ route('admin.careers.index') }}"
+                        class="btn btn-primary btn-lg top-right-button mr-1 text-uppercase">Back</a>
                 </div>
                 <div class="separator mb-5"></div>
             </div>
@@ -29,12 +28,11 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Sl No:</th>
-                                        <th scope="col">Title</th>
-                                        <th scope="col">Job Type</th>
-                                        <th scope="col">Last Date</th>
-                                        <th scope="col" class="text-center">No Of Applicants</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col">Name</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Phone</th>
+                                        <th scope="col">Linkedin</th>
+                                        <th scope="col">Resume</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -42,16 +40,13 @@
                                         @foreach ($careers as $key=>$job)
                                             <tr>
                                                 <td scope="row">{{ $key + 1 + ($careers->currentPage() - 1) * $careers->perPage() }}</td>
-                                                <td>{{ $job->title }}</td>
-                                                <td>{{ ($job->type == 'full') ? 'Full-Time' : 'Part-Time' }}</td>
-                                                <td>{{ date('d M, Y',strtotime($job->last_date)) }}</td>
-                                                <td class="text-center">{{ $job->career_applications->count() }}</td>
-                                                <td>{{ $job->status == 1 ? 'Active' : 'Inactive' }}</td>
+                                                <td>{{ $job->first_name.' '.$job->last_name }}</td>
+                                                <td>{{ $job->email }}</td>
+                                                <td>{{ $job->phone }}</td>
+                                                <td>{{ $job->linkedin }}</td>
                                                 <td>
-                                                    <a href="{{ route('admin.careers.edit', $job->id) }}"
-                                                        class="btn btn-secondary mb-1">Edit</a>
-                                                    <a href="{{ route('admin.careers.view', $job->id) }}"
-                                                        class="btn btn-warning  mb-1">View Applications</a>
+                                                    <a href="{{ asset($job->resume) }}" target="_blank"
+                                                        class="btn btn-secondary mb-1">View Resume</a>
                                                 </td>
                                             </tr>
                                         @endforeach

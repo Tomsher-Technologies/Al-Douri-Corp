@@ -1,13 +1,13 @@
-@extends('layouts.admin.app', ['body_class' => '', 'title' => 'Careers'])
+@extends('layouts.admin.app', ['body_class' => '', 'title' => 'Main Branches'])
 @section('content')
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <h1>Careers</h1>
+                <h1>Main Branches</h1>
                 <div class="text-zero top-right-button-container">
-                    <a href="{{ route('admin.careers.create') }}"
+                    <a href="{{ route('admin.branch.create') }}"
                         class="btn btn-primary btn-lg top-right-button mr-1 text-uppercase">ADD NEW
-                        Job</a>
+                        MAIN BRANCH</a>
                 </div>
                 <div class="separator mb-5"></div>
             </div>
@@ -21,7 +21,6 @@
         </div>
 
         <div class="row">
-            @if ($careers)
                 <div class="col-lg-12 col-md-12 mb-4">
                     <div class="card">
                         <div class="card-body">
@@ -29,29 +28,23 @@
                                 <thead>
                                     <tr>
                                         <th scope="col">Sl No:</th>
-                                        <th scope="col">Title</th>
-                                        <th scope="col">Job Type</th>
-                                        <th scope="col">Last Date</th>
-                                        <th scope="col" class="text-center">No Of Applicants</th>
+                                        <th scope="col">Name</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if(isset($careers[0]))
-                                        @foreach ($careers as $key=>$job)
+                                    @if(isset($branches[0]))
+                                        @foreach ($branches as $key=>$branch)
                                             <tr>
-                                                <td scope="row">{{ $key + 1 + ($careers->currentPage() - 1) * $careers->perPage() }}</td>
-                                                <td>{{ $job->title }}</td>
-                                                <td>{{ ($job->type == 'full') ? 'Full-Time' : 'Part-Time' }}</td>
-                                                <td>{{ date('d M, Y',strtotime($job->last_date)) }}</td>
-                                                <td class="text-center">{{ $job->career_applications->count() }}</td>
-                                                <td>{{ $job->status == 1 ? 'Active' : 'Inactive' }}</td>
+                                                <td scope="row">{{ $key + 1 + ($branches->currentPage() - 1) * $branches->perPage() }}</td>
+                                                <td>{{ $branch->name }}</td>
+                                                
+                                                <td>{{ $branch->status == 1 ? 'Active' : 'Inactive' }}</td>
                                                 <td>
-                                                    <a href="{{ route('admin.careers.edit', $job->id) }}"
+                                                    <a href="{{ route('admin.branch.edit', $branch) }}"
                                                         class="btn btn-secondary mb-1">Edit</a>
-                                                    <a href="{{ route('admin.careers.view', $job->id) }}"
-                                                        class="btn btn-warning  mb-1">View Applications</a>
+                                                   
                                                 </td>
                                             </tr>
                                         @endforeach
@@ -63,12 +56,12 @@
                                 </tbody>
                             </table>
                             <div class="pagination">
-                                {{ $careers->appends(request()->input())->links('pagination::bootstrap-4') }}
+                                {{ $branches->appends(request()->input())->links('pagination::bootstrap-4') }}
                             </div>
                         </div>
                     </div>
                 </div>
-            @endif
+           
         </div>
     </div>
 @endsection

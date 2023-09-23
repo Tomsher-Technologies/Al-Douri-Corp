@@ -38,5 +38,21 @@
     "Find Us": "ابحث عنا",
     "Contact Us": "تواصل معنا",
     "Download Brochure": "تحميل كتيب",
-    "Career" : "Career"
+    "Career" : "Career",
+    "Full-Time": "دوام كامل",
+    "Part-Time": "بدوام جزئي",
+    "Position":"منصب",
+    "Description":"وصف",
+    "Job Type":"نوع الوظيفة",
+    "Last Date":"التاريخ الأخير",
+    "Apply Now":"قدم الآن",
+    "First Name":"الاسم الأول",
+    "Last Name":"الاسم الاخير",
+    "Email":"البريد الإلكتروني",
+    "Phone Number":"رقم التليفون",
+    "LinkedIn Profile":"الملف الشخصي على لينكدإن",
+    "Resume":"استئنف",
+    "Submit":"إرسال",
+    "Only PDF file is allowed":"مسموح فقط بملف PDF",
+    "View Location":"عرض الموقع"
 }

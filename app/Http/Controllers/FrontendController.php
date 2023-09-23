@@ -12,9 +12,14 @@ use App\Models\PageSeos;
 use App\Models\HomeBanner;
 use App\Models\Careers;
 use App\Models\HeritageLists;
+use App\Models\CareerApplications;
+use App\Models\Branches;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Str;
+use Storage;
+use Mail;
 
 class FrontendController extends Controller
 {
@@ -53,7 +58,8 @@ class FrontendController extends Controller
     public function contact_us()
     {
         $page = Pages::with(['seo'])->where('page_name','contact')->first();
-        return view('frontend.contact_us', compact('page'));
+        $branches = Branches::with(['locations'])->get();
+        return view('frontend.contact_us', compact('page','branches'));
     }
 
     public function news()
@@ -119,13 +125,50 @@ class FrontendController extends Controller
     public function career()
     {
         $careers = Careers::where('status',1)->orderBy('id','DESC')->get();
-        
-        return view('frontend.career',compact('careers'));
+        $page = Pages::with(['seo'])->where('page_name','career')->first();
+        return view('frontend.career',compact('careers','page'));
     }
 
-    public function careerDetails()
+    public function careerDetails(Request $request)
     {
-     
-        return view('frontend.career-details');
+        $slug = $request->slug;
+        $career = Careers::where('status',1)->where('slug',$slug)->first();
+        $page = Pages::with(['seo'])->where('page_name','career')->first();
+        return view('frontend.career-details',compact('page','career'));
+    }
+
+    public function applyJob(Request $request)
+    {
+      
+        $request->validate([
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required|email',
+            'resume' => 'required'
+        ],[
+            '*.required' => 'This field is required.'
+        ]);
+
+        if ($request->hasFile('resume')) {
+            $uploadedFile = $request->file('resume');
+            $filename =    strtolower(Str::random(2)).time().'-'. $uploadedFile->getClientOriginalName();
+            $name = Storage::disk('public')->putFileAs(
+                        'resume',
+                        $uploadedFile,
+                        $filename
+                    );
+            $imageUrl = Storage::url($name);
+        }   
+        $con = new CareerApplications;
+        $con->career_id = $request->career_id;
+        $con->first_name = $request->first_name;
+        $con->last_name = $request->last_name;
+        $con->email = $request->email;
+        $con->phone = $request->phone;
+        $con->linkedin = $request->linkedin;
+        $con->resume = $imageUrl;
+        $con->save();
+
+        return redirect()->back()->with(['status' => " THANK YOU FOR APPLYING. OUR TEAM WILL CONTACT YOU SHORTLY."]);
     }
 }
