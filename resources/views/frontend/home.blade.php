@@ -578,7 +578,7 @@
                             <!--Animated block-->
                             <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
                                 <div class="has-black-color">
-                                    <!--Simple link--><a class="vlt-simple-link vlt-simple-link--md" href="#"
+                                    <!--Simple link--><a class="vlt-simple-link vlt-simple-link--md" href="{{ route('news.details', ['blog' => $thirdBlog->id]) }}"
                                         target="_self">{{ __('Read more') }}<i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>
@@ -621,7 +621,7 @@
                             <!--Animated block-->
                             <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
                                 <div class="has-black-color">
-                                    <!--Simple link--><a class="vlt-simple-link vlt-simple-link--md" href="#"
+                                    <!--Simple link--><a class="vlt-simple-link vlt-simple-link--md" href="{{ route('news.details', ['blog' => $forthBlog->id]) }}"
                                         target="_self">{{ __('Read more') }}<i class="fa-solid fa-arrow-right"></i></a>
                                 </div>
                             </div>

@@ -79,6 +79,12 @@
                     </li>
                 @endif
 
+                <li class="{{ request()->routeIs('admin.enquiries*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.enquiries') }}">
+                        <i class="simple-icon-bubbles"></i>Enquiries
+                    </a>
+                </li>
+
             </ul>
         </div>
     </div>
