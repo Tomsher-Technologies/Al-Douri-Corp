@@ -12,7 +12,7 @@
                         <div class="row no-gutters">
 
                             <div class="col-lg-3">
-                                <a href="#" class="card">
+                                <a href="{{ route('admin.products.index') }}" class="card">
                                     <div class="card-body text-center">
                                         <i class="simple-icon-basket"></i>
                                         <p class="card-text mb-0">Products</p>
@@ -22,16 +22,16 @@
                             </div>
 
                             <div class="col-lg-3">
-                                <a href="#" class="card">
+                                <a href="{{ route('admin.blogs.index') }}" class="card">
                                     <div class="card-body text-center">
                                         <i class="iconsminds-newspaper"></i>
-                                        <p class="card-text mb-0">News & Events</p>
+                                        <p class="card-text mb-0">News</p>
                                         <p class="lead text-center">{{ $countNews }}</p>
                                     </div>
                                 </a>
                             </div>
                             <div class="col-lg-3">
-                                <a href="#" class="card">
+                                <a href="{{ route('admin.enquiries') }}" class="card">
                                     <div class="card-body text-center">
                                         <i class="iconsminds-mail-send"></i>
                                         <p class="card-text mb-0">Enquires</p>
