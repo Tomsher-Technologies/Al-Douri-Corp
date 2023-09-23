@@ -14,7 +14,7 @@
 
                 <div class="card mb-4">
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.careers.store') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('admin.careers.store') }}" autocomplete="off" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Title</label>
@@ -33,10 +33,10 @@
                                 <label for="exampleInputEmail1">Job Type</label>
                                 <select name="type" class="form-control select2-single mb-3">
                                     <option {{ old('type') == '1' ? 'selected' : '' }} value="full">
-                                        Full Time
+                                        Full-Time
                                     </option>
                                     <option {{ old('type') == '0' ? 'selected' : '' }} value="part">
-                                        Part Time
+                                        Part-Time
                                     </option>
                                 </select>
                                 <x-input-error name='type' />
@@ -55,7 +55,7 @@
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Application Last Date</label>
-                                <input type="text" name="last_date" class="form-control" value="{{ old('last_date') }}"
+                                <input type="text" name="last_date" id="last_date" class="form-control" value="{{ old('last_date') }}"
                                     >
                                 <x-input-error name='last_date' />
                             </div>
@@ -88,10 +88,12 @@
 @push('header')
     <link rel="stylesheet" href="{{ adminAsset('css/vendor/select2.min.css') }}" />
     <link rel="stylesheet" href="{{ adminAsset('css/vendor/select2-bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ adminAsset('css/vendor/bootstrap-datepicker3.min.css') }}" />
 @endpush
 @push('footer')
     <script src="{{ adminAsset('js/vendor/select2.full.js') }}"></script>
-
+    <script src="{{ adminAsset('js/vendor/bootstrap-datepicker.js') }}"></script>
+    
     <script>
         $('#img').on('change', function() {
             if (this.files[0]) {
@@ -100,6 +102,14 @@
                 $('#imgname').text('Choose file')
             }
         });
+
+        $("#last_date").datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            todayHighlight: true,
+            startDate: new Date()
+        });
+
     </script>
 
     <script src="{{ adminAsset('js/tinymce/tinymce.min.js') }}"></script>

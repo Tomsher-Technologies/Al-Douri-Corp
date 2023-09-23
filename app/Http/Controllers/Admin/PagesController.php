@@ -792,4 +792,52 @@ class PagesController extends Controller
             'status' => "Page details updated"
         ]);
     }
+
+    public function careerPage()
+    {
+        $data = Pages::with(['seo'])->where('page_name','career')->first();
+      
+        return view('admin.pages.career',compact('data'));
+    }
+
+    public function storeCareerPage(Request $request)
+    {
+        $request->validate([
+                        'title' => 'required',
+                        'ar_title' => 'required',
+                        'heading' => 'required',
+                        'ar_heading' => 'required',
+                        'image1' => 'nullable|max:2048'
+                    ],[
+                        '*.required' => 'This field is required.',
+                        '*.max' => "Maximum file size to upload is 2MB."
+                    ]);
+        $data = [
+                'page_title'        => 'Career',
+                'page_name'        => 'career',
+                'title'             => $request->title,
+                'ar_title'             => $request->ar_title,
+                'heading1'             => $request->heading,
+                'ar_heading1'             => $request->ar_heading,
+                'seotitle'             => $request->seotitle,
+                'ogtitle'              => $request->ogtitle,
+                'twtitle'              => $request->twtitle,
+                'seodescription'       => $request->seodescription, 
+                'og_description'       => $request->og_description,
+                'twitter_description'  => $request->twitter_description,
+                'seokeywords'          => $request->seokeywords,
+        ];
+
+        $pageData = Pages::where('page_name','career')->first();
+        if ($request->hasFile('image1')) {
+            $image = uploadImage($request, 'image1', 'pages/message');
+            deleteImage($pageData->image1);
+            $data['image1'] = $image;
+        }
+       
+        $this->savePageSettings($data);
+        return redirect()->back()->with([
+            'status' => "Page details updated"
+        ]);
+    }
 }

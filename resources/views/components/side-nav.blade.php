@@ -45,7 +45,13 @@
                 </li>
                 <li class="{{ request()->routeIs('admin.careers*') ? 'active' : '' }}">
                     <a href="{{ route('admin.careers.index') }}">
-                        <i class="iconsminds-newspaper"></i>Career
+                        <i class="simple-icon-graduation"></i>Career
+                    </a>
+                </li>
+
+                <li class="{{ request()->routeIs('admin.branch*') ? 'active' : '' }}">
+                    <a href="{{ route('admin.branch.index') }}">
+                        <i class="simple-icon-location-pin"></i>Branches
                     </a>
                 </li>
 
@@ -83,6 +89,12 @@
                 <li class="{{ (request()->routeIs('admin.page.about') ) ? 'active' : '' }}">
                     <a href="{{ route('admin.page.about') }}">
                         <i class="simple-icon-doc"></i> <span class="d-inline-block">About Us</span>
+                    </a>
+                </li>
+
+                <li class="{{ (request()->routeIs('admin.page.career') ) ? 'active' : '' }}">
+                    <a href="{{ route('admin.page.career') }}">
+                        <i class="simple-icon-doc"></i> <span class="d-inline-block">Career</span>
                     </a>
                 </li>
 

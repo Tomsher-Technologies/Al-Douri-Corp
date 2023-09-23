@@ -112,11 +112,49 @@
         <div class="container">
             <div class="text-center">
                 <ul class="vlt-isotope-filters" id="vlt-filter-blog-03">
+                    @php  
+                        $location = '';  
+                                    
+                    @endphp
+                    @foreach($branches as $key => $branch)
+                        @php      
+                            $slug = Str::slug(trim($branch->name));
 
-                    <li class="active" data-filter=".filter-company"><span>HEAD OFFICE</span></li>
-                    <li data-filter=".filter-design"><span>AL DOURI FOOD INDUSTRIES</span></li>
-                    <li data-filter=".filter-lifestyle"><span>BRANCHES UAE</span></li>
-                    <li data-filter=".filter-business"><span>BRANCHES OMAN</span></li>
+                            $locations =  $branch->locations;
+
+                            if(!empty($locations)){
+                                foreach($locations as $loc){
+                                    $location_name = $loc->getTranslation('location');
+                                    $phone = $loc->phone;
+                                    $work = $loc->working_hours; 
+                                    $viewLoc = $loc->link;
+
+                                    $location .= ' <div class=" grid-item '.$slug.'">
+                                                <article class="vlt-post vlt-post--style-5">
+                                                    <div class="vlt-post__content">
+                                                        <h3 class="vlt-post-title has-cursor">
+                                                            <i class="fa-solid fa-building"></i> '.$location_name.'
+                                                        </h3>
+                                                        <h3 class="vlt-post-title has-cursor">
+                                                            <i class="fa fa-phone"></i><a href="#"> '.$phone.'</a>
+                                                        </h3>
+                                                        <div class="vlt-post-date"><i class="fa-regular fa-clock"></i>
+                                                            <span>'.$work.'</span>
+                                                        </div>
+                                                        <div class="vlt-post-category"><a target="_blank" href="'.$viewLoc.'">
+                                                        '.trans("View Location").'
+                                                      </a> 
+                                                        </div>
+                                                    </div>
+                                                </article>
+                                            </div>';
+                                }
+                            }
+                            $active = ($key == 0) ? 'active' : '';
+                        @endphp
+
+                        <li class="{{ $active }}" data-filter=".{{$slug}}"><span>{{ $branch->getTranslation('name') }}</span></li>
+                    @endforeach
                 </ul>
             </div>
             <div class="vlt-gap-90"></div>
@@ -126,124 +164,8 @@
                         data-y-gap="0|0" data-controls="#vlt-filter-blog-03"
                         data-load-more-selector="#vlt-load-more-blog-03">
                         <div class="grid-sizer"></div>
-
-
-                        <div class=" grid-item filter-design">
-                            <!--Blog item-->
-                            <article class="vlt-post vlt-post--style-5">
-
-
-                                <div class="vlt-post__content">
-
-                                    <h3 class="vlt-post-title has-cursor">
-                                        <i class="fa-solid fa-building"></i> EMIRATES ROAD
-                                    </h3>
-
-
-                                    <h3 class="vlt-post-title has-cursor">
-                                        <i class="fa fa-phone"></i><a href="#"> +971 6 534 8833</a>
-                                    </h3>
-
-                                    <div class="vlt-post-date"><i class="fa-regular fa-clock"></i><span> 08:00 A.M -
-                                            05:00 P.M</span></div>
-
-
-                                    <div class="vlt-post-category"><a href="#">View Location</a>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
-
-
-
-                        <div class=" grid-item filter-design">
-                            <!--Blog item-->
-                            <article class="vlt-post vlt-post--style-5">
-
-
-                                <div class="vlt-post__content">
-
-                                    <h3 class="vlt-post-title has-cursor">
-                                        <i class="fa-solid fa-building"></i> EMIRATES ROAD
-                                    </h3>
-
-
-                                    <h3 class="vlt-post-title has-cursor">
-                                        <i class="fa fa-phone"></i><a href="#"> +971 6 534 8833</a>
-                                    </h3>
-
-                                    <div class="vlt-post-date"><i class="fa-regular fa-clock"></i><span> 08:00 A.M -
-                                            05:00 P.M</span></div>
-
-
-                                    <div class="vlt-post-category"><a href="#">View Location</a>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
-
-
-                        <div class=" grid-item filter-company">
-                            <!--Blog item-->
-                            <article class="vlt-post vlt-post--style-5">
-
-
-                                <div class="vlt-post__content">
-
-                                    <h3 class="vlt-post-title has-cursor">
-                                        <i class="fa-solid fa-building"></i> EMIRATES
-                                    </h3>
-
-
-                                    <h3 class="vlt-post-title has-cursor">
-                                        <i class="fa fa-phone"></i><a href="#"> +971 6 534 8833</a>
-                                    </h3>
-
-                                    <div class="vlt-post-date"><i class="fa-regular fa-clock"></i><span> 08:00 A.M -
-                                            05:00 P.M</span></div>
-
-
-                                    <div class="vlt-post-category"><a href="#">View Location</a>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
-
-
-
-                        <div class=" grid-item filter-company">
-                            <!--Blog item-->
-                            <article class="vlt-post vlt-post--style-5">
-
-
-                                <div class="vlt-post__content">
-
-                                    <h3 class="vlt-post-title has-cursor">
-                                        <i class="fa-solid fa-building"></i> EMIRATES fdbvcbcvb
-                                    </h3>
-
-
-                                    <h3 class="vlt-post-title has-cursor">
-                                        <i class="fa fa-phone"></i><a href="#"> +971 6 534 8833</a>
-                                    </h3>
-
-                                    <div class="vlt-post-date"><i class="fa-regular fa-clock"></i><span> 08:00 A.M -
-                                            05:00 P.M</span></div>
-
-
-                                    <div class="vlt-post-category"><a href="#">View Location</a>
-                                    </div>
-                                </div>
-                            </article>
-                        </div>
-
-
-
+                        {!! $location !!}
                     </div>
-
                 </div>
             </div>
         </div>

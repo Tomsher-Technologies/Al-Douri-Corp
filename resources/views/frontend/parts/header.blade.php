@@ -200,7 +200,7 @@
                                                                  {{ $division->getTranslation('menu_text') }}
                                                              </p>
 
-                                                             <a href="#" class="menu-btn">
+                                                             <a href="{{ route('divisions', $division->slug) }}" class="menu-btn">
                                                                  <i class="fa fa-arrow-right"></i></a>
                                                          </div>
                                                      </div>
