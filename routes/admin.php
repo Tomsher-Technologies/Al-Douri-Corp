@@ -30,6 +30,8 @@ Route::group(['prefix' => env('ADMIN_PREFIX', 'admin'), 'as' => 'admin.'], funct
         Route::get('/settings', [PagesController::class, 'generalSettings'])->name('settings');
         Route::post('/store-settings', [PagesController::class, 'storeSettings'])->name('store-settings');
 
+        Route::get('/enquiries', [PagesController::class, 'enquiries'])->name('enquiries');
+
         // Logged-in user profile
         Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
             Route::get('/profile', function () {

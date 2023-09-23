@@ -1,13 +1,10 @@
-@extends('layouts.admin.app', ['body_class' => '', 'title' => 'Careers'])
+@extends('layouts.admin.app', ['body_class' => '', 'title' => 'Enquiries'])
 @section('content')
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <h1>Applications</h1>
-                <div class="text-zero top-right-button-container">
-                    <a href="{{ route('admin.careers.index') }}"
-                        class="btn btn-primary btn-lg top-right-button mr-1 text-uppercase">Back</a>
-                </div>
+                <h1>All Enquiries</h1>
+                
                 <div class="separator mb-5"></div>
             </div>
         </div>
@@ -20,7 +17,7 @@
         </div>
 
         <div class="row">
-           
+          
                 <div class="col-lg-12 col-md-12 mb-4">
                     <div class="card">
                         <div class="card-body">
@@ -31,39 +28,40 @@
                                         <th scope="col">Name</th>
                                         <th scope="col">Email</th>
                                         <th scope="col">Phone</th>
-                                        <th scope="col">Linkedin</th>
-                                        <th scope="col">Resume</th>
+                                        <th scope="col">Company</th>
+                                        <th scope="col">Subject</th>
+                                        <th scope="col" class="w-40">Message</th>
+                                        <th scope="col">Date</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @if(isset($careers[0]))
-                                        @foreach ($careers as $key=>$job)
+                                    @if(isset($contact[0]))
+                                        @foreach ($contact as $key=>$con)
                                             <tr>
-                                                <td scope="row">{{ $key + 1 + ($careers->currentPage() - 1) * $careers->perPage() }}</td>
-                                                <td>{{ $job->first_name.' '.$job->last_name }}</td>
-                                                <td>{{ $job->email }}</td>
-                                                <td>{{ $job->phone }}</td>
-                                                <td>{{ $job->linkedin }}</td>
-                                                <td>
-                                                    <a href="{{ asset($job->resume) }}" target="_blank"
-                                                        class="btn btn-secondary mb-1">View Resume</a>
-                                                </td>
+                                                <td scope="row">{{ $key + 1 + ($contact->currentPage() - 1) * $contact->perPage() }}</td>
+                                                <td>{{ $con->name }}</td>
+                                                <td>{{ $con->email }}</td>
+                                                <td>{{ $con->phone_number }}</td>
+                                                <td>{{ $con->company }}</td>
+                                                <td>{{ $con->subject }}</td>
+                                                <td>{{ $con->message }}</td>
+                                                <td>{{ date('d M,Y', strtotime($con->created_at)) }}</td>
                                             </tr>
                                         @endforeach
                                     @else
                                         <tr>
-                                            <td colspan="5" class="text-center">No data found </td>
+                                            <td colspan="8" class="text-center">No data found </td>
                                         </tr>
                                     @endif
                                 </tbody>
                             </table>
                             <div class="pagination">
-                                {{ $careers->appends(request()->input())->links('pagination::bootstrap-4') }}
+                                {{ $contact->appends(request()->input())->links('pagination::bootstrap-4') }}
                             </div>
                         </div>
                     </div>
                 </div>
-           
+         
         </div>
     </div>
 @endsection

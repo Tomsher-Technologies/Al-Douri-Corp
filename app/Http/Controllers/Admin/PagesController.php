@@ -8,6 +8,7 @@ use App\Models\PageTranslations;
 use App\Models\PageSeos;
 use App\Models\GeneralSettings;
 use App\Models\HeritageLists;
+use App\Models\Contact;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
 use Illuminate\Support\Str;
@@ -839,5 +840,12 @@ class PagesController extends Controller
         return redirect()->back()->with([
             'status' => "Page details updated"
         ]);
+    }
+
+    public function enquiries(){
+        $query = Contact::latest();
+        $contact = $query->paginate(10);
+
+        return view('admin.contact.index', compact('contact'));
     }
 }
