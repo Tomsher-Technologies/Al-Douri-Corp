@@ -179,7 +179,7 @@
                              </a>
                              <div class="dropdown-menu">
                                  <div class="container">
-                                     <div class="row g-0 g-lg-4">
+                                     <div class="row g-0 g-lg-2">
 
                                          @foreach (menuDivisions() as $division)
                                              <div class="col-lg-3 d-none d-lg-block">

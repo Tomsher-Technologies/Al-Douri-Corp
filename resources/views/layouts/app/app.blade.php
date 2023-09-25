@@ -15,12 +15,12 @@
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" /> -->
     <link rel="stylesheet" href="{{ asset('assets/fonts/Skape/style.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/fonts/Socicons/socicon.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/vlt-plugins.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/vlt-main.min.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"  />
 
     @stack('header')
 

@@ -29,15 +29,26 @@
             <section class="">
                 <div class="vlt-gap-0"></div>
                 <div class="container">
+                    
+                    
+                    <div class="row     justify-content-center">
+                        
+                    
+                             
+                             
+                                   
                     <div class="vlt-gap-50"></div>
 
-                    <div class="vlt-isotope-grid" data-columns="3" data-layout="masonry" data-x-gap="30|30"
-                        data-y-gap="60|60">
-                        <div class="grid-sizer"></div>
+                    <!--<div class="vlt-isotope-grid" data-columns="3" data-layout="masonry" data-x-gap="30|30"-->
+                    <!--    data-y-gap="60|60">-->
+                        
+                        <!--<div class="grid-sizer"></div>-->
 
                         @foreach ($sub_category as $item)
+                        
+                             <div class="col-md-4">
                             <div class=" grid-item filter-design">
-                                <!--Portfolio item-->
+                            
                                 <article class="vlt-work vlt-work--style-1">
                                     <div class="vlt-work__media">
                                         <a href="{{ route('sub_category', [
@@ -67,9 +78,21 @@
                                     </div>
                                 </article>
                             </div>
+                               </div>
                         @endforeach
 
+                   <!--</div>-->
+                        
                     </div>
+                        
+                 
+                    
+                    
+                 
+                    
+                    
+              
+                   
                 </div>
                 <div class="vlt-gap-120"></div>
             </section>

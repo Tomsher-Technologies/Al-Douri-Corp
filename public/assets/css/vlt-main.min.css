@@ -8249,8 +8249,8 @@ dl dd {
     -ms-transform-origin: center left;
     transform-origin: center left;
     opacity: 0;
-    /* -o-object-fit: cover; */
-    /* object-fit: cover */
+     -o-object-fit: cover; 
+     object-fit: cover 
 }
 
 .vlt-tabs-image li.is-active img {

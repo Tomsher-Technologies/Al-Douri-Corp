@@ -40,7 +40,7 @@
                         </div>
                         <div class="vlt-gap-60--sm"></div>
                     </div>
-                    <div class="col-md-5 offset-md-2">
+                    <div class="col-md-5 offset-md-1">
                         <!--Animated block-->
                         <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
 
