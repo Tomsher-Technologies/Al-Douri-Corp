@@ -91,7 +91,7 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-10 offset-md-1">
+                <div class="col-md-10 offset-md-1" id="applyForm">
                     <div class="text-center">
                         <!--Animated block-->
                         <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
@@ -135,7 +135,7 @@
                                 <div class="vlt-form-group">
                                     <input class="vlt-form-control" type="tel" name="phone" value="{{ old('phone') }}">
                                     <x-input-error name='phone' />
-                                    <label class="vlt-form-label">{{ __('Phone Number') }}</label>
+                                    <label class="vlt-form-label">{{ __('Phone Number') }}*</label>
                                 </div>
                             </div>
                             <div class="vlt-form-row two-col">

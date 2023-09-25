@@ -19,6 +19,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Storage;
+use Validator;
 use Mail;
 
 class FrontendController extends Controller
@@ -139,15 +140,21 @@ class FrontendController extends Controller
 
     public function applyJob(Request $request)
     {
-      
-        $request->validate([
+        $validator = Validator::make($request->all(), [
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required|email',
+            'phone' => 'required|numeric',
             'resume' => 'required'
         ],[
             '*.required' => 'This field is required.'
         ]);
+
+        if ( $validator->fails() ) {
+            return redirect(url()->previous() .'#applyForm')
+            ->withErrors($validator)
+            ->withInput();
+        }
 
         if ($request->hasFile('resume')) {
             $uploadedFile = $request->file('resume');
@@ -169,6 +176,6 @@ class FrontendController extends Controller
         $con->resume = $imageUrl;
         $con->save();
 
-        return redirect()->back()->with(['status' => " THANK YOU FOR APPLYING. OUR TEAM WILL CONTACT YOU SHORTLY."]);
+        return redirect(url()->previous() .'#applyForm')->with(['status' => " THANK YOU FOR APPLYING. OUR TEAM WILL CONTACT YOU SHORTLY."]);
     }
 }

@@ -20,7 +20,10 @@
     <div class="vlt-form-row two-col">
         <div class="vlt-form-group">
             <input class="vlt-form-control" type="tel" name="phone" wire:model="phone_number" placeholder=" ">
-            <label class="vlt-form-label">{{ __('Phone number') }}</label>
+            <label class="vlt-form-label">{{ __('Phone number') }}*</label>
+            @error('phone_number')
+                <div class="danger text-danger">{{ $message }}</div>
+            @enderror
         </div>
         <div class="vlt-form-group">
             <input class="vlt-form-control" type="text" name="company" wire:model="company" placeholder=" ">
@@ -46,5 +49,6 @@
     <div class="vlt-gap-40"></div>
     <!--Button-->
     <button class="vlt-btn vlt-btn--secondary vlt-btn--lg" wire:loading.attr="disabled"
-        type="submit">{{ __('Submit') }}</button>
+        type="submit"><i class="fa fa-spinner fa-spin hide"></i>{{ __('Submit') }}</button>
 </form>
+

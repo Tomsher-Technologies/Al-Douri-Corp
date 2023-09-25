@@ -21,7 +21,7 @@ class ContactForm extends Component
     protected $rules = [
         'name' => 'required',
         'email' => 'required|email',
-        'phone_number' => 'nullable',
+        'phone_number' => 'required|numeric',
         'company' => 'nullable',
         'subject' => 'nullable',
         'm_messages' => 'required',
@@ -47,7 +47,7 @@ class ContactForm extends Component
             'message' => $this->m_messages,
         ]);
 
-        Mail::to('shabeer@tomsher.com')
+        Mail::to(env('MAIL_ADMIN'))
             ->queue(new ContactEnquiry($contact));
 
         $this->reset([
