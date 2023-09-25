@@ -50,6 +50,11 @@
 
         <!--Section-->
         <section class="bg-white">
+            
+            
+             <div class="vlt-gap-50"></div>
+            
+            
             <div class="container-fluid p-0">
                 <div class="vlt-gap-20"></div>
                 <!--Animated block-->
@@ -91,12 +96,16 @@
                     </div>
                 </div>
 
-                <div class="vlt-gap-20"></div>
+                <!--<div class="vlt-gap-20"></div>-->
             </div>
+            
+            
+            
+            <div class="vlt-gap-50"></div>
         </section>
         <!--Section-->
 
-
+       <!--<div class="vlt-gap-20"></div>-->
         <!--Page navigation-->
         <section class="vlt-page-navigation vlt-page-navigation--style-2">
             <div class="container">
