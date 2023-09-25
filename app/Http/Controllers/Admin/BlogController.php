@@ -44,7 +44,22 @@ class BlogController extends Controller
             'status' => 'required',
         ]);
 
-        $blog = Blog::create($request->all());
+         $saveData = [
+            'title' => $request->title,
+            'ar_title' => $request->ar_title,
+            'content' => $request->content,
+            'ar_content' => $request->ar_content,
+            'status' => $request->status,
+            'seo_title' => $request->seotitle,
+            'og_title' => $request->ogtitle, 
+            'twitter_title' => $request->twtitle, 
+            'seo_description' => $request->seodescription, 
+            'og_description' => $request->og_description, 
+            'twitter_description' => $request->twitter_description, 
+            'keywords' => $request->seokeywords
+        ];
+        
+        $blog = Blog::create($saveData);
 
         $image = uploadImage($request, 'image', 'blogs');
 
@@ -91,7 +106,19 @@ class BlogController extends Controller
             'status' => 'required',
         ]);
 
-        $blog->update($request->all());
+        $blog->title = $request->title;
+        $blog->ar_title = $request->ar_title;
+        $blog->content = $request->content;
+        $blog->ar_content = $request->ar_content;
+        $blog->status = $request->status;
+        $blog->seo_title = $request->seotitle;
+        $blog->og_title = $request->ogtitle; 
+        $blog->twitter_title = $request->twtitle;
+        $blog->seo_description = $request->seodescription;
+        $blog->og_description = $request->og_description;
+        $blog->twitter_description = $request->twitter_description; 
+        $blog->keywords = $request->seokeywords;
+        $blog->save();
 
         if ($request->hasFile('image')) {
             $image = uploadImage($request, 'image', 'blogs');

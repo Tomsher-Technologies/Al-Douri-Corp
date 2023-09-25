@@ -22,7 +22,7 @@ class Blog extends Model
         'ar_content',
         'image',
         'status',
-        'slug',
+        'slug','seo_title', 'og_title', 'twitter_title', 'seo_description', 'og_description', 'twitter_description', 'keywords'
     ];
 
     public function getRouteKeyName(): string

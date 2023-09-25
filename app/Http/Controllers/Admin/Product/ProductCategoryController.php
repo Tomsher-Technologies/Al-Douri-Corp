@@ -69,7 +69,19 @@ class ProductCategoryController extends Controller
             'status' => 'required',
         ]);
 
-        $category = ProductCategory::create($request->all());
+        $saveData = [
+            'title' => $request->title,
+            'status' => $request->status,
+            'seo_title' => $request->seotitle,
+            'og_title' => $request->ogtitle, 
+            'twitter_title' => $request->twtitle, 
+            'seo_description' => $request->seodescription, 
+            'og_description' => $request->og_description, 
+            'twitter_description' => $request->twitter_description, 
+            'keywords' => $request->seokeywords
+        ];
+        
+        $category = ProductCategory::create($saveData);
 
         $menu_image = uploadImage($request, 'menu_image', 'category');
         $banner_image = uploadImage($request, 'banner_image', 'category');
@@ -164,6 +176,18 @@ class ProductCategoryController extends Controller
             'status' => 'required',
         ]);
 
+
+        $category->title = $request->title;
+        $category->status = $request->status;
+        $category->seo_title = $request->seotitle;
+        $category->og_title = $request->ogtitle; 
+        $category->twitter_title = $request->twtitle;
+        $category->seo_description = $request->seodescription;
+        $category->og_description = $request->og_description;
+        $category->twitter_description = $request->twitter_description; 
+        $category->keywords = $request->seokeywords;
+        $category->save();
+
         $category->update($request->all());
 
         if ($request->hasFile('menu_image')) {
@@ -212,7 +236,7 @@ class ProductCategoryController extends Controller
             'description' => $request->ar_content,
         ]);
 
-        return back()->with([
+        return redirect()->route('admin.category.index')->with([
             'status' => 'Category Updated'
         ]);
     }

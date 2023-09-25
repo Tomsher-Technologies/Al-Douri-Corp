@@ -1,9 +1,9 @@
-@extends('layouts.admin.app', ['body_class' => 'nav-md', 'title' => 'Home Page Contents'])
+@extends('layouts.admin.app', ['body_class' => 'nav-md', 'title' => 'About Us Page Contents'])
 @section('content')
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <h1>Home Page Contents</h1>
+                <h1>About Us Page Contents</h1>
                 <div class="separator mb-5"></div>
             </div>
         </div>

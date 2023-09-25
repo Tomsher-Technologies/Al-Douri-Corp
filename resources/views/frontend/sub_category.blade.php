@@ -98,25 +98,47 @@
 
 
         <!--Page navigation-->
-        {{-- <section class="vlt-page-navigation vlt-page-navigation--style-2">
+        <section class="vlt-page-navigation vlt-page-navigation--style-2">
             <div class="container">
                 <div class="row no-gutters align-items-stretch">
+                    
                     <div class="col-5">
-                        <div class="prev"><span class="label"><i class="fa-solid fa-arrow-left"></i> Previous</span>
-                            <h5><a href="single-work-03.html">Malban</a></h5>
+                        @if ($previous_category)
+                        <div class="prev">
+                            <span class="label">
+                                <i class="fa-solid fa-arrow-left"></i> {{ __('Previous') }}
+                            </span>
+                            <h5><a href="{{ route('sub_category', [
+                                            'category' => $category_slug,
+                                            'sub_category' => $previous_category->slug,
+                                        ]) }}">{{ $previous_category->getTranslation('title') }}</a></h5>
                         </div>
+                        @endif
                     </div>
+                    
+
                     <div class="col-2 d-flex align-items-center justify-content-center">
-                        <div class="all"><a href="#"><i class="fa-solid fa-grip"></i></a></div>
-                    </div>
-                    <div class="col-5">
-                        <div class="next"><span class="label">Next <i class="fa-solid fa-arrow-right"></i></span>
-                            <h5><a href="single-work-01.html">Marzipan</a></h5>
+                        <div class="all">
+                            <a href="{{ route('category', $category_slug) }}"><i class="fa-solid fa-grip"></i></a>
                         </div>
                     </div>
+
+                    
+                    <div class="col-5">
+                        @if ($next_category)
+                        <div class="next">
+                            <span class="label">{{ __('Next') }} <i class="fa-solid fa-arrow-right"></i></span>
+                            <h5><a href="{{ route('sub_category', [
+                                            'category' => $category_slug,
+                                            'sub_category' => $next_category->slug,
+                                        ]) }}">{{ $next_category->getTranslation('title') }}</a></h5>
+                        </div>
+                        @endif
+                    </div>
+                   
                 </div>
             </div>
-        </section> --}}
+        </section> 
     </div>
     @php  
         $general = getSettings();

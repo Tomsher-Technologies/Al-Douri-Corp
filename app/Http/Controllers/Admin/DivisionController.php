@@ -85,6 +85,13 @@ class DivisionController extends Controller
             'home_image' => $home_image,
             'status' => $request->status,
             'slug' => Str::slug($request->title),
+            'seo_title' => $request->seotitle,
+            'og_title' => $request->ogtitle, 
+            'twitter_title' => $request->twtitle, 
+            'seo_description' => $request->seodescription, 
+            'og_description' => $request->og_description, 
+            'twitter_description' => $request->twitter_description, 
+            'keywords' => $request->seokeywords
         ]);
 
         $division->division_translations()->create([
@@ -166,6 +173,13 @@ class DivisionController extends Controller
         ]);
 
         $division->title = $request->title;
+        $division->seo_title = $request->seotitle;
+        $division->og_title = $request->ogtitle; 
+        $division->twitter_title = $request->twtitle;
+        $division->seo_description = $request->seodescription;
+        $division->og_description = $request->og_description;
+        $division->twitter_description = $request->twitter_description; 
+        $division->keywords = $request->seokeywords;
 
         if ($request->hasFile('menu_image')) {
             $image = uploadImage($request, 'menu_image', 'divisions');
@@ -216,7 +230,7 @@ class DivisionController extends Controller
             'content_2' => $request->ar_content_2,
         ]);
 
-        return back()->with([
+        return redirect()->route('admin.divisions.index')->with([
             'status' => 'Division Updated'
         ]);
     }

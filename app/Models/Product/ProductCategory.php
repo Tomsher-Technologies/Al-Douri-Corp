@@ -19,7 +19,7 @@ class ProductCategory extends Model
         'image_1',
         'image_2',
         'slug',
-        'status'
+        'status','seo_title', 'og_title', 'twitter_title', 'seo_description', 'og_description', 'twitter_description', 'keywords'
     ];
 
     protected $with = ['category_translations'];
