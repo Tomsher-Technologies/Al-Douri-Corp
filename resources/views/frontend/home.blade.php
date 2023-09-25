@@ -301,7 +301,7 @@
                                         }
                                     @endphp
                                     <li class="{{$status}}">
-                                        <a href="javascript:;">0{{$keyY+1}}. {{ $division->getTranslation('title') }}</a>
+                                        <a href="{{ route('divisions', $division->slug) }}">0{{$keyY+1}}. {{ $division->getTranslation('title') }}</a>
                                     </li>
                                 @endforeach
                             </ul>

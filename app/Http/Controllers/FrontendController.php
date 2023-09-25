@@ -144,6 +144,7 @@ class FrontendController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'email' => 'required|email',
+            'phone' => 'required|numeric',
             'resume' => 'required'
         ],[
             '*.required' => 'This field is required.'

@@ -183,4 +183,13 @@
 @push('header')
 @livewireScripts
 @livewireStyles
+
+<style>
+.hide{
+    display:none !important;
+}
+.show{
+    display:block !important;
+}
+</style>
 @endpush
