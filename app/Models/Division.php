@@ -19,7 +19,7 @@ class Division extends Model
         'gallery_image',
         'home_image',
         'status',
-        'slug'
+        'slug','seo_title', 'og_title', 'twitter_title', 'seo_description', 'og_description', 'twitter_description', 'keywords'
     ];
 
     protected $with = ['division_translations'];

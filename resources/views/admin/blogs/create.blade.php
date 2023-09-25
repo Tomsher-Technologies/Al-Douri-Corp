@@ -67,7 +67,8 @@
                                 </select>
                                 <x-input-error name='status' />
                             </div>
-
+                            
+                            @include('admin.common.seo_form')
                             <button type="submit" class="btn btn-primary mb-0">Submit</button>
                         </form>
                     </div>

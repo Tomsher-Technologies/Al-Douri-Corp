@@ -180,6 +180,10 @@
                                 </select>
                                 <x-input-error name='status' />
                             </div>
+                            @php   
+                                $data = $division;
+                            @endphp
+                            @include('admin.common.seo_form')
 
                             <button type="submit" class="btn btn-primary mb-0">Update</button>
                             <button type="button" id="delete" class="btn btn-danger mb-0 float-right">Delete</button>
