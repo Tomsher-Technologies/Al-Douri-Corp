@@ -21,11 +21,11 @@
             <div class="vlt-gap-120"></div>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-6">
                         <!--Animated block-->
                         <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
                             <div class="position-relative text-center">
-                                <div class="position-relative mx-auto" style="max-width: 420px;">
+                                <div class="position-relative">
                                     <!--Simple image-->
                                     <div class="vlt-simple-image">
                                         <div class="vlt-simple-image__mask" data-aos="image-mask-animation"
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-8 offset-md-2">
+                    <div class="col-md-6">
                         <div class="text-center">
                             <div class="vlt-gap-40"></div>
                             <!--Animated block-->
@@ -54,7 +54,7 @@
                              
                                 <div class="vlt-gap-40"></div>
                              
-                            <div class="vlt-animated-block fz-4"  style="padding: 0 30px; font-style: italic;" data-aos="fade" data-aos-delay="100">
+                            <div class="vlt-animated-block fz-3"  style="padding: 0 30px; font-style: italic;" data-aos="fade" data-aos-delay="100">
                                 
                                 {!! $page->getTranslation('content1') !!}
                             

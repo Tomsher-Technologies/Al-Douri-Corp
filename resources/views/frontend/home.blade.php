@@ -39,7 +39,7 @@
                             <i class="fa-brands fa-facebook"></i>
                         </a>
                         <a class="vlt-social-icon vlt-social-icon--style-1"
-                        target="_blank" href="{{ $general->twitter }}"><i class="fa-brands fa-twitter"></i>
+                        target="_blank" href="{{ $general->twitter }}"><i class="fa-brands fa-x-twitter"></i>
                         </a>
                         <a  class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="{{ $general->instagram }}"><i
                                 class="fa-brands fa-instagram"></i>
@@ -73,7 +73,7 @@
                                                             </p>
 
                                                             <!--Button--><a class="vlt-btn vlt-btn--primary vlt-btn--md"
-                                                                href="#" target="_self">{{$ban->getTranslation('btn_text')}}
+                                                                href="{{ $ban->btn_link }}" target="_self">{{$ban->getTranslation('btn_text')}}
                                                             </a>
                                                         </div>
                                                     </div>
@@ -165,7 +165,7 @@
                         <!--Animated block-->
                         <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
                             <div class="has-black-color">
-                                <!--Simple link--><a class="vlt-simple-link vlt-simple-link--md" href="#"
+                                <!--Simple link--><a class="vlt-simple-link vlt-simple-link--md" href="{{ route('our_heritage') }}"
                                     target="_self">{{ __('Read more') }}
                                     <i class="fa-solid fa-arrow-right"></i>
                                 </a>
