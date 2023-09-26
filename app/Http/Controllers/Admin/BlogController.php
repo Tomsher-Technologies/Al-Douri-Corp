@@ -41,6 +41,7 @@ class BlogController extends Controller
             'ar_title' => 'required',
             'content' => 'required',
             'ar_content' => 'required',
+            'news_date' => 'required', 
             'status' => 'required',
         ]);
 
@@ -50,6 +51,7 @@ class BlogController extends Controller
             'content' => $request->content,
             'ar_content' => $request->ar_content,
             'status' => $request->status,
+            'blog_date' => $request->news_date,
             'seo_title' => $request->seotitle,
             'og_title' => $request->ogtitle, 
             'twitter_title' => $request->twtitle, 
@@ -103,6 +105,7 @@ class BlogController extends Controller
             'ar_title' => 'required',
             'content' => 'required',
             'ar_content' => 'required',
+            'news_date' => 'required', 
             'status' => 'required',
         ]);
 
@@ -111,6 +114,7 @@ class BlogController extends Controller
         $blog->content = $request->content;
         $blog->ar_content = $request->ar_content;
         $blog->status = $request->status;
+        $blog->blog_date = $request->news_date;
         $blog->seo_title = $request->seotitle;
         $blog->og_title = $request->ogtitle; 
         $blog->twitter_title = $request->twtitle;

@@ -30,6 +30,7 @@
                                     <tr>
                                         <th scope="col">No:</th>
                                         <th scope="col">Name</th>
+                                        <th scope="col">Date</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Action</th>
                                     </tr>
@@ -39,6 +40,7 @@
                                         <tr>
                                             <th scope="row">{{ $loop->iteration }}</th>
                                             <td>{{ $blog->title }}</td>
+                                            <td>{{ date('d M, Y',strtotime($blog->blog_date)) }}</td>
                                             <td>{{ $blog->status == 1 ? 'Enabled' : 'Disabled' }}</td>
                                             <td>
                                                 <a href="{{ route('admin.blogs.edit', $blog->id) }}"

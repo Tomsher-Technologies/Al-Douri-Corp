@@ -64,6 +64,12 @@
                                 <x-input-error name='ar_content' />
                             </div>
 
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">News Date</label>
+                                <input type="text" name="news_date" id="news_date" class="form-control" value="{{ old('news_date', $blog->blog_date) }}"
+                                    >
+                                <x-input-error name='news_date' />
+                            </div>
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Status</label>
@@ -107,9 +113,11 @@
 @push('header')
     <link rel="stylesheet" href="{{ adminAsset('css/vendor/select2.min.css') }}" />
     <link rel="stylesheet" href="{{ adminAsset('css/vendor/select2-bootstrap.min.css') }}" />
+    <link rel="stylesheet" href="{{ adminAsset('css/vendor/bootstrap-datepicker3.min.css') }}" />
 @endpush
 @push('footer')
     <script src="{{ adminAsset('js/vendor/select2.full.js') }}"></script>
+    <script src="{{ adminAsset('js/vendor/bootstrap-datepicker.js') }}"></script>
 
     <script>
         $('#img').on('change', function() {
@@ -124,6 +132,12 @@
             if (confirm('Are you sure you want to remove this item?')) {
                 $('#deleteForm').submit();
             }
+        });
+
+        $("#news_date").datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true,
+            todayHighlight: true
         });
     </script>
 
