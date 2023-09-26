@@ -2,7 +2,7 @@
  <section class="mobile-app">
      <div class="container-fluid">
          <div class="position-relative vlt-custom--6188">
-             <img class="vlt-particle mobile-app-image-ad" src="{{ asset('assets/img/vegetable.png') }}"
+             <img class="vlt-particle mobile-app-image-ad" src="{{ asset($page->getImage8()) }}"
                  data-animation-name="fadeInUp" alt=""
                  style="
                 position: absolute;
@@ -31,7 +31,7 @@
                                          <!--Team list-->
                                          <div class="vlt-team-list">
                                              <a href="#" data-aos="fade" data-aos-delay="300">
-                                                 <img src="{{ asset('assets/img/mobile-app.png') }}" alt=""
+                                                 <img src="{{ asset($page->getImage7()) }}" alt=""
                                                      loading="lazy" />
                                              </a>
                                              <!-- <a href="our-team.html"
@@ -114,7 +114,7 @@
                                          <!--Team list-->
                                          <div class="vlt-team-list">
                                              <a href="#" data-aos="fade" data-aos-delay="300">
-                                                 <img src="{{ asset('assets/img/website.png') }}" alt=""
+                                                 <img src="{{ asset($page->getImage9()) }}" alt=""
                                                      loading="lazy" />
                                              </a>
                                              <!-- <a href="our-team.html"
