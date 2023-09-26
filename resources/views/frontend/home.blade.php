@@ -2,7 +2,7 @@
 @section('content')
     <div class="vlt-page-content">
         <!--Section-->
-        <section class="position-relative">
+        <section class="position-relative" id="home-b">
             <!--Site fixed bar-->
             <div class="vlt-site-fixed-bar vlt-site-fixed-bar--right has-white-color position-absolute">
                 <div class="flex-grow-0 flex-shrink-0"></div>
