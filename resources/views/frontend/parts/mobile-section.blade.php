@@ -61,15 +61,16 @@
               </div> -->
 
                                          <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
-                                             <!--Button--><a class="vlt-btn vlt-btn--primary vlt-btn--md" href="#"
-                                                 target="_self">{!! $page->getTranslation('button_text_2') !!}</a>
+                                             <!--Button-->
+                                              <!-- <a class="vlt-btn vlt-btn--primary vlt-btn--md" href="#"
+                                                 target="_self">{!! $page->getTranslation('button_text_2') !!}</a> -->
 
                                              <a class="app-download-image" href="{{ $general->play_store }}" target="_blank">
-                                                 <img src="{{ asset('assets/img/store_play.png') }}" alt=""
+                                                 <img src="{{ asset('assets/img/store_play.png') }}" class="mt-0" alt=""
                                                      loading="lazy" />
                                             </a>
                                             <a class="app-download-image" href="{{ $general->app_store }}" target="_blank">
-                                                 <img src="{{ asset('assets/img/store_app.png') }}" alt=""
+                                                 <img src="{{ asset('assets/img/store_app.png') }}" class="mt-0" alt=""
                                                      loading="lazy" />
                                             </a>
                                          </div>
@@ -102,7 +103,7 @@
               </div> -->
 
                                          <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
-                                             <!--Button--><a class="vlt-btn vlt-btn--primary vlt-btn--md" href="#"
+                                             <!--Button--><a class="vlt-btn vlt-btn--primary vlt-btn--md" href="{!! $page->button_link_3 !!}"
                                                  target="_self">{!! $page->getTranslation('button_text_3') !!}</a>
                                          </div>
                                      </div>

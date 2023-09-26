@@ -138,31 +138,31 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Mid Heading 1</label>
+                                <label for="exampleInputEmail1"> Heritage Heading</label>
                                 <input type="text" name="mid_heading1" class="form-control"
                                     value="{{ $data->getTranslation('heading2','en') }}" >
                                 <x-input-error name='mid_heading1' />
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Arabic Mid Heading 1</label>
+                                <label for="exampleInputEmail1">Arabic Heritage Heading</label>
                                 <input type="text" name="ar_mid_heading1" dir="rtl" class="form-control"
                                     value="{{ $data->getTranslation('heading2', 'ar') }}" >
                                 <x-input-error name='ar_mid_heading1' />
                             </div>
 
                             <div class="form-group position-relative error-l-50">
-                                <label>Mid Content 1</label>
+                                <label> Heritage Content</label>
                                 <textarea class="form-control" id="engContent2" name="mid_content1" rows="2">{{ $data->getTranslation('content2','en') }}</textarea>
                                 <x-input-error name='mid_content1' />
                             </div>
                             <div class="form-group position-relative error-l-50">
-                                <label>Arabic Mid Content 1</label>
+                                <label>Arabic Heritage Content</label>
                                 <textarea class="form-control" id="arContent2" dir="rtl" name="ar_mid_content1" rows="2">{{ $data->getTranslation('content2', 'ar') }}</textarea>
                                 <x-input-error name='ar_mid_content1' />
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Mid Image 1</label>
+                                <label for="exampleInputEmail1"> Heritage Image</label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="mid_image1" class="img" type="file" class="custom-file-input"
@@ -175,36 +175,36 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Current Mid Image 1</label>
+                                <label for="exampleInputEmail1">Current Heritage Image</label>
                                 <img class="img-custom form-control" src="{{ $data->getImage3('image3') }}" alt="">
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Mid Heading 2</label>
+                                <label for="exampleInputEmail1"> Mission Heading</label>
                                 <input type="text" name="mid_heading2" class="form-control"
                                     value="{{ $data->getTranslation('heading3','en') }}" >
                                 <x-input-error name='mid_heading2' />
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Arabic Mid Heading 2</label>
+                                <label for="exampleInputEmail1">Arabic Mission Heading</label>
                                 <input type="text" name="ar_mid_heading2" dir="rtl" class="form-control"
                                     value="{{ $data->getTranslation('heading3', 'ar') }}" >
                                 <x-input-error name='ar_mid_heading2' />
                             </div>
 
                             <div class="form-group position-relative error-l-50">
-                                <label>Mid Content 2</label>
+                                <label> Mission Content</label>
                                 <textarea class="form-control" id="engContent3" name="mid_content2" rows="2">{{ $data->getTranslation('content3','en') }}</textarea>
                                 <x-input-error name='mid_content2' />
                             </div>
                             <div class="form-group position-relative error-l-50">
-                                <label>Arabic Mid Content 2</label>
+                                <label>Arabic Mission Content</label>
                                 <textarea class="form-control" id="arContent3" dir="rtl" name="ar_mid_content2" rows="2">{{ $data->getTranslation('content3', 'ar') }}</textarea>
                                 <x-input-error name='ar_mid_content2' />
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Mid Image 2</label>
+                                <label for="exampleInputEmail1"> Mission Image</label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="mid_image2" class="img" type="file" class="custom-file-input"
@@ -217,37 +217,37 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Current Mid Image 2</label>
+                                <label for="exampleInputEmail1">Current Mission Image</label>
                                 <img class="img-custom form-control" src="{{ $data->getImage4('image4') }}" alt="">
                             </div>
 
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Mid Heading 3</label>
+                                <label for="exampleInputEmail1"> Vision Heading</label>
                                 <input type="text" name="mid_heading3" class="form-control"
                                     value="{{ $data->getTranslation('heading4','en') }}" >
                                 <x-input-error name='mid_heading3' />
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Arabic Mid Heading 3</label>
+                                <label for="exampleInputEmail1">Arabic Vision Heading</label>
                                 <input type="text" name="ar_mid_heading3" dir="rtl" class="form-control"
                                     value="{{ $data->getTranslation('heading4', 'ar') }}" >
                                 <x-input-error name='ar_mid_heading3' />
                             </div>
 
                             <div class="form-group position-relative error-l-50">
-                                <label>Mid Content 3</label>
+                                <label> Vision Content</label>
                                 <textarea class="form-control" id="engContent4" name="mid_content3" rows="2">{{ $data->getTranslation('content4','en') }}</textarea>
                                 <x-input-error name='mid_content3' />
                             </div>
                             <div class="form-group position-relative error-l-50">
-                                <label>Arabic Mid Content 3</label>
+                                <label>Arabic Vision Content</label>
                                 <textarea class="form-control" id="arContent4" dir="rtl" name="ar_mid_content3" rows="2">{{ $data->getTranslation('content4', 'ar') }}</textarea>
                                 <x-input-error name='ar_mid_content3' />
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Mid Image 3</label>
+                                <label for="exampleInputEmail1"> Vision Image</label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="mid_image3" class="img" type="file" class="custom-file-input"
@@ -260,7 +260,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Current Mid Image 3</label>
+                                <label for="exampleInputEmail1">Current Vision Image</label>
                                 <img class="img-custom form-control" src="{{ $data->getImage5('image5') }}" alt="">
                             </div>
 
@@ -400,7 +400,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Image 1</label>
+                                <label for="exampleInputEmail1">First Image</label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="app_image1" class="img" type="file" class="custom-file-input"
@@ -413,13 +413,13 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Current Image 1</label>
+                                <label for="exampleInputEmail1">Current First Image</label>
                                 <img class="img-custom form-control" src="{{ $data->getImage7('image7') }}" alt="">
                             </div>
 
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Image 2</label>
+                                <label for="exampleInputEmail1">Middle Image</label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="app_image2" class="img" type="file" class="custom-file-input"
@@ -432,12 +432,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Current Image 2</label>
+                                <label for="exampleInputEmail1">Current Middle Image</label>
                                 <img class="img-custom form-control" src="{{ $data->getImage8('image8') }}" alt="">
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Image 3</label>
+                                <label for="exampleInputEmail1">Last Image</label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="app_image3" class="img" type="file" class="custom-file-input"
@@ -450,7 +450,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Current Image 3</label>
+                                <label for="exampleInputEmail1">Current Last Image</label>
                                 <img class="img-custom form-control" src="{{ $data->getImage9('image9') }}" alt="">
                             </div>
 
@@ -481,41 +481,21 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Button Text 1</label>
-                                <input type="text" name="app_button_text1" class="form-control"
-                                    value="{{ $data->getTranslation('button_text_2','en') }}" >
-                                <x-input-error name='app_button_text1' />
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Arabic Button Text 1</label>
-                                <input type="text" name="ar_app_button_text1" dir="rtl" class="form-control"
-                                    value="{{ $data->getTranslation('button_text_2', 'ar') }}" >
-                                <x-input-error name='ar_app_button_text1' />
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Button Link 1</label>
-                                <input type="text" name="app_button_link1" class="form-control"
-                                    value="{{ $data->button_link_2 }}" >
-                                <x-input-error name='app_button_link1' />
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Button Text 2</label>
+                                <label for="exampleInputEmail1">Shop Now Button Text</label>
                                 <input type="text" name="app_button_text2" class="form-control"
                                     value="{{ $data->getTranslation('button_text_3','en') }}" >
                                 <x-input-error name='app_button_text2' />
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Arabic Button Text 2</label>
+                                <label for="exampleInputEmail1">Arabic Shop Now Button Text</label>
                                 <input type="text" name="ar_app_button_text2" dir="rtl" class="form-control"
                                     value="{{ $data->getTranslation('button_text_3', 'ar') }}" >
                                 <x-input-error name='ar_app_button_text2' />
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Button Link 2</label>
+                                <label for="exampleInputEmail1">Shop Now Button Link</label>
                                 <input type="text" name="app_button_link2" class="form-control"
                                     value="{{ $data->button_link_3 }}" >
                                 <x-input-error name='app_button_link2' />
