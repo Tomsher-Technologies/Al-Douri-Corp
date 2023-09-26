@@ -103,7 +103,7 @@
               </div> -->
 
                                          <div class="vlt-animated-block" data-aos="fade" data-aos-delay="200">
-                                             <!--Button--><a class="vlt-btn vlt-btn--primary vlt-btn--md" href="{!! $page->button_link_3 !!}"
+                                             <!--Button--><a class="vlt-btn vlt-btn--primary vlt-btn--md" target="_blank" href="{!! $page->button_link_3 !!}"
                                                  target="_self">{!! $page->getTranslation('button_text_3') !!}</a>
                                          </div>
                                      </div>
