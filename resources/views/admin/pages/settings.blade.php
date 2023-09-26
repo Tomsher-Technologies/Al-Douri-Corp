@@ -75,7 +75,7 @@
                                 <x-input-error name='instagram' />
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group d-none">
                                 <label for="exampleInputEmail1">Twitter</label>
                                 <input class="form-control" type="text" value="{{ old('twitter',$data['twitter'] ?? '' )}}" name="twitter" id="twitter">
                                 <x-input-error name='twitter' />
