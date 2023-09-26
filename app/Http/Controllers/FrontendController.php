@@ -144,7 +144,7 @@ class FrontendController extends Controller
         $blog = Blog::find($id);
         $latest_news = Blog::where([
             'status' => 1,
-        ])->where('id', "!=", $blog->id)->limit(5)->get();
+        ])->where('id', "!=", $blog->id)->orderBy('blog_date','DESC')->limit(5)->get();
 
         $next_post = Blog::where('blog_date', '>', $blog->blog_date)->orderBy('blog_date','ASC')->first();
         $previous_post = Blog::where('blog_date', '<', $blog->blog_date)->orderBy('blog_date','DESC')->first();

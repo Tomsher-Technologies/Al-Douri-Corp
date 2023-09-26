@@ -13,7 +13,7 @@
                             <h1 class="vlt-post-title">
                                 {{ $blog->getTranslation('title') }}
                             </h1>
-                            <div class="vlt-post-meta"><span>{{ $blog->getDate() }}</span></div>
+                            <div class="vlt-post-meta"><span>{{ $blog->getNewsDate() }}</span></div>
                         </div>
                     </div>
                 </div>
@@ -59,7 +59,7 @@
                                                     alt="{{ $item->getTranslation('title') }}" loading="lazy">
                                             </a>
                                         </div>
-                                        <div class="vlt-widget-post__content"><span>{{ $item->getDate() }}</span>
+                                        <div class="vlt-widget-post__content"><span>{{ $item->getNewsDate() }}</span>
                                             <h5>
                                                 <a href="{{ route('news.details', ['blog' => $item->id]) }}">
                                                     {{ $item->getTranslation('title') }}
