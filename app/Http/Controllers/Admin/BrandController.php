@@ -45,8 +45,13 @@ class BrandController extends Controller
             'sort_order' => 'nullable|integer',
             'status' => 'required',
         ]);
+        $data = [
+            'name'=> $request->name,
+            'sort_order' => ($request->sort_order != '') ? $request->sort_order : 0,
+            'status' => $request->status,
+        ];
 
-        $brand = Brand::create($request->all());
+        $brand = Brand::create($data);
 
         $image = uploadImage($request, 'imgage', 'brand');
 
@@ -89,15 +94,17 @@ class BrandController extends Controller
             'status' => 'required',
         ]);
 
-        $brand->update($request->all());
+        $brand->name = $request->name;
+        $brand->sort_order = ($request->sort_order != '') ? $request->sort_order : 0;
+        $brand->status = $request->status;
 
         if ($request->hasFile('imgage')) {
             $image = uploadImage($request, 'imgage', 'brand');
-            deleteImage($brand->brand);
+            deleteImage($brand->image);
             $brand->image = $image;
-            $brand->save();
         }
 
+        $brand->save();
         return back()->with([
             'status' => 'Brand Updated'
         ]);

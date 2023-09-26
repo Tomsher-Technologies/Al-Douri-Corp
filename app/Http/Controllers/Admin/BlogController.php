@@ -118,14 +118,15 @@ class BlogController extends Controller
         $blog->og_description = $request->og_description;
         $blog->twitter_description = $request->twitter_description; 
         $blog->keywords = $request->seokeywords;
-        $blog->save();
+       
 
         if ($request->hasFile('image')) {
             $image = uploadImage($request, 'image', 'blogs');
             deleteImage($blog->image);
             $blog->image = $image;
-            $blog->save();
         }
+
+        $blog->save();
 
         return redirect()->route('admin.blogs.index')->with('status','Blog details updated successfully');
     }

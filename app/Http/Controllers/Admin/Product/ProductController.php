@@ -101,21 +101,22 @@ class ProductController extends Controller
             'status' => 'required',
         ]);
 
-        $product->update($request->all());
+        $product->title = $request->title;
+        $product->product_category_id = $request->product_category_id;
+        $product->status = $request->status;
 
         if ($request->hasFile('ar_image')) {
             $ar_image = uploadImage($request, 'ar_image', 'product');
             deleteImage($product->ar_image);
             $product->ar_image = $ar_image;
-            $product->save();
         }
 
         if ($request->hasFile('image')) {
             $image = uploadImage($request, 'image', 'product');
             deleteImage($product->image);
             $product->image = $image;
-            $product->save();
         }
+        $product->save();
 
         return back()->with([
             'status' => 'Product Updated'

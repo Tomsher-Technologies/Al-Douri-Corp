@@ -73,8 +73,8 @@
                                             <!--Portfolio item-->
                                             <article class="vlt-work vlt-work--style-3">
                                                 <div class="vlt-work__media">
-                                                    <a class="vlt-work__link has-cursor" href="#"></a>
-                                                    <img src="{{ $product->getImage('en') }}" alt="" loading="lazy">
+                                                    <!-- <a class="vlt-work__link has-cursor" href="#"></a> -->
+                                                    <img class="default-cursor" src="{{ $product->getImage('en') }}" alt="" loading="lazy">
                                                 </div>
                                             </article>
                                         </div>
@@ -154,3 +154,11 @@
     @endphp
     @include('frontend.parts.mobile-section')
 @endsection
+
+@push('header')
+<style>
+    .default-cursor {
+        cursor: default !important;
+    }
+</style>
+@endpush

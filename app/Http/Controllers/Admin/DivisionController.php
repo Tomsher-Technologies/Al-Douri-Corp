@@ -173,6 +173,7 @@ class DivisionController extends Controller
         ]);
 
         $division->title = $request->title;
+        $division->status = $request->status;
         $division->seo_title = $request->seotitle;
         $division->og_title = $request->ogtitle; 
         $division->twitter_title = $request->twtitle;
