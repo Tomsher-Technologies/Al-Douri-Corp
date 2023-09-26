@@ -186,9 +186,6 @@ class ProductCategoryController extends Controller
         $category->og_description = $request->og_description;
         $category->twitter_description = $request->twitter_description; 
         $category->keywords = $request->seokeywords;
-        $category->save();
-
-        $category->update($request->all());
 
         if ($request->hasFile('menu_image')) {
             $image = uploadImage($request, 'menu_image', 'category');
