@@ -40,7 +40,7 @@
                                     <header class="vlt-post__header">
                                         <div class="vlt-post-meta">
                                             <span>
-                                                {{ $blog->getDate() }}
+                                                {{ $blog->getNewsDate() }}
                                             </span>
                                         </div>
                                         <h3 class="vlt-post-title">

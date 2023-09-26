@@ -21,7 +21,7 @@ class Blog extends Model
         'content',
         'ar_content',
         'image',
-        'status',
+        'status','blog_date',
         'slug','seo_title', 'og_title', 'twitter_title', 'seo_description', 'og_description', 'twitter_description', 'keywords'
     ];
 
@@ -49,6 +49,12 @@ class Blog extends Model
     public function getDate()
     {
         $date = Carbon::parse($this->created_at)->locale(getActiveLanguage());
+        return $date->translatedFormat('d M y');
+    }
+
+    public function getNewsDate()
+    {
+        $date = Carbon::parse($this->blog_date)->locale(getActiveLanguage());
         return $date->translatedFormat('d M y');
     }
 

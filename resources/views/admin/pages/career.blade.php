@@ -64,6 +64,17 @@
                                     value="{{ old('ar_heading', $data->getTranslation('heading1', 'ar')) }}" >
                                 <x-input-error name='ar_heading' />
                             </div>
+
+                            <div class="form-group position-relative error-l-50">
+                                <label>Content</label>
+                                <textarea class="form-control" id="engDescription" name="description" rows="2">{{ $data->getTranslation('description','en') }}</textarea>
+                                <x-input-error name='description' />
+                            </div>
+                            <div class="form-group position-relative error-l-50">
+                                <label>Arabic Content</label>
+                                <textarea class="form-control" id="arDescription" dir="rtl" name="ar_description" rows="2">{{ $data->getTranslation('description', 'ar') }}</textarea>
+                                <x-input-error name='ar_description' />
+                            </div>
                             @include('admin.common.seo_form')
 
                             <button type="submit" class="btn btn-primary mb-0">Update</button>
@@ -101,6 +112,12 @@
         });
 
     </script>
+
+<script src="{{ adminAsset('js/tinymce/tinymce.min.js') }}"></script>
+    <x-tiny-script :editors="[
+        ['id' => '#engDescription', 'dir' => 'ltr'],
+        ['id' => '#arDescription', 'dir' => 'rtl'],
+    ]" />
 
 
 @endpush

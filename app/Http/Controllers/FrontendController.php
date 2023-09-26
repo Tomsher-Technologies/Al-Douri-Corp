@@ -28,6 +28,8 @@ use Illuminate\Support\Facades\URL;
 use Storage;
 use Validator;
 use Mail;
+use DB;
+use Hash;
 
 class FrontendController extends Controller
 {
@@ -130,7 +132,7 @@ class FrontendController extends Controller
 
     public function news()
     {
-        $blogs  = Blog::whereStatus(1)->get();
+        $blogs  = Blog::whereStatus(1)->orderBy('blog_date','DESC')->get();
         $page = Pages::with(['seo'])->where('page_name','news')->first();
         $this->loadSEO($page);
         return view('frontend.news', compact('blogs','page'));
@@ -144,8 +146,8 @@ class FrontendController extends Controller
             'status' => 1,
         ])->where('id', "!=", $blog->id)->limit(5)->get();
 
-        $next_post = Blog::where('id', '>', $blog->id)->orderBy('id', 'asc')->first();
-        $previous_post = Blog::where('id', '<', $blog->id)->orderBy('id', 'desc')->first();
+        $next_post = Blog::where('blog_date', '>', $blog->blog_date)->orderBy('blog_date','ASC')->first();
+        $previous_post = Blog::where('blog_date', '<', $blog->blog_date)->orderBy('blog_date','DESC')->first();
         $page = Pages::with(['seo'])->where('page_name','news')->first();
         $this->loadDynamicSEO($blog);
         return view('frontend.news_details', compact('blog', 'latest_news', 'previous_post', 'next_post','page'));

@@ -816,6 +816,8 @@ class PagesController extends Controller
                 'ar_title'             => $request->ar_title,
                 'heading1'             => $request->heading,
                 'ar_heading1'             => $request->ar_heading,
+                'description'       => $request->description,
+                'ar_description'       => $request->ar_description,
                 'seotitle'             => $request->seotitle,
                 'ogtitle'              => $request->ogtitle,
                 'twtitle'              => $request->twtitle,

@@ -80,24 +80,24 @@ function getBrands()
     return Brand::where('status', 1)->orderBy('sort_order','ASC')->get();
 }
 
-function getFirstBlog()
+function getRecentBlogs()
 {
-    return Blog::where('status', 1)->orderBy('id','DESC')->take(1)->get();
+    return Blog::where('status', 1)->orderBy('blog_date','DESC')->limit(4)->get();
 }
 
 function getSecondBlog()
 {
-    return Blog::where('status', 1)->orderBy('id','DESC')->skip(1)->take(1)->get();
+    return Blog::where('status', 1)->orderBy('blog_date','DESC')->skip(1)->take(1)->get();
 }
 
 function getThirdBlog()
 {
-    return Blog::where('status', 1)->orderBy('id','DESC')->skip(2)->take(1)->get();
+    return Blog::where('status', 1)->orderBy('blog_date','DESC')->skip(2)->take(1)->get();
 }
 
 function getForthBlog()
 {
-    return Blog::where('status', 1)->orderBy('id','DESC')->skip(3)->take(1)->get();
+    return Blog::where('status', 1)->orderBy('blog_date','DESC')->skip(3)->take(1)->get();
 }
 
 function menuCategory()

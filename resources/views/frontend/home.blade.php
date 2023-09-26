@@ -460,12 +460,10 @@
 
                 <div class="row align-items-center">
                     @php 
-                        $firstBlog = getFirstBlog(); 
+                        $recentBlogs = getRecentBlogs();
+                        $firstBlog = $recentBlogs[0] ?? []; 
                     @endphp
-                    @if(isset($firstBlog[0]))
-                        @php 
-                            $firstBlog = $firstBlog[0];
-                        @endphp
+                    @if(!empty($firstBlog))
                         <div class="col-lg-3 p-0">
                             <div class="to-left h-100">
                                 <div class="h-100">
@@ -504,12 +502,9 @@
                         </div>
                     @endif
 
-                    @php $secondBlog = getSecondBlog(); @endphp
+                    @php $secondBlog = $recentBlogs[1] ?? [];  @endphp
 
-                    @if(isset($secondBlog[0]))
-                        @php 
-                            $secondBlog = $secondBlog[0];
-                        @endphp
+                    @if(!empty($secondBlog))
                         <div class="col-lg-3 col-md-6 col-sm-6 p-0">
                             <div class="to-left h-100">
                                 <div class="h-100">
@@ -550,12 +545,9 @@
                 </div>
 
                 <div class="row align-items-center flex-direction-column-reverse-in-mobile">
-                    @php $thirdBlog = getThirdBlog(); @endphp
+                    @php $thirdBlog = $recentBlogs[2] ?? []; @endphp
 
-                    @if(isset($thirdBlog[0]))
-                        @php 
-                            $thirdBlog = $thirdBlog[0];
-                        @endphp
+                    @if(!empty($thirdBlog))
                         <div class="col-lg-3 blog-item-content">
                             <!-- <div class="vlt-gap-130"></div> -->
                             <!--Animated block-->
@@ -594,12 +586,9 @@
                         </div>
                     @endif
 
-                    @php $forthBlog = getForthBlog(); @endphp
+                    @php $forthBlog = $recentBlogs[3] ?? []; @endphp
 
-                    @if(isset($forthBlog[0]))
-                        @php 
-                            $forthBlog = $forthBlog[0];
-                        @endphp
+                    @if(!empty($forthBlog))
                         <div class="col-lg-3 blog-item-content">
                             <!--Animated block-->
                             <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">

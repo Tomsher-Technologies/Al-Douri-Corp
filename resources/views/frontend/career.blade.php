@@ -29,10 +29,14 @@
                             <!--Section title-->
                             <div class="vlt-section-title vlt-section-title--style-2">
                                 <h2 class="vlt-section-title__title">{{ $page->getTranslation('heading1') }}</h2>
+                                
                             </div>
+                           
                         </div>
+                        <div class="vlt-gap-20"></div>
+                        {!! $page->getTranslation('description') ?? '' !!}
                     </div>
-                    <div class="vlt-gap-100"></div>
+                    <div class="vlt-gap-80"></div>
 
                     @if($careers)
                         @foreach($careers as $cr)
