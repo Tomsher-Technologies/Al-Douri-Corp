@@ -182,7 +182,7 @@
                                      <div class="row g-0 g-lg-2">
 
                                          @foreach (menuDivisions() as $division)
-                                             <div class="col-lg-3 d-none d-lg-block">
+                                             <div class="col-lg-4 d-none d-lg-block">
                                                  <div class="card border-0 h-100 mb-0 overflow-hidden"
                                                      style="
                                                    background-image: url('{{ $division->getImage('menu_image') }}');

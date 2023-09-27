@@ -17,20 +17,21 @@
         <div id="content"></div>
         <!--Section-->
         <section class="position-relative">
-            <!--Particle image--><img class="vlt-particle" src="{{ asset('assets/img/root/square-plus-pattern-long.png') }}"
-                data-animation-name="fadeInRight" alt=""
-                style="position: absolute; bottom: 0; right: 0; max-width: 210px; --animate-delay: .5s;" loading="lazy">
-            <div class="vlt-gap-120"></div>
+            <!--Particle image-->
+            
+           
+            <!--<div class="vlt-gap-120"></div>-->
             <div class="vlt-gap-120"></div>
             <div class="container">
                 <div class="row">
                     <div class="col-md-5">
 
                         <div class="position-relative">
-                            <!--Particle image--><img class="vlt-particle" src="{{ asset($page->getImage3()) }}"
-                                data-animation-name="fadeInUp" alt=""
-                                style="position: absolute; top: -120px; right: -100px; max-width: 263px; --animate-delay: 1s;"
-                                loading="lazy">
+                            <!--Particle image-->
+                            <!--<img class="vlt-particle" src="{{ asset($page->getImage3()) }}"-->
+                            <!--    data-animation-name="fadeInUp" alt=""-->
+                            <!--    style="position: absolute; top: -120px; right: -100px; max-width: 263px; --animate-delay: 1s;"-->
+                            <!--    loading="lazy">-->
                             <!--Simple image-->
                             <div class="vlt-simple-image">
                                 <div class="vlt-simple-image__mask" data-aos="image-mask-animation" data-aos-delay="0">
