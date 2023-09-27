@@ -12,9 +12,22 @@
                     data-lax-opacity="1 1, (vh*0.5) 0" data-lax-anchor=".vlt-page-title">{{ $page->getTranslation('title') }}
                 </h1>
             </div>
+            
         </div>
+        
+        <style>
+            .vlt-page-title--style-3 {
+
+    padding: 150px 0;
+    text-align: center;
+}
+        </style>
+        
+        
         <div id="content"></div>
         <!--Section-->
+        
+        
 
 
         <section class="has-black-color">

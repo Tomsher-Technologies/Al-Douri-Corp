@@ -125,7 +125,7 @@ class FrontendController extends Controller
     public function contact_us()
     {
         $page = Pages::with(['seo'])->where('page_name','contact')->first();
-        $branches = Branches::with(['locations'])->get();
+        $branches = Branches::with(['locations'])->where('status',1)->get();
         $this->loadSEO($page);
         return view('frontend.contact_us', compact('page','branches'));
     }
