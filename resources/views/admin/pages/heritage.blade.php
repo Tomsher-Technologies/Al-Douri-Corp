@@ -63,7 +63,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Big Image</label>
+                                <label for="exampleInputEmail1">Image</label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="image2" class="img" type="file" class="custom-file-input"
@@ -76,11 +76,11 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Current Big Image</label>
+                                <label for="exampleInputEmail1">Current Image</label>
                                 <img class="img-custom form-control" src="{{ $data->getImage2() }}" alt="">
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group d-none">
                                 <label for="exampleInputEmail1">Small Image</label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
@@ -93,7 +93,7 @@
                                 <x-input-error name='image3' />
                             </div>
 
-                            <div class="form-group">
+                            <div class="form-group d-none">
                                 <label for="exampleInputEmail1">Current Small Image</label>
                                 <img class="img-custom form-control" src="{{ $data->getImage3() }}" alt="">
                             </div>

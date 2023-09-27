@@ -21,7 +21,7 @@
                 <div class="row">
 
 
-                    <div class="col-md-11 offset-md-1">
+                    <div class="col-md-12">
                         <!--Animated block-->
                         <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0"><span
                                 class="vlt-display-1 has-primary-color">{!! $page->getTranslation('description') !!}</span>
@@ -30,7 +30,7 @@
                     </div>
 
 
-                    <div class="col-md-11 offset-md-1">
+                    <div class="col-md-12">
                         <!--Animated block-->
                         <div class="vlt-animated-block" data-aos="fade" data-aos-delay="100">
                             <p class="fz-3">{!! $page->getTranslation('content1') !!}</p>
@@ -48,7 +48,7 @@
             <div class="vlt-gap-120"></div>
             <div class="container">
                 <div class="row">
-                    <div class="col-md-11 offset-md-1">
+                    <div class="col-md-12">
                         <!--Animated block-->
                         <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
                             <!--Service-->
@@ -58,9 +58,9 @@
                                     <h5 class="vlt-service__title" style=" color:#ffffff; text-align: center;"><a
                                             href="service-single.html">{!! $page->getTranslation('heading1') !!}</a>
                                     </h5>
-                                    <p class="vlt-service__text" style=" color:#fff;">
+                                    <div class="vlt-service__text" style=" color:#fff;">
                                     {!! $page->getTranslation('content2') !!}
-                                    </p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
