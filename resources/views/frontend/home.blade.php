@@ -488,7 +488,7 @@
                             <!--Animated block-->
                             <div class="vlt-animated-block blogs-description" data-aos="fade" data-aos-delay="100">
                                 <p class="fz-1" style="max-width: 415px">
-                                {{ mb_strimwidth(strip_tags($firstBlog->getTranslation('content')), 0, 200, '...') }}
+                                {{ mb_strimwidth(strip_tags($firstBlog->getTranslation('content')), 0, 150, '...') }}
                                 </p>
                             </div>
                             <div class="vlt-gap-20"></div>
@@ -529,7 +529,7 @@
                             <!--Animated block-->
                             <div class="vlt-animated-block blogs-description" data-aos="fade" data-aos-delay="100">
                                 <p class="fz-1" style="max-width: 415px">
-                                {{ mb_strimwidth(strip_tags($secondBlog->getTranslation('content')), 0, 200, '...') }}
+                                {{ mb_strimwidth(strip_tags($secondBlog->getTranslation('content')), 0, 150, '...') }}
                                 </p>
                             </div>
                             <div class="vlt-gap-20"></div>
@@ -563,7 +563,7 @@
                             <!--Animated block-->
                             <div class="vlt-animated-block blogs-description" data-aos="fade" data-aos-delay="100">
                                 <p class="fz-1" style="max-width: 415px">
-                                    {{ mb_strimwidth(strip_tags($thirdBlog->getTranslation('content')), 0, 200, '...') }}
+                                    {{ mb_strimwidth(strip_tags($thirdBlog->getTranslation('content')), 0, 150, '...') }}
                                 </p>
                             </div>
                             <div class="vlt-gap-20"></div>
@@ -603,7 +603,7 @@
                             <!--Animated block-->
                             <div class="vlt-animated-block blogs-description" data-aos="fade" data-aos-delay="100">
                                 <p class="fz-1" style="max-width: 415px">
-                                {{ mb_strimwidth(strip_tags($forthBlog->getTranslation('content')), 0, 200, '...') }}
+                                {{ mb_strimwidth(strip_tags($forthBlog->getTranslation('content')), 0, 150, '...') }}
                                 </p>
                             </div>
                             <div class="vlt-gap-20"></div>
