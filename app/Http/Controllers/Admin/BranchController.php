@@ -114,12 +114,14 @@ class BranchController extends Controller
         $request->validate([
             'name' => 'required',
             'ar_name' => 'required',
+            'status' => 'required',
         ],[
             '*.required' => 'This field is required.'
         ]);
 
         $branch->name = $request->name;
         $branch->ar_name = $request->ar_name;
+        $branch->status = $request->status;
         $branch->save();
 
         $branchId = $branch->id;

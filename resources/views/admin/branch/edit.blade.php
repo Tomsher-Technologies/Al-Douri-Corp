@@ -31,6 +31,19 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="exampleInputEmail1">Status</label>
+                                <select name="status" class="form-control select2-single mb-3">
+                                    <option {{ old('status', $branch->status) == '1' ? 'selected' : '' }} value="1">
+                                        Enabled
+                                    </option>
+                                    <option {{ old('status', $branch->status) == '0' ? 'selected' : '' }} value="0">
+                                        Disabled
+                                    </option>
+                                </select>
+                                <x-input-error name='status' />
+                            </div>
+
+                            <div class="form-group">
                                 <h4>Branch Locations</h4>
                             </div>
 
