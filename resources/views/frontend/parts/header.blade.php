@@ -239,7 +239,7 @@
                                  <a href="https://aldouri.online/" class="vlt-btn-nav" target="_blank">{{ __('AL DOURI ONLINE') }}</a>
                              </li>
 
-                             <li class="d-none d-md-block">
+                             <!-- <li class="d-none d-md-block">
 
                                  @if (getActiveLanguage() == 'en')
                                      <a href="#" data-locale="ar" class="lang-swt" id="lang-change">
@@ -254,7 +254,7 @@
                                  @endif
 
 
-                             </li>
+                             </li> -->
                              <li></li>
                          </ul>
                      </div>
