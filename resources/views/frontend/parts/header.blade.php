@@ -365,18 +365,18 @@
                      <div class="d-flex justify-content-between align-items-end">
                          <!--Widget-->
                          <div class="vlt-widget vlt-widget--socials">
-                             <a class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="{{ $general->facebook }}">Fb.</a><a
-                                 class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="{{ $general->twitter }}">Tw.</a><a
-                                 class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="{{ $general->instagram }}">In.</a><a
-                                 class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="{{ $general->linkedin }}">Ln.</a>
+                             <a class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="{{ $general->facebook }}"><i class="fa-brands fa-facebook"></i></a><a
+                                 class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="{{ $general->twitter }}"><i class="fa-brands fa-instagram"></i></a><a
+                                 class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="{{ $general->instagram }}"><i class="fa-brands fa-linkedin"></i></a>
+                                 
                          </div>
                          <!--Widget-->
                          <div class="vlt-widget vlt-widget--html">
                              <div class="text-right">
                                  <!--Simple link--><a class="vlt-simple-link vlt-simple-link--sm"
-                                     href="mailto:hello@aldouri.com" target="_self">hello@aldouri.com</a><br />
+                                     href="mailto:info@aldourigroup.com" target="_self">info@aldourigroup.com</a><br />
                                  <!--Simple link--><a class="vlt-simple-link vlt-simple-link--sm" href="tel:"
-                                     target="_self">065348833</a>
+                                     target="_self">+971 800 36874 (DOURI)</a>
                              </div>
                          </div>
                      </div>
