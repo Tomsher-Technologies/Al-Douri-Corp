@@ -103,9 +103,9 @@
          <div class="row">
              <div class="col-12">
                  <div class="text-center">
-                     <p>
-                         © {{ date('Y') }} {{ __('Al Douri. All Rights Reserved') }} <span
-                             style="font-size:80%">{{ __('Designed By Tomsher') }}</span>
+                 <p>
+                         © {{ date('Y') }} {{ __('  All Rights Reserved to Al Douri.') }} <a target="_blank" href="https://www.tomsher.com/"
+                             style="font-size:80%">{{ __('Designed By Tomsher') }}</a>
                      </p>
                  </div>
              </div>
