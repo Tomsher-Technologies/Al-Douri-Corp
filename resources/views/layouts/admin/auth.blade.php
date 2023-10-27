@@ -8,7 +8,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{ env('APP_NAME') }} - {{ $title ?? '' }}</title>
-
+    <link rel="icon" type="image/svg" href="{{ asset('assets/img/favicon.svg') }}">
     <link rel="stylesheet" href="{{ adminAsset('font/iconsmind-s/css/iconsminds.css') }}" />
     <link rel="stylesheet" href="{{ adminAsset('font/simple-line-icons/css/simple-line-icons.css') }}" />
     <link rel="stylesheet" href="{{ adminAsset('css/vendor/bootstrap.min.css') }}" />
