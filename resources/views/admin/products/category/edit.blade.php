@@ -49,7 +49,7 @@
 
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Menu Image</label>
+                                <label for="exampleInputEmail1">Menu Image (Only for Main Category) <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 660x480 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="menu_image" class="img" type="file" class="custom-file-input"
@@ -61,22 +61,29 @@
                                 <x-input-error name='menu_image' />
                             </div>
 
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Current Menu Image</label>
+                                @if($category->menu_image != NULL)
+                                    <img class="w-100" src="{{ $category->getImage('menu_image') }}" alt="">
+                                @endif
+                            </div>
+
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Menu Text</label>
+                                <label for="exampleInputEmail1">Menu Text (Only for Main Category)</label>
                                 <input type="text" name="menu_text" class="form-control"
-                                    value="{{ $category->getTranslation('menu_text') }}" required>
+                                    value="{{ $category->getTranslation('menu_text') }}">
                                 <x-input-error name='menu_text' />
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Arabic Menu Text</label>
+                                <label for="exampleInputEmail1">Arabic Menu Text (Only for Main Category)</label>
                                 <input type="text" name="ar_menu_text" dir="rtl" class="form-control"
-                                    value="{{ $category->getTranslation('menu_text', 'ar') }}" required>
+                                    value="{{ $category->getTranslation('menu_text', 'ar') }}">
                                 <x-input-error name='ar_menu_text' />
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Banner Image</label>
+                                <label for="exampleInputEmail1">Banner Image <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 2049x1000 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="banner_image" class="img" type="file" class="custom-file-input"
@@ -86,6 +93,13 @@
                                     </div>
                                 </div>
                                 <x-input-error name='banner_image' />
+                            </div>
+
+                            <div class="form-group" >
+                                <label for="exampleInputEmail1">Current Banner Image</label>
+                                @if($category->banner_image != NULL)
+                                    <img class="w-100" src="{{ $category->getImage('banner_image') }}" alt="">
+                                @endif
                             </div>
 
                             <div class="form-group position-relative error-l-50">
@@ -101,7 +115,7 @@
 
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Image 1</label>
+                                <label for="exampleInputEmail1">Image 1 (Only for Sub Category) <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 1920x1440 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="image_1" class="img" type="file" class="custom-file-input"
@@ -112,8 +126,16 @@
                                 </div>
                                 <x-input-error name='image_1' />
                             </div>
+
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Image 2</label>
+                                <label for="exampleInputEmail1">Current Image 1</label>
+                                @if($category->image_1 != NULL)
+                                    <img class="w-100" src="{{ $category->getImage('image_1') }}" alt="">
+                                @endif
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Image 2 (Only for Sub Category) <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 1920x1440 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="image_2" class="img" type="file" class="custom-file-input"
@@ -124,14 +146,18 @@
                                 </div>
                                 <x-input-error name='image_1' />
                             </div>
-
-                            <div class="form-group" @if($category->parent_id != 0) style="display:none;" @endif>
-                                <label for="exampleInputEmail1">Current Home Page Image</label>
-                                <img class="w-100" src="{{ $category->getImage('home_image') }}" alt="">
+                            
+                           
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Current Image 2</label>
+                                @if($category->image_2 != NULL)
+                                    <img class="w-100" src="{{ $category->getImage('image_2') }}" alt="">
+                                @endif
                             </div>
 
-                            <div class="form-group" @if($category->parent_id != 0) style="display:none;" @endif>
-                                <label for="exampleInputEmail1">Home Page Image</label>
+                           
+                            <div class="form-group" >
+                                <label for="exampleInputEmail1">Home Page Image (Only for Main Category) <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 612x1000 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="home_image" class="img" type="file"
@@ -141,6 +167,13 @@
                                     </div>
                                 </div>
                                 <x-input-error name='home_image' />
+                            </div>
+                            
+                            <div class="form-group" >
+                                <label for="exampleInputEmail1">Current Home Page Image</label>
+                                @if($category->home_image != NULL)
+                                    <img class="w-100" src="{{ $category->getImage('home_image') }}" alt="">
+                                @endif
                             </div>
 
                             <div class="form-group">
@@ -162,6 +195,7 @@
                             @include('admin.common.seo_form')
 
                             <button type="submit" class="btn btn-primary mb-0">Update</button>
+                            <a  class="btn btn-info mb-0" href="{{ route('admin.category.index') }}">Cancel</a>
                             <button type="button" id="delete" class="btn btn-danger mb-0 float-right">Delete</button>
                         </form>
                     </div>

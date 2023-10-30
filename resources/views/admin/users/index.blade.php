@@ -41,11 +41,17 @@
                                             <th scope="row">{{ $loop->iteration }}</th>
                                             <td>{{ $user->name }}</td>
                                             <td>{{ $user->email }}</td>
-                                            <td>{{ $user->roles->first() ? $user->roles->first()->title : '' }}</td>
+                                            <td>
+                                                @if(!empty($user->getRoleNames()))
+                                                    @foreach($user->getRoleNames() as $v)
+                                                    {{ $v }}
+                                                    @endforeach
+                                                @endif
+                                            </td>
                                             <td>{{ $user->status ? "Enabled":"Disabled" }}</td>
                                             <td>
-                                                <a href="{{ route('admin.users.show', $user) }}"
-                                                    class="btn btn-primary mb-1">Show</a>
+                                                <!-- <a href="{{ route('admin.users.show', $user) }}"
+                                                    class="btn btn-primary mb-1">Show</a> -->
                                                 <a href="{{ route('admin.users.edit', $user) }}"
                                                     class="btn btn-secondary mb-1">Edit</a>
                                             </td>

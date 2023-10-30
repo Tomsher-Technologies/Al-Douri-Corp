@@ -29,8 +29,9 @@
                                     <tr>
                                         <th scope="col">No:</th>
                                         <th scope="col">Heading</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col" class="text-center">Sort Order</th>
+                                        <th scope="col" class="text-center">Status</th>
+                                        <th scope="col" class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -38,8 +39,11 @@
                                         <tr>
                                             <th scope="row">{{ $loop->iteration }}</th>
                                             <td>{{ $banner->heading }}</td>
-                                            <td>{{ $banner->status == 1 ? 'Enabled' : 'Disabled' }}</td>
-                                            <td>
+                                            <td class="text-center">{{ $banner->sort_order }}</td>
+                                            <td class="text-center">
+                                                <b>{!! $banner->status == 1 ? '<span class="text-success">Enabled</span>' : '<span class="text-danger">Disabled</span>' !!}</b>
+                                            </td>
+                                            <td class="text-center">
                                                 <a href="{{ route('admin.banner.edit', $banner) }}"
                                                     class="btn btn-secondary mb-1">Edit</a>
                                             </td>

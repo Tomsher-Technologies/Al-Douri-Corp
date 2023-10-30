@@ -12,6 +12,7 @@ use App\Http\Controllers\Admin\Users\ProfileController;
 use App\Http\Controllers\Admin\Users\UserController;
 use App\Http\Controllers\Admin\PagesController;
 use App\Http\Controllers\Admin\BranchController;
+use App\Http\Controllers\RoleController;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['prefix' => env('ADMIN_PREFIX', 'admin'), 'as' => 'admin.'], function () {
@@ -96,6 +97,8 @@ Route::group(['prefix' => env('ADMIN_PREFIX', 'admin'), 'as' => 'admin.'], funct
             Route::get('/career', [PagesController::class, 'careerPage'])->name('career');
             Route::post('/store-career', [PagesController::class, 'storeCareerPage'])->name('store-career');
         });
+
+        Route::resource('roles', RoleController::class);
 
     });
 });

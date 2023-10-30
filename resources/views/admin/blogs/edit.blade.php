@@ -35,12 +35,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Current Image</label>
-                                <img class="w-100" src="{{ $blog->getImage() }}" alt="">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Image</label>
+                                <label for="exampleInputEmail1">Image <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 633x436 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="image" id="img" type="file" class="custom-file-input"
@@ -52,6 +47,10 @@
                                 <x-input-error name='image' />
                             </div>
 
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Current Image</label>
+                                <img class="w-100" src="{{ $blog->getImage() }}" alt="">
+                            </div>
 
                             <div class="form-group position-relative error-l-50">
                                 <label>Content</label>
@@ -91,6 +90,7 @@
 
 
                             <button type="submit" class="btn btn-primary mb-0">Update</button>
+                            <a  class="btn btn-info mb-0" href="{{ route('admin.blogs.index') }}">Cancel</a>
                             <button type="button" id="delete" class="btn btn-danger mb-0 float-right">Delete</button>
                         </form>
                     </div>

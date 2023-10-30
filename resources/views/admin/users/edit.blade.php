@@ -11,8 +11,6 @@
             <div class="col-8 offset-2">
 
                 <x-status />
-                <x-errors />
-
                 <div class="card mb-4">
                     <div class="card-body">
                         <form method="POST" action="{{ route('admin.users.update', $user) }}">
@@ -25,33 +23,29 @@
                                 <label for="exampleInputEmail1">Name</label>
                                 <input type="text" name="name" autocomplete="name" class="form-control"
                                     value="{{ old('name', $user->name) }}">
+                                @error('name')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
                                 <input type="email" name="email" class="form-control" id="exampleInputEmail1"
                                     aria-describedby="emailHelp" value="{{ old('email', $user->email) }}">
+                                @error('email')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">User Role</label>
                                 <select name="role" class="form-control select2-single mb-3">
-                                    @foreach ($roles as $role)
-                                        <option {{ in_array($role->name, $userRoles) ? 'selected' : '' }}
-                                            value="{{ $role->name }}">{{ $role->title }}
-                                        </option>
+                                    @foreach($roles as $rol)
+                                        <option @if(isset($userRole[0]) && (old('role', $userRole[0]) == $rol['id']) ) selected  @endif value="{{ $rol['name'] }}">{{ $rol['name'] }}</option>
                                     @endforeach
                                 </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">User Abilities</label>
-                                <select name="ability[]" class="form-control select2-multiple mb-3" multiple required>
-                                    @foreach ($abilities as $ability)
-                                        <option {{ in_array($ability->id, $userAbilities) ? 'selected' : '' }}
-                                            value="{{ $ability->name }}">{{ $ability->title }}
-                                        </option>
-                                    @endforeach
-                                </select>
+                                @error('role')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="form-group">
@@ -64,19 +58,22 @@
                                         Disabled
                                     </option>
                                 </select>
+                                @error('status')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInputPassword1">New Password</label>
                                 <input type="password" name="password" class="form-control" id="exampleInputPassword1"
                                     placeholder="Password">
+                                @error('password')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
-                            <div class="form-group">
-                                <label for="exampleInputPassword1">Comfirm Password</label>
-                                <input type="password" name="password_confirmation" class="form-control"
-                                    id="exampleInputPassword1" placeholder="Password">
-                            </div>
+                           
                             <button type="submit" class="btn btn-primary mb-0">Submit</button>
+                            <a href="{{ route('admin.users.index') }}" class="btn btn-info mb-0"> Cancel</a>
                             <button type="button" id="deleteBtn" class="btn btn-dark mb-0 float-right">Delete
                                 User</button>
                         </form>

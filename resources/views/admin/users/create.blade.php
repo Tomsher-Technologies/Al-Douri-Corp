@@ -9,44 +9,39 @@
         </div>
         <div class="row">
             <div class="col-8 offset-2">
-
-                <x-status />
-                <x-errors />
-
                 <div class="card mb-4">
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.users.store') }}">
+                        <form method="POST" action="{{ route('admin.users.store') }}" autocomplete="off">
                             @csrf
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Name</label>
-                                <input type="text" name="name" autocomplete="name" class="form-control"
+                                <input type="text" name="name" autocomplete="off" class="form-control"
                                     value="{{ old('name') }}">
+                                @error('name')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Email address</label>
                                 <input type="email" name="email" class="form-control" id="exampleInputEmail1"
-                                    aria-describedby="emailHelp" value="{{ old('email') }}">
+                                    aria-describedby="emailHelp" value="{{ old('email') }}" autocomplete="off">
+                                @error('email')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">User Role</label>
                                 <select name="role" class="form-control select2-single mb-3">
                                     @foreach ($roles as $role)
-                                        <option {{ old('role') == $role->name ? 'selected' : '' }}
-                                            value="{{ $role->name }}">{{ $role->title }}
+                                        <option {{ old('role') == $role['name'] ? 'selected' : '' }}
+                                            value="{{ $role['name'] }}">{{ $role['name'] }}
                                         </option>
                                     @endforeach
                                 </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">User Abilities</label>
-                                <select name="ability[]" class="form-control select2-multiple mb-3" multiple required>
-                                    @foreach ($abilities as $ability)
-                                        <option value="{{ $ability->name }}">{{ $ability->title }}
-                                        </option>
-                                    @endforeach
-                                </select>
+                                @error('role')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
 
                             <div class="form-group">
@@ -65,13 +60,20 @@
                                 <label for="exampleInputPassword1">New Password</label>
                                 <input type="password" name="password" class="form-control" id="exampleInputPassword1"
                                     placeholder="Password">
+                                @error('password')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Comfirm Password</label>
-                                <input type="password" name="password_confirmation" class="form-control"
-                                    id="exampleInputPassword1" placeholder="Password">
+                                <label for="exampleInputPassword2">Confirm Password</label>
+                                <input type="password" name="confirm-password" class="form-control"
+                                    id="exampleInputPassword2" placeholder="Password">
+                                @error('confirm-password')
+                                    <div class="alert alert-danger">{{ $message }}</div>
+                                @enderror
                             </div>
                             <button type="submit" class="btn btn-primary mb-0">Submit</button>
+                            <a href="{{ route('admin.users.index') }}" class="btn btn-info mb-0"> Cancel</a>
                         </form>
                     </div>
                 </div>

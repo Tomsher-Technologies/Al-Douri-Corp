@@ -66,8 +66,8 @@
                                 <input data-repeater-create class="btn btn-info my-3" type="button" value="Add New" />
                             </div>
 
-                            <button type="submit" class="btn btn-success mb-0">Save</button>
-                            <a  class="btn btn-danger mb-0" href="{{ route('admin.branch.index') }}">Cancel</a>
+                            <button type="submit" class="btn btn-primary mb-0">Save</button>
+                            <a  class="btn btn-info mb-0" href="{{ route('admin.branch.index') }}">Cancel</a>
                         </form>
                     </div>
                 </div>

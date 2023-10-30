@@ -89,3 +89,19 @@ small,
     padding-top: 2px;
     padding-bottom: 2px;
 }
+
+.custom-checkbox{
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 5px;
+}
+
+.error-page__title {
+    font-size: 60px;
+    line-height: 0.6333333333;
+    font-weight: 600;
+    margin-top: 50px;
+    margin-bottom: 37px;
+    
+  }

@@ -1,13 +1,13 @@
-@extends('layouts.admin.app', ['body_class' => '', 'title' => 'Divisions'])
+@extends('layouts.admin.app', ['body_class' => '', 'title' => 'Roles'])
 @section('content')
     <div class="container-fluid">
         <div class="row">
             <div class="col-12">
-                <h1>Divisions</h1>
+                <h1>Roles</h1>
                 <div class="text-zero top-right-button-container">
-                    <a href="{{ route('admin.divisions.create') }}"
+                    <a href="{{ route('admin.roles.create') }}"
                         class="btn btn-primary btn-lg top-right-button mr-1 text-uppercase">ADD NEW
-                        division</a>
+                        Role</a>
                 </div>
                 <div class="separator mb-5"></div>
             </div>
@@ -21,28 +21,27 @@
         </div>
 
         <div class="row">
-            @if ($divisions)
+            @if ($roles)
                 <div class="col-lg-12 col-md-12 mb-4">
                     <div class="card">
                         <div class="card-body">
                             <table class="table">
                                 <thead>
                                     <tr>
-                                        <th scope="col">No:</th>
-                                        <th scope="col">Name</th>
-                                        <th scope="col" class="text-center">Status</th>
-                                        <th scope="col" class="text-center">Action</th>
+                                        <th scope="col">Sl No.</th>
+                                        <th scope="col">Role Name</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($divisions as $division)
+                                    @foreach ($roles as $role)
                                         <tr>
                                             <th scope="row">{{ $loop->iteration }}</th>
-                                            <td>{{ $division->title }}</td>
-                                            <td class="text-center">
-                                                <b>{!! $division->status == 1 ? '<span class="text-success">Enabled</span>' : '<span class="text-danger">Disabled</span>' !!}</b>
-                                            <td class="text-center">
-                                                <a href="{{ route('admin.divisions.edit', $division) }}"
+                                            <td>{{ $role->name }}</td>
+                                            <td>{{ $role->is_active == 1 ? 'Enabled' : 'Disabled' }}</td>
+                                            <td>
+                                                <a href="{{ route('admin.roles.edit', $role) }}"
                                                     class="btn btn-secondary mb-1">Edit</a>
                                             </td>
                                         </tr>

@@ -78,7 +78,7 @@
                             </div>
                            
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Image 1</label>
+                                <label for="exampleInputEmail1">Image 1 <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 1023x555 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="image1" class="img" type="file" class="custom-file-input"
@@ -96,7 +96,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Image 2</label>
+                                <label for="exampleInputEmail1">Image 2 <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 916x520 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="image2" class="img" type="file" class="custom-file-input"
@@ -162,7 +162,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1"> Heritage Image</label>
+                                <label for="exampleInputEmail1"> Heritage Image <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 2048x854 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="mid_image1" class="img" type="file" class="custom-file-input"
@@ -204,7 +204,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1"> Mission Image</label>
+                                <label for="exampleInputEmail1"> Mission Image <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 2048x854 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="mid_image2" class="img" type="file" class="custom-file-input"
@@ -247,7 +247,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1"> Vision Image</label>
+                                <label for="exampleInputEmail1"> Vision Image <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 2048x854 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="mid_image3" class="img" type="file" class="custom-file-input"
@@ -319,7 +319,7 @@
 
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Video Banner Image</label>
+                                <label for="exampleInputEmail1">Video Banner Image <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 2048x825 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="video_image" class="img" type="file" class="custom-file-input"
@@ -400,7 +400,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">First Image</label>
+                                <label for="exampleInputEmail1">First Image <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 600x500 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="app_image1" class="img" type="file" class="custom-file-input"
@@ -419,7 +419,7 @@
 
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Middle Image</label>
+                                <label for="exampleInputEmail1">Middle Image <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 482x324 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="app_image2" class="img" type="file" class="custom-file-input"
@@ -437,7 +437,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Last Image</label>
+                                <label for="exampleInputEmail1">Last Image <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 600x500 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="app_image3" class="img" type="file" class="custom-file-input"

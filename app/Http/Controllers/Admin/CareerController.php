@@ -12,10 +12,15 @@ use App\Models\CareerApplications;
 use App\Models\HeritageLists;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class CareerController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:career');
+    }
     /**
      * Display a listing of the resource.
      *

@@ -9,12 +9,23 @@ use App\Models\PageSeos;
 use App\Models\GeneralSettings;
 use App\Models\HeritageLists;
 use App\Models\Contact;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class PagesController extends Controller
 {
+    function __construct()
+    {
+         $this->middleware('permission:page_settings', ['only' => ['homePage','storeHomePage','aboutPage','storeAboutPage','missionPage','storeMissionPage', 'messagePage','storeMessagePage','contactPage','storeContactPage','heritagePage','storeHeritagePage','newsPage','storeNewsPage','careerPage','storeCareerPage']]);
+
+         $this->middleware('permission:enquiries', ['only' => ['enquiries']]);
+
+         $this->middleware('permission:general_settings', ['only' => ['generalSettings']]);
+    }
     public function homePage()
     {
         $data = Pages::with(['seo'])->where('page_name','home')->first();
@@ -796,7 +807,7 @@ class PagesController extends Controller
       
         return view('admin.pages.career',compact('data'));
     }
-
+   
     public function storeCareerPage(Request $request)
     {
         $request->validate([
@@ -841,6 +852,7 @@ class PagesController extends Controller
     }
 
     public function enquiries(){
+        
         $query = Contact::latest();
         $contact = $query->paginate(10);
 

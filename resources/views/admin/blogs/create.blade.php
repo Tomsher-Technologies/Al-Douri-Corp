@@ -30,7 +30,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Image</label>
+                                <label for="exampleInputEmail1">Image <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 633x436 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="image" id="img" type="file" class="custom-file-input"
@@ -76,6 +76,7 @@
                             
                             @include('admin.common.seo_form')
                             <button type="submit" class="btn btn-primary mb-0">Submit</button>
+                            <a  class="btn btn-info mb-0" href="{{ route('admin.blogs.index') }}">Cancel</a>
                         </form>
                     </div>
                 </div>

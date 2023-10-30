@@ -6,9 +6,15 @@ use App\Http\Controllers\Controller;
 use App\Models\HomeBanner;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
+use Illuminate\Support\Facades\Auth;
 
 class HomeBannerController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:banners');
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -33,11 +39,8 @@ class HomeBannerController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'imgage' => [
-                'required',
-                File::image()
-                    ->max(2 * 1024)
-            ],
+            'imgage' => 'required|max:1024',
+            'mob_image' => 'required|max:1024',
             'heading' => 'required',
             'ar_heading' => 'required',
             'content' => 'required',
@@ -45,15 +48,22 @@ class HomeBannerController extends Controller
             'btn_text' => 'required',
             'ar_btn_text' => 'required',
             'btn_link' => 'required',
-            'sort_order' => 'nullable|integer',
+            'sort_order' => 'required|integer',
             'status' => 'required',
+        ],[
+            'imgage.required'=> 'The web view image field is required.',
+            'mob_image.required'=> 'The mobile view image field is required.',
+            'imgage.uploaded' => 'File size should be less than 1 MB',
+            'mob_image.uploaded' => 'File size should be less than 1 MB'
         ]);
 
         $banner = HomeBanner::create($request->all());
 
         $image = uploadImage($request, 'imgage', 'banner');
+        $mob_image = uploadImage($request, 'mob_image', 'banner');
 
         $banner->img = $image;
+        $banner->mob_img = $mob_image;
         $banner->save();
 
         return redirect()->route('admin.banner.index')->with([
@@ -82,11 +92,8 @@ class HomeBannerController extends Controller
     public function update(Request $request, HomeBanner $banner)
     {
         $request->validate([
-            'imgage' => [
-                'nullable',
-                File::image()
-                    ->max(2 * 1024)
-            ],
+            'imgage' => 'nullable|max:1024',
+            'mob_image' => 'nullable|max:1024',
             'heading' => 'required',
             'ar_heading' => 'required',
             'content' => 'required',
@@ -94,8 +101,11 @@ class HomeBannerController extends Controller
             'btn_text' => 'required',
             'ar_btn_text' => 'required',
             'btn_link' => 'required',
-            'sort_order' => 'nullable|integer',
+            'sort_order' => 'required|integer',
             'status' => 'required',
+        ],[
+            'imgage.uploaded' => 'File size should be less than 1 MB',
+            'mob_image.uploaded' => 'File size should be less than 1 MB'
         ]);
 
         $banner->update($request->all());
@@ -104,6 +114,13 @@ class HomeBannerController extends Controller
             $image = uploadImage($request, 'imgage', 'banner');
             deleteImage($banner->img);
             $banner->img = $image;
+            $banner->save();
+        }
+
+        if ($request->hasFile('mob_image')) {
+            $mob_image = uploadImage($request, 'mob_image', 'banner');
+            deleteImage($banner->mob_img);
+            $banner->mob_img = $mob_image;
             $banner->save();
         }
 

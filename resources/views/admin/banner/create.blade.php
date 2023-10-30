@@ -31,7 +31,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Image</label>
+                                <label for="exampleInputEmail1"> Web View Image <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 1920x1080 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="imgage" id="img" type="file" class="custom-file-input"
@@ -41,6 +41,19 @@
                                     </div>
                                 </div>
                                 <x-input-error name='imgage' />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1"> Mobile View Image</label>
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <input name="mob_image" id="mob_img" type="file" class="custom-file-input"
+                                            id="inputGroupFile023" accept="image/*">
+                                        <label class="custom-file-label" id="mob_imgname" for="inputGroupFile023">Choose
+                                            file</label>
+                                    </div>
+                                </div>
+                                <x-input-error name='mob_image' />
                             </div>
 
                             <div class="form-group position-relative error-l-50">
@@ -77,7 +90,7 @@
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Sort Order</label>
                                 <input type="number" name="sort_order" class="form-control"
-                                    value="{{ old('sort_order') }}">
+                                    value="{{ old('sort_order',0) }}">
                                 <x-input-error name='sort_order' />
                             </div>
 
@@ -95,6 +108,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary mb-0">Submit</button>
+                            <a  class="btn btn-info mb-0" href="{{ route('admin.banner.index') }}">Cancel</a>
                         </form>
                     </div>
                 </div>
@@ -119,6 +133,14 @@
                 $('#imgname').text(this.files[0].name)
             } else {
                 $('#imgname').text('Choose file')
+            }
+        });
+
+        $('#mob_img').on('change', function() {
+            if (this.files[0]) {
+                $('#mob_imgname').text(this.files[0].name)
+            } else {
+                $('#mob_imgname').text('Choose file')
             }
         });
     </script>

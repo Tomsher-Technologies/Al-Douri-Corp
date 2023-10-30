@@ -30,6 +30,7 @@
                                     <tr>
                                         <th scope="col">No:</th>
                                         <th scope="col">Name</th>
+                                        <th scope="col">Type</th>
                                         <th scope="col">Status</th>
                                         <th scope="col">Action</th>
                                     </tr>
@@ -39,6 +40,7 @@
                                         <tr>
                                             <th scope="row">{{ $loop->iteration }}</th>
                                             <td>{{ $category->title }}</td>
+                                            <td>{{ $category->parent_id == 0 ? 'Main Category' : 'Sub Category' }}</td>
                                             <td>{{ $category->status == 1 ? 'Enabled' : 'Disabled' }}</td>
                                             <td>
                                                 <a href="{{ route('admin.category.edit', $category) }}"

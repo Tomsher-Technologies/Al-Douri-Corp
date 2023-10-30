@@ -74,6 +74,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary mb-0">Submit</button>
+                            <a  class="btn btn-info mb-0" href="{{ route('admin.careers.index') }}">Cancel</a>
                         </form>
                     </div>
                 </div>

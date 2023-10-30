@@ -7,16 +7,22 @@ use App\Models\Division;
 use App\Models\DivisionTranslation;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class DivisionController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:divisions');
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $divisions = Division::all();
+        $divisions = Division::orderBy('id','desc')->get();
         return view('admin.divisions.index', compact('divisions'));
     }
 
@@ -34,31 +40,11 @@ class DivisionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'menu_image' => [
-                'required',
-                File::image()
-                    ->max(2 * 1024)
-            ],
-            'banner_image' => [
-                'required',
-                File::image()
-                    ->max(2 * 1024)
-            ],
-            'center_image' => [
-                'required',
-                File::image()
-                    ->max(2 * 1024)
-            ],
-            'gallery_image' => [
-                'required',
-                File::image()
-                    ->max(2 * 1024)
-            ],
-            'home_image' => [
-                'required',
-                File::image()
-                    ->max(2 * 1024)
-            ],
+            'menu_image' =>'required|max:1024',
+            'banner_image' => 'required|max:1024',
+            'center_image' => 'required|max:1024',
+            'gallery_image' => 'required|max:1024',
+            'home_image' => 'required|max:1024',
             'title' => 'required',
             'ar_title' => 'required',
             'menu_text' => 'required',
@@ -68,6 +54,13 @@ class DivisionController extends Controller
             'content_1' => 'required',
             'ar_content_1' => 'required',
             'status' => 'required',
+        ],[
+            '*.required' => 'This field is required.',
+            'menu_image.uploaded' => 'File size should be less than 1 MB',
+            'banner_image.uploaded' => 'File size should be less than 1 MB',
+            'center_image.uploaded' => 'File size should be less than 1 MB',
+            'gallery_image.uploaded' => 'File size should be less than 1 MB',
+            'home_image.uploaded' => 'File size should be less than 1 MB',
         ]);
 
         $menu_image = uploadImage($request, 'menu_image', 'divisions');
@@ -136,31 +129,11 @@ class DivisionController extends Controller
     public function update(Request $request, Division $division)
     {
         $request->validate([
-            'menu_image' => [
-                'nullable',
-                File::image()
-                    ->max(2 * 1024)
-            ],
-            'banner_image' => [
-                'nullable',
-                File::image()
-                    ->max(2 * 1024)
-            ],
-            'center_image' => [
-                'nullable',
-                File::image()
-                    ->max(2 * 1024)
-            ],
-            'gallery_image' => [
-                'nullable',
-                File::image()
-                    ->max(2 * 1024)
-            ],
-            'home_image' => [
-                'nullable',
-                File::image()
-                    ->max(2 * 1024)
-            ],
+            'menu_image' => 'nullable|max:1024',
+            'banner_image' => 'nullable|max:1024',
+            'center_image' => 'nullable|max:1024',
+            'gallery_image' => 'nullable|max:1024',
+            'home_image' => 'nullable|max:1024',
             'title' => 'required',
             'ar_title' => 'required',
             'menu_text' => 'required',
@@ -170,6 +143,13 @@ class DivisionController extends Controller
             'content_1' => 'required',
             'ar_content_1' => 'required',
             'status' => 'required',
+        ],[
+            '*.required' => 'This field is required.',
+            'menu_image.uploaded' => 'File size should be less than 1 MB',
+            'banner_image.uploaded' => 'File size should be less than 1 MB',
+            'center_image.uploaded' => 'File size should be less than 1 MB',
+            'gallery_image.uploaded' => 'File size should be less than 1 MB',
+            'home_image.uploaded' => 'File size should be less than 1 MB',
         ]);
 
         $division->title = $request->title;

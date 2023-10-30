@@ -8,17 +8,22 @@ use App\Http\Requests\StoreUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Bouncer;
+use Spatie\Permission\Models\Role;
+use Spatie\Permission\Models\Permission;
+use Illuminate\Http\Request;
+use Validator;
+use DB;
 
 class UserController extends Controller
 {
     public function __construct()
     {
         $this->middleware(function ($request, $next) {
-            if (Auth::user()->cannot('manage-users')) {
+            if (Auth::user()->can('users')) {
+                 return $next($request);
+            }else{
                 abort(403);
             }
-            return $next($request);
         });
     }
 
@@ -29,7 +34,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::with('roles')->get();
+        $users = User::where('user_type',0)->get();
         // dd($users);
         return view('admin.users.index')->with([
             'users' => $users
@@ -43,12 +48,11 @@ class UserController extends Controller
      */
     public function create()
     {
-        $roles = Bouncer::role()->all();
-        $abilities = Bouncer::ability()->all();
+        $roles = Role::where('is_active',1)->orderBy('name', 'ASC')->get()->toArray();
+       
         return view('admin.users.create')
             ->with([
-                'roles' => $roles,
-                'abilities' => $abilities
+                'roles' => $roles
             ]);
     }
 
@@ -58,8 +62,19 @@ class UserController extends Controller
      * @param  \App\Http\Requests\StoreUserRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUserRequest $request)
+    public function store(Request $request)
     {
+       $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email',
+            'password' => 'required|min:6|same:confirm-password',
+            'role' => 'required',
+            'confirm-password' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
 
         $user = User::create([
             'name' => $request->name,
@@ -68,13 +83,7 @@ class UserController extends Controller
             'status' => $request->status
         ]);
 
-        $user->assign($request->role);
-
-        foreach ($request->ability as $ability) {
-            $user->allow($ability);
-        }
-
-        Bouncer::refresh();
+        $user->assignRole($request->role);
 
         return redirect()->route('admin.users.index')->with('status', 'User Created');
     }
@@ -98,20 +107,13 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        $roles = Bouncer::role()->all();
-        $abilities = Bouncer::ability()->all();
-
-
-        $userRoles = $user->getRoles()->toArray();
-        $userAbilities = $user->getAbilities()->pluck('id')->toArray();
-
+        $roles = Role::where('is_active', 1)->orderBy('name', 'ASC')->get()->toArray();
+        $userRole = $user->roles->pluck('id')->all();
         return view('admin.users.edit')
             ->with([
                 'user' => $user,
                 'roles' => $roles,
-                'abilities' => $abilities,
-                'userRoles' => $userRoles,
-                'userAbilities' => $userAbilities,
+                'userRole' => $userRole
             ]);
     }
 
@@ -122,8 +124,18 @@ class UserController extends Controller
      * @param  \App\Models\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateUserRequest $request, User $user)
+    public function update(Request $request, User $user)
     {
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required|email|unique:users,email,'.$user->id,
+            'password' => 'nullable|min:6',
+            'role' => 'required'
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
 
         $user->update([
             'name' => $request->name,
@@ -136,21 +148,8 @@ class UserController extends Controller
             $user->save();
         }
 
-        // Delete All roles and assign new ones
-        foreach ($user->roles as $roles) {
-            $user->retract($roles->name);
-        }
-        $user->assign($request->role);
-
-        // Delete all abilities and assign new ones
-        foreach ($user->abilities as $ability) {
-            $user->disallow($ability->name);
-        }
-        foreach ($request->ability as $ability) {
-            $user->allow($ability);
-        }
-
-        Bouncer::refresh();
+        DB::table('model_has_roles')->where('model_id', $user->id)->delete();
+        $user->assignRole($request->role);
 
         return back()->with('status', 'User Updated');
     }
@@ -163,10 +162,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        $users = User::whereIs('superadmin')->count();
-        if ($users <= 1) {
-            return back()->with('error', 'Sorry the last super admin cannot be deleted.');
-        }
+        DB::table('model_has_roles')->where('model_id', $user->id)->delete();
         $user->delete();
         return redirect()->route('admin.users.index')->with('status', 'User has been deleted.');
     }
