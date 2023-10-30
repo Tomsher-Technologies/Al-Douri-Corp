@@ -14,6 +14,7 @@ class Product extends Model
     protected $fillable = [
         'product_category_id',
         'title',
+        'sort_order',
         'image',
         'status'
     ];
@@ -30,6 +31,11 @@ class Product extends Model
     public function translations()
     {
         return $this->hasMany(ProductTranslation::class);
+    }
+
+    public function category()
+    {
+        return $this->belongsTo(ProductCategory::class,'product_category_id','id');
     }
 
     public function getImage($lang = false)

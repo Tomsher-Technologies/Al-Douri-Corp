@@ -171,6 +171,7 @@ return [
 
         App\Providers\FortifyServiceProvider::class,
         Artesaos\SEOTools\Providers\SEOToolsServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class
     ])->toArray(),
 
     /*

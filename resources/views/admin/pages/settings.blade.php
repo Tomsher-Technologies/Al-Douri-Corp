@@ -92,7 +92,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Header Image</label>
+                                <label for="exampleInputEmail1">Header Image <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 1272x468 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="image" class="img" type="file" class="custom-file-input"
@@ -105,7 +105,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Header Image</label>
+                                <label for="exampleInputEmail1">Current Header Image</label>
                                 <img class="img-custom form-control" src="{{ URL::to($data['header_image']) }}" alt="">
                             </div>
 

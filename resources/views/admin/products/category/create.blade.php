@@ -43,7 +43,7 @@
 
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Menu Image</label>
+                                <label for="exampleInputEmail1">Menu Image (Only for Main Category) <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 660x480 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="menu_image" class="img" type="file" class="custom-file-input"
@@ -57,20 +57,19 @@
 
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Menu Text</label>
-                                <input type="text" name="menu_text" class="form-control" value="{{ old('menu_text') }}"
-                                    required>
+                                <label for="exampleInputEmail1">Menu Text (Only for Main Category)</label>
+                                <input type="text" name="menu_text" class="form-control" value="{{ old('menu_text') }}">
                                 <x-input-error name='menu_text' />
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Arabic Menu Text</label>
+                                <label for="exampleInputEmail1">Arabic Menu Text  (Only for Main Category)</label>
                                 <input type="text" name="ar_menu_text" dir="rtl" class="form-control"
-                                    value="{{ old('ar_menu_text') }}" required>
+                                    value="{{ old('ar_menu_text') }}" >
                                 <x-input-error name='ar_menu_text' />
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Banner Image</label>
+                                <label for="exampleInputEmail1">Banner Image <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 2049x1000 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="banner_image" class="img" type="file" class="custom-file-input"
@@ -95,7 +94,7 @@
 
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Image 1</label>
+                                <label for="exampleInputEmail1">Image 1 (Only for Sub Category) <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 1920x1440 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="image_1" class="img" type="file" class="custom-file-input"
@@ -107,7 +106,7 @@
                                 <x-input-error name='image_1' />
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Image 2</label>
+                                <label for="exampleInputEmail1">Image 2 (Only for Sub Category) <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 1920x1440 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="image_2" class="img" type="file" class="custom-file-input"
@@ -120,7 +119,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Home Page Image</label>
+                                <label for="exampleInputEmail1">Home Page Image (Only for Main Category) <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 612x1000 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="home_image" class="img" type="file"
@@ -148,6 +147,8 @@
                             @include('admin.common.seo_form')
 
                             <button type="submit" class="btn btn-primary mb-0">Submit</button>
+                            <a  class="btn btn-info mb-0" href="{{ route('admin.category.index') }}">Cancel</a>
+
                         </form>
                     </div>
                 </div>

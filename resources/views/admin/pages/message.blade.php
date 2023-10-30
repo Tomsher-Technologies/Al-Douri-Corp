@@ -34,7 +34,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Banner Image</label>
+                                <label for="exampleInputEmail1">Banner Image <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 2049x1000 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="image1" class="img" type="file" class="custom-file-input"
@@ -77,7 +77,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Image</label>
+                                <label for="exampleInputEmail1">Image <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 1694x1967 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="image2" class="img" type="file" class="custom-file-input"

@@ -35,38 +35,24 @@ class ProductCategoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'menu_image' => [
-                'required',
-                File::image()
-                    ->max(2 * 1024)
-            ],
-            'banner_image' => [
-                'required',
-                File::image()
-                    ->max(2 * 1024)
-            ],
-            'image_1' => [
-                'nullable',
-                File::image()
-                    ->max(2 * 1024)
-            ],
-            'image_2' => [
-                'nullable',
-                File::image()
-                    ->max(2 * 1024)
-            ],
-            'home_image' => [
-                'nullable',
-                File::image()
-                    ->max(2 * 1024)
-            ],
+            'menu_image' => 'nullable|max:1024',
+            'banner_image' => 'required|max:1024',
+            'image_1' => 'nullable|max:1024',
+            'image_2' => 'nullable|max:1024',
+            'home_image' => 'nullable|max:1024',
             'title' => 'required',
             'ar_title' => 'required',
             'content' => 'required',
             'ar_content' => 'required',
-            'menu_text' => 'required',
-            'ar_menu_text' => 'required',
+            'menu_text' => 'nullable',
+            'ar_menu_text' => 'nullable',
             'status' => 'required',
+        ],[
+            'menu_image.uploaded' => 'File size should be less than 1 MB',
+            'banner_image.uploaded' => 'File size should be less than 1 MB',
+            'image_1.uploaded' => 'File size should be less than 1 MB',
+            'image_2.uploaded' => 'File size should be less than 1 MB',
+            'home_image.uploaded' => 'File size should be less than 1 MB'
         ]);
 
         $saveData = [
@@ -142,31 +128,11 @@ class ProductCategoryController extends Controller
 
 
         $request->validate([
-            'menu_image' => [
-                'nullable',
-                File::image()
-                    ->max(2 * 1024)
-            ],
-            'banner_image' => [
-                'nullable',
-                File::image()
-                    ->max(2 * 1024)
-            ],
-            'image_1' => [
-                'nullable',
-                File::image()
-                    ->max(2 * 1024)
-            ],
-            'image_2' => [
-                'nullable',
-                File::image()
-                    ->max(2 * 1024)
-            ],
-            'home_image' => [
-                'nullable',
-                File::image()
-                    ->max(2 * 1024)
-            ],
+            'menu_image' => 'nullable|max:1024',
+            'banner_image' => 'nullable|max:1024',
+            'image_1' => 'nullable|max:1024',
+            'image_2' => 'nullable|max:1024',
+            'home_image' => 'nullable|max:1024',
             'title' => 'required',
             'ar_title' => 'required',
             'content' => 'required',
@@ -174,6 +140,12 @@ class ProductCategoryController extends Controller
             'menu_text' => 'required',
             'ar_menu_text' => 'required',
             'status' => 'required',
+        ],[
+            'menu_image.uploaded' => 'File size should be less than 1 MB',
+            'banner_image.uploaded' => 'File size should be less than 1 MB',
+            'image_1.uploaded' => 'File size should be less than 1 MB',
+            'image_2.uploaded' => 'File size should be less than 1 MB',
+            'home_image.uploaded' => 'File size should be less than 1 MB'
         ]);
 
 

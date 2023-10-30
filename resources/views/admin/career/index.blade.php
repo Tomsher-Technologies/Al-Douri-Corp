@@ -30,11 +30,11 @@
                                     <tr>
                                         <th scope="col">Sl No:</th>
                                         <th scope="col">Title</th>
-                                        <th scope="col">Job Type</th>
-                                        <th scope="col">Last Date</th>
+                                        <th scope="col" class="text-center">Job Type</th>
+                                        <th scope="col" class="text-center">Last Date</th>
                                         <th scope="col" class="text-center">No Of Applicants</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col" class="text-center">Status</th>
+                                        <th scope="col" class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -43,11 +43,11 @@
                                             <tr>
                                                 <td scope="row">{{ $key + 1 + ($careers->currentPage() - 1) * $careers->perPage() }}</td>
                                                 <td>{{ $job->title }}</td>
-                                                <td>{{ ($job->type == 'full') ? 'Full-Time' : 'Part-Time' }}</td>
-                                                <td>{{ date('d M, Y',strtotime($job->last_date)) }}</td>
+                                                <td class="text-center">{{ ($job->type == 'full') ? 'Full-Time' : 'Part-Time' }}</td>
+                                                <td class="text-center">{{ date('d M, Y',strtotime($job->last_date)) }}</td>
                                                 <td class="text-center">{{ $job->career_applications->count() }}</td>
-                                                <td>{{ $job->status == 1 ? 'Active' : 'Inactive' }}</td>
-                                                <td>
+                                                <td class="text-center">{{ $job->status == 1 ? 'Active' : 'Inactive' }}</td>
+                                                <td class="text-center">
                                                     <a href="{{ route('admin.careers.edit', $job->id) }}"
                                                         class="btn btn-secondary mb-1">Edit</a>
                                                     <a href="{{ route('admin.careers.view', $job->id) }}"

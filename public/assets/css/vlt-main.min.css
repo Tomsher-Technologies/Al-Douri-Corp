@@ -6324,24 +6324,31 @@ dl dd {
 
 .jarallax {
     position: relative;
-    z-index: 0
+    z-index: 0;
+    right: 0% !important;  
+}
+
+#jarallax-container-0{
+      right: 0% !important;   
 }
 
 .jarallax>.jarallax-img {
-    font-family: 'object-fit: cover;';
+ 
     position: absolute;
     z-index: -1;
     top: 0;
-    left: 0;
+     right: 0% !important;  
     width: 100%;
     height: 100%;
     -o-object-fit: cover;
     object-fit: cover
 }
 
-:root {
-    --swiper-theme-color: #101010
-}
+/*@media only screen and (max-width:991px) {*/
+/*.jarallax>.jarallax-img {*/
+/*  right: 0 !important;  */
+/*}*/
+/*}*/
 
 .swiper-lazy:not(.swiper-lazy-loaded) {
     opacity: 0

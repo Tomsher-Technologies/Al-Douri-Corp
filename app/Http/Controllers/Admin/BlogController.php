@@ -6,15 +6,20 @@ use App\Http\Controllers\Controller;
 use App\Models\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
+use Illuminate\Support\Facades\Auth;
 
 class BlogController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:news');
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $blogs = Blog::all();
+        $blogs = Blog::orderBy('id','desc')->get();
         return view('admin.blogs.index', compact('blogs'));
     }
 
@@ -32,17 +37,15 @@ class BlogController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'image' => [
-                'required',
-                File::image()
-                    ->max(2 * 1024)
-            ],
+            'image' => 'required|max:1024',
             'title' => 'required',
             'ar_title' => 'required',
             'content' => 'required',
             'ar_content' => 'required',
             'news_date' => 'required', 
             'status' => 'required',
+        ],[
+            'image.uploaded' => 'File size should be less than 1 MB'
         ]);
 
          $saveData = [
@@ -96,17 +99,15 @@ class BlogController extends Controller
     {
         $blog = Blog::find($request->blog);
         $request->validate([
-            'image' => [
-                'nullable',
-                File::image()
-                    ->max(2 * 1024)
-            ],
+            'image' => 'nullable|max:1024',
             'title' => 'required',
             'ar_title' => 'required',
             'content' => 'required',
             'ar_content' => 'required',
             'news_date' => 'required', 
             'status' => 'required',
+        ],[
+            'image.uploaded' => 'File size should be less than 1 MB'
         ]);
 
         $blog->title = $request->title;

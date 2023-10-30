@@ -29,8 +29,8 @@
                                     <tr>
                                         <th scope="col">Sl No:</th>
                                         <th scope="col">Name</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col" class="text-center">Status</th>
+                                        <th scope="col" class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -40,8 +40,10 @@
                                                 <td scope="row">{{ $key + 1 + ($branches->currentPage() - 1) * $branches->perPage() }}</td>
                                                 <td>{{ $branch->name }}</td>
                                                 
-                                                <td>{{ $branch->status == 1 ? 'Active' : 'Inactive' }}</td>
-                                                <td>
+                                                <td class="text-center">
+                                                    <b>{!! $branch->status == 1 ? '<span class="text-success">Enabled</span>' : '<span class="text-danger">Disabled</span>' !!}</b>
+                                                </td>
+                                                <td class="text-center">
                                                     <a href="{{ route('admin.branch.edit', $branch) }}"
                                                         class="btn btn-secondary mb-1">Edit</a>
                                                    

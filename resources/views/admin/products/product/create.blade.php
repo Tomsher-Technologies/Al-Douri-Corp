@@ -42,7 +42,7 @@
 
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Image</label>
+                                <label for="exampleInputEmail1">Image <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 585x600 pixels)</span> </label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="image" class="img" type="file" class="custom-file-input"
@@ -55,7 +55,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Arabic Image</label>
+                                <label for="exampleInputEmail1">Arabic Image <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 585x600 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="ar_image" class="img" type="file" class="custom-file-input"
@@ -67,6 +67,12 @@
                                 <x-input-error name='ar_image' />
                             </div>
 
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Sort Order</label>
+                                <input type="number" name="sort_order" class="form-control"
+                                    value="{{ old('sort_order') }}">
+                                <x-input-error name='sort_order' />
+                            </div>
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Status</label>
@@ -82,6 +88,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary mb-0">Submit</button>
+                            <a  class="btn btn-info mb-0" href="{{ route('admin.products.index') }}">Cancel</a>
                         </form>
                     </div>
                 </div>

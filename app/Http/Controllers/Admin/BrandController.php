@@ -8,9 +8,14 @@ use App\Http\Requests\StoreBrandRequest;
 use App\Http\Requests\UpdateBrandRequest;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
+use Illuminate\Support\Facades\Auth;
 
 class BrandController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:brands');
+    }
     /**
      * Display a listing of the resource.
      */
@@ -36,14 +41,13 @@ class BrandController extends Controller
     {
 
         $request->validate([
-            'imgage' => [
-                'required',
-                File::image()
-                    ->max(2 * 1024)
-            ],
+            'imgage' => 'required|max:1024',
             'name' => 'required',
             'sort_order' => 'nullable|integer',
             'status' => 'required',
+        ],[
+            'imgage.required' => 'The image field is required.',
+            'imgage.uploaded' => 'File size should be less than 1 MB'
         ]);
         $data = [
             'name'=> $request->name,
@@ -84,14 +88,12 @@ class BrandController extends Controller
     public function update(Request $request, Brand $brand)
     {
         $request->validate([
-            'imgage' => [
-                'nullable',
-                File::image()
-                    ->max(2 * 1024)
-            ],
+            'imgage' => 'nullable|max:1024',
             'name' => 'required',
             'sort_order' => 'nullable|integer',
             'status' => 'required',
+        ],[
+            'imgage.uploaded' => 'File size should be less than 1 MB'
         ]);
 
         $brand->name = $request->name;

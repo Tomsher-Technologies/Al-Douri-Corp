@@ -13,6 +13,7 @@ class HomeBanner extends Model
 
     protected $fillable = [
         'img',
+        'mob_img',
         'heading',
         'ar_heading',
         'content',
@@ -27,6 +28,11 @@ class HomeBanner extends Model
     public function getImage()
     {
         return $this->img ? URL::to($this->img) : asset('adminassets/img/placeholder.png');
+    }
+
+    public function getMobImage()
+    {
+        return $this->mob_img ? URL::to($this->mob_img) : asset('adminassets/img/placeholder.png');
     }
 
     public function getTranslation($field = '', $lang = false)

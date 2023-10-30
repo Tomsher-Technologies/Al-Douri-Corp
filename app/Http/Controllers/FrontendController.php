@@ -184,7 +184,7 @@ class FrontendController extends Controller
         $products = Product::where([
             'product_category_id' => $category->id,
             'status' => 1,
-        ])->get();
+        ])->orderBy('sort_order','asc')->get();
         $page = Pages::with(['seo'])->where('page_name','home')->first();
         $this->loadDynamicSEO($category);
 

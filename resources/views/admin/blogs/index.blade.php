@@ -30,9 +30,9 @@
                                     <tr>
                                         <th scope="col">No:</th>
                                         <th scope="col">Name</th>
-                                        <th scope="col">Date</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Action</th>
+                                        <th scope="col" class="text-center">Date</th>
+                                        <th scope="col" class="text-center">Status</th>
+                                        <th scope="col" class="text-center">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -40,9 +40,11 @@
                                         <tr>
                                             <th scope="row">{{ $loop->iteration }}</th>
                                             <td>{{ $blog->title }}</td>
-                                            <td>{{ date('d M, Y',strtotime($blog->blog_date)) }}</td>
-                                            <td>{{ $blog->status == 1 ? 'Enabled' : 'Disabled' }}</td>
-                                            <td>
+                                            <td class="text-center">{{ date('d M, Y',strtotime($blog->blog_date)) }}</td>
+                                            <td class="text-center">
+                                                <b>{!! $blog->status == 1 ? '<span class="text-success">Enabled</span>' : '<span class="text-danger">Disabled</span>' !!}</b>
+                                            </td>
+                                            <td class="text-center">
                                                 <a href="{{ route('admin.blogs.edit', $blog->id) }}"
                                                     class="btn btn-secondary mb-1">Edit</a>
                                             </td>

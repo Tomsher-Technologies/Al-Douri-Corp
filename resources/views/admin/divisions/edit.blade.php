@@ -37,12 +37,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Current Image</label>
-                                <img class="w-100" src="{{ $division->getImage('menu_image') }}" alt="">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Menu Image</label>
+                                <label for="exampleInputEmail1">Menu Image <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 612x468 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="menu_image" class="img" type="file" class="custom-file-input"
@@ -54,6 +49,10 @@
                                 <x-input-error name='menu_image' />
                             </div>
 
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Current Menu Image</label>
+                                <img class="w-100" src="{{ $division->getImage('menu_image') }}" alt="">
+                            </div>
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Menu Text</label>
@@ -69,12 +68,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Current Image</label>
-                                <img class="w-100" src="{{ $division->getImage('banner_image') }}" alt="">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Banner Image</label>
+                                <label for="exampleInputEmail1">Banner Image <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 2049x1000 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="banner_image" class="img" type="file" class="custom-file-input"
@@ -86,6 +80,10 @@
                                 <x-input-error name='banner_image' />
                             </div>
 
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Current Banner Image</label>
+                                <img class="w-100" src="{{ $division->getImage('banner_image') }}" alt="">
+                            </div>
 
                             <div class="form-group position-relative error-l-50">
                                 <label>Content</label>
@@ -99,12 +97,7 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Current Image</label>
-                                <img class="w-100" src="{{ $division->getImage('center_image') }}" alt="">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Hero Image</label>
+                                <label for="exampleInputEmail1">Hero Image <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 2048x811 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="center_image" class="img" type="file"
@@ -116,6 +109,10 @@
                                 <x-input-error name='center_image' />
                             </div>
 
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Current Hero Image</label>
+                                <img class="w-100" src="{{ $division->getImage('center_image') }}" alt="">
+                            </div>
 
                             <div class="form-group position-relative error-l-50">
                                 <label>Content 2</label>
@@ -128,14 +125,8 @@
                                 <x-input-error name='ar_content_2' />
                             </div>
 
-
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Current Image</label>
-                                <img class="w-100" src="{{ $division->getImage('gallery_image') }}" alt="">
-                            </div>
-
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Final Image</label>
+                                <label for="exampleInputEmail1">Final Image <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 1366x638 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="gallery_image" class="img" type="file"
@@ -148,12 +139,12 @@
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Current Home Page Image</label>
-                                <img class="w-100" src="{{ $division->getImage('home_image') }}" alt="">
+                                <label for="exampleInputEmail1">Current Final Image</label>
+                                <img class="w-100" src="{{ $division->getImage('gallery_image') }}" alt="">
                             </div>
 
                             <div class="form-group">
-                                <label for="exampleInputEmail1">Home Page Image</label>
+                                <label for="exampleInputEmail1">Home Page Image <span class="text-info">(Please upload an image with size less than 500 KB and dimensions 1002x825 pixels)</span></label>
                                 <div class="input-group mb-3">
                                     <div class="custom-file">
                                         <input name="home_image" class="img" type="file"
@@ -165,6 +156,10 @@
                                 <x-input-error name='home_image' />
                             </div>
 
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Current Home Page Image</label>
+                                <img class="w-100" src="{{ $division->getImage('home_image') }}" alt="">
+                            </div>
 
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Status</label>
@@ -186,6 +181,7 @@
                             @include('admin.common.seo_form')
 
                             <button type="submit" class="btn btn-primary mb-0">Update</button>
+                            <a  class="btn btn-info mb-0" href="{{ route('admin.divisions.index') }}">Cancel</a>
                             <button type="button" id="delete" class="btn btn-danger mb-0 float-right">Delete</button>
                         </form>
                     </div>

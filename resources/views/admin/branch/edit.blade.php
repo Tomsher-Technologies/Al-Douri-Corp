@@ -81,7 +81,7 @@
                             </div>
 
                             <button type="submit" class="btn btn-primary mb-0">Save</button>
-                            <a  class="btn btn-primary mb-0" href="{{ route('admin.branch.index') }}">Save</a>
+                            <a  class="btn btn-info mb-0" href="{{ route('admin.branch.index') }}">Cancel</a>
                         </form>
                     </div>
                 </div>

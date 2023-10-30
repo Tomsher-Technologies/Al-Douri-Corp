@@ -60,6 +60,13 @@
                                             background-image: url({{ URL::to($ban->img) }});
                                         ">
                                         </div>
+                                        
+                                         <div class="vlt-project-showcase__image-mobie"
+                                            style="
+                                            background-image: url({{ URL::to($ban->mob_img) }});
+                                        ">
+                                        </div>
+                                        
                                         <div class="d-flex flex-grow-1 flex-shrink-1 align-items-center">
                                             <div class="vlt-project-showcase__content">
                                                 <div class="container">
@@ -93,9 +100,13 @@
         </section>
         <!--Section-->
         <section class="jarallax">
-            <img class="jarallax-img" src="{{ asset('assets/img/about-img1.png') }}" alt="" loading="lazy" />
+            
+             <img class="jarallax-img hide-mobile" src="{{ asset('assets/img/about-img1.png') }}" alt="" loading="lazy" />
+             
+
+           
             <div class="vlt-gap-120"></div>
-            <div class="container">
+            <div class="container" >
                 <div class="row">
                     <div class="col-md-11 offset-md-1">
                         <!--Animated block-->
@@ -187,6 +198,14 @@
             <div class="vlt-gap-120"></div>
         </section>
         <!--Section-->
+        
+        
+        
+        
+        
+        
+        
+        
         <section>
             <div class="container-fluid p-0">
                 <div class="vlt-types">
@@ -316,7 +335,7 @@
         <!--Section-->
 
         <!--Section-->
-        <section class="has-black-color">
+        <section id="prod-4685" class="has-black-color">
             <div class="container">
                 <div class="vlt-gap-50"></div>
 
@@ -375,7 +394,7 @@
                         <div class="row d-flex justify-content-center align-items-center">
                             <div class="col-auto">
                                 <!--Slider controls-->
-                                <!-- <div class="vlt-slider-controls vlt-slider-controls--style-1 vlt-work-carousel-grid">
+                                <div class="vlt-slider-controls vlt-slider-controls--style-1 vlt-work-carousel-grid  hide-large">
                                     <div class="vlt-swiper-button-prev">
                                     {{ __('Prev') }}
                                     </div>
@@ -383,7 +402,7 @@
                                     <div class="vlt-swiper-button-next">
                                     {{ __('Next') }}
                                     </div>
-                                </div> -->
+                                </div> 
                             </div>
                         </div>
                         <div class="vlt-gap-50"></div>
@@ -629,6 +648,42 @@
             </div>
         </section>
         <!--Section-->
+        
+        <style>
+            
+.hide-large{
+    display:block;
+}
+
+
+.hide-mobile{
+      display:none;  
+}
+
+@media only screen and (min-width:991px) {
+.hide-large{
+    display:none;
+    
+}
+
+.hide-mobile{
+       display:block;
+}
+
+}
+
+@media only screen and (max-width:991px) {
+  #prod-4685 .vlt-work--style-1{
+        margin: 20px;
+}  
+}
+
+#prod-4685 .vlt-slider-controls .vlt-swiper-button-next, #prod-4685 .vlt-slider-controls .vlt-swiper-button-prev{
+        border-radius: 0%;
+}
+
+
+        </style>
 
        @include('frontend.parts.mobile-section')
     </div>

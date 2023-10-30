@@ -13,9 +13,14 @@ use App\Models\HeritageLists;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rules\File;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
 
 class BranchController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('permission:branches');
+    }
     /**
      * Display a listing of the resource.
      *
