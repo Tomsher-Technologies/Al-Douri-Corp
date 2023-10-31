@@ -54,18 +54,15 @@
                         @if($banners)
                             @foreach($banners as $ban)
                                 <div class="swiper-slide">
-                                    <div class="vlt-project-showcase__item">
-                                        <div class="vlt-project-showcase__image"
-                                            style="
-                                            background-image: url({{ URL::to($ban->img) }});
-                                        ">
-                                        </div>
+                                    
+                                    
+                                    <div class="vlt-project-showcase__item" >
                                         
-                                         <div class="vlt-project-showcase__image-mobie"
-                                            style="
-                                            background-image: url({{ URL::to($ban->mob_img) }});
-                                        ">
-                                        </div>
+                                        
+                                        <div class="vlt-project-showcase__image hide-large" style="background-image: url({{ URL::to($ban->mob_img) }});"></div>
+                                        <div class="vlt-project-showcase__image hide-mobile" style="background-image: url({{ URL::to($ban->img) }});"></div>
+                                        
+                                        
                                         
                                         <div class="d-flex flex-grow-1 flex-shrink-1 align-items-center">
                                             <div class="vlt-project-showcase__content">

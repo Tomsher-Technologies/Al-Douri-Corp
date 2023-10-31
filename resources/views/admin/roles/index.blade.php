@@ -30,7 +30,6 @@
                                     <tr>
                                         <th scope="col">Sl No.</th>
                                         <th scope="col">Role Name</th>
-                                        <th scope="col">Status</th>
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -39,7 +38,7 @@
                                         <tr>
                                             <th scope="row">{{ $loop->iteration }}</th>
                                             <td>{{ $role->name }}</td>
-                                            <td>{{ $role->is_active == 1 ? 'Enabled' : 'Disabled' }}</td>
+                                            
                                             <td>
                                                 <a href="{{ route('admin.roles.edit', $role) }}"
                                                     class="btn btn-secondary mb-1">Edit</a>
