@@ -63,7 +63,7 @@
                         <div class="text-center">
                             <div class="vlt-gap-40"></div>
                             <!--Animated block-->
-                             <h1 class="fz-6 has-primary-color center-mode text-nowrap">{!! $page->getTranslation('heading1') !!}</h1>
+                             <h1 class="fz-6 has-primary-color center-mode">{!! $page->getTranslation('heading1') !!}</h1>
                              
                                 <div class="vlt-gap-40"></div>
                              

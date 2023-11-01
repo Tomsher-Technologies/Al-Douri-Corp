@@ -99,6 +99,6 @@ Route::group(['prefix' => env('ADMIN_PREFIX', 'admin'), 'as' => 'admin.'], funct
         });
 
         Route::resource('roles', RoleController::class);
-
+        
     });
 });

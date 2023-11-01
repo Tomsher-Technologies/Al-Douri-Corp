@@ -265,9 +265,12 @@
             </div>
         </section>
         <!--Section-->
+        
+        
+        
 
-        <!--Section-->
-        <section class="has-white-color jarallax vlt-custom--1681">
+        <!--Section for desktop-->
+        <section class="has-white-color jarallax vlt-custom--1681 divisions-homes">
             <img class="jarallax-img" src="{{ asset('assets/img/service-bg-01.webp') }}" alt="" loading="lazy" />
             <div class="vlt-gap-120"></div>
             <div class="container">
@@ -291,6 +294,7 @@
                         </div>
                         <div class="vlt-gap-60--md"></div>
                     </div>
+                    
                     <div class="col-lg-5 offset-lg-1">
                         <!--Animated block-->
                         <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
@@ -329,7 +333,67 @@
             </div>
             <div class="vlt-gap-120"></div>
         </section>
+       <!--Section for desktop-->
+       
+       
+       <!--Section for mobile-->
+       
+       
+       
+       
+       
+       
+       
+       
+         <!--Section divisions-homes-mob-->
+        <section class="jarallax divisions-homes-mob" style="padding-bottom: 420px;"><img class="jarallax-img" src="{{ asset('assets/img/service-bg-01.webp') }}" alt="" loading="lazy">
+            <div class="vlt-gap-50"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 offset-md-2">
+                        <div class="text-center">
+                            <h1 class="has-black-color"> {!! $page->getTranslation('content6') !!}</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="vlt-gap-50"></div>
+        </section>
         <!--Section-->
+        <section style="margin-top: -440px;">
+            <div class="container">
+                <!--Animated block-->
+                <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">       
+                    <div class="vlt-gap-10"></div>
+                    <div class="vlt-isotope-grid" data-columns="3" data-layout="masonry" data-x-gap="100|100" data-y-gap="100|100" data-controls="#vlt-filter-homepage-06">
+                        <div class="grid-sizer"></div> 
+
+                        @foreach (menuDivisions() as $keyz => $divi)               
+                            <div class=" grid-item  pt-1 pb-3">
+                                <!--Portfolio item-->
+                                <article class="vlt-work vlt-work--style-4">
+                                    <div class="vlt-work__media">
+                                        <a class="vlt-work__link has-cursor" href="{{ route('divisions', $divi->slug) }}"></a>
+                                        <img src="{{ asset($divi->getImage('home_image')) }}" alt="" loading="lazy">
+                                    </div>
+                                    <div class="vlt-work__meta">
+                                        <h5 class="vlt-work__title">0{{$keyz+1}}. {{ $divi->getTranslation('title') }} </h5>
+                                    </div>
+                                </article>
+                            </div>
+                        @endforeach
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="vlt-gap-80"></div>           
+        </section>
+                                
+       <!--divisions-homes-mob-->
+       
+       
+       
+       
 
         <!--Section-->
         <section id="prod-4685" class="has-black-color">
@@ -354,7 +418,7 @@
                     <div class="container p-0 align-self-center">
                         <!--Content slider-->
                         <div class="vlt-content-slider" data-navigation-anchor=".vlt-work-carousel-grid" data-gap="30"
-                            data-loop="" data-speed="" data-autoplay="" data-autoplay-speed=""
+                            data-loop="true" data-speed="" data-autoplay="" data-autoplay-speed=""
                             data-slides-centered=""
                             data-slide-settings='{"slides_to_show":4,"slides_to_show_tablet":2,"slides_to_show_mobile":1}'
                             data-free-mode="" data-slider-offset="enable" data-mousewheel="enable">
@@ -440,7 +504,7 @@
 
                 <div class="row">
                     @foreach (getBrands() as $brand )
-                    <div class="col-xs-6 col-sm-3 col-md-3">
+                    <div class="col-xl-3 col-lg-3  col-md-3 col-sm-3 col-xs-6 col-6">
                         <div class="vlt-gap-50"></div>
                         <!--Animated block-->
                         <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
@@ -667,9 +731,14 @@
        display:block;
 }
 
+
 }
 
 @media only screen and (max-width:991px) {
+    
+    .vlt-simple-image{
+            padding-left: 0 !important;
+    }
   #prod-4685 .vlt-work--style-1{
         margin: 20px;
 }  
@@ -679,6 +748,12 @@
         border-radius: 0%;
 }
 
+
+@media only screen and (max-width: 575px){
+.vlt-project-showcase--style-7 .vlt-project-showcase__title {
+    font-size: 30px;
+}
+}
 
         </style>
 

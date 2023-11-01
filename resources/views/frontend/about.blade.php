@@ -91,7 +91,7 @@
 
                 <div class="row">
                     @foreach (getBrands() as $brand )
-                        <div class="col-xs-6 col-sm-3 col-md-3">
+                        <div class="col-xl-3 col-lg-3  col-md-3 col-sm-3 col-xs-6 col-6">
                             <div class="vlt-gap-50"></div>
                             <!--Animated block-->
                             <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">
