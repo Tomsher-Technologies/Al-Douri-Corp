@@ -1968,6 +1968,49 @@ dl dd {
     background-color: transparent
 }
 
+
+
+
+@media only screen and (max-width:1199px) {
+.vlt-navbar.vlt-navbar--transparent {
+    background-color: rgb(0 0 0 / 55%);
+}
+.vlt-header--creative, .vlt-header--default, .vlt-header--fullscreen, .vlt-header--offcanvas, .vlt-header--slide{
+    background-color: rgb(0 0 0);
+}
+
+.ecommerce-navbar .navbar-nav .nav-item .nav-link{
+        padding: 0 10px;
+            font-size: 13px;
+}
+
+.vlt-btn-nav{
+        font-size: 10px;
+        padding: 15px 10px;
+}
+
+.ecommerce-navbar .container{
+    
+}
+
+.vlt-project-showcase--style-7 .vlt-project-showcase__socials, .vlt-project-showcase--style-7 .vlt-slider-controls {
+    padding: 10px 14px !important;
+}
+
+
+.vlt-page-title--style-3{
+        padding: 150px 0 !important;
+    text-align: center;
+}
+
+.divisions-homes{
+    display: none;
+}
+
+}
+
+
+
 .vlt-header--dark .vlt-navbar.vlt-navbar--transparent {
     background-color: transparent
 }
@@ -1987,6 +2030,8 @@ dl dd {
 .vlt-navbar.vlt-navbar--transparent-always {
     background-color: transparent
 }
+
+
 
 .vlt-header--dark .vlt-navbar.vlt-navbar--transparent-always {
     background-color: transparent
@@ -2088,7 +2133,7 @@ dl dd {
 }
 
 .vlt-navbar-buttons a+a {
-    margin-left: 30px
+    margin-left: 10px
 }
 
 .vlt-nav .vlt-nav-table {

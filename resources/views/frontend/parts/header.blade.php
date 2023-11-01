@@ -406,6 +406,8 @@
                          <div class="d-flex align-items-center justify-content-center h-100">
                              <!--Buttons-->
                              <div class="vlt-navbar-buttons d-flex align-items-center">
+                                      <a class="" href="#" style="padding: 17px 13px;"><p style=""> <i class="fa-solid fa-cart-shopping"></i> </p> <p style="font-size: 8px;padding-left: 3px;">shop online</p></a>
+                                 
                                  <a class="vlt-menu-burger js-fullscreen-menu-toggle" href="#"><span
                                          class="line-one"></span><span class="line-two"></span></a>
                              </div>
