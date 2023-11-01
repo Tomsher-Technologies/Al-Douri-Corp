@@ -352,6 +352,7 @@
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
                         <div class="text-center">
+                            <p>{!! $page->getTranslation('content5') !!}</p>
                             <h1 class="has-black-color"> {!! $page->getTranslation('content6') !!}</h1>
                         </div>
                     </div>
