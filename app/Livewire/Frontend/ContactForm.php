@@ -21,7 +21,7 @@ class ContactForm extends Component
     protected $rules = [
         'name' => 'required',
         'email' => 'required|email',
-        'phone_number' => 'required|numeric',
+        'phone_number' => 'required',
         'company' => 'nullable',
         'subject' => 'nullable',
         'm_messages' => 'required',
