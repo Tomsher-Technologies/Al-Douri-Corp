@@ -1969,7 +1969,9 @@ dl dd {
 }
 
 
-
+.divisions-homes-mob{
+    display: none;
+}
 
 @media only screen and (max-width:1199px) {
 .vlt-navbar.vlt-navbar--transparent {
@@ -2005,6 +2007,10 @@ dl dd {
 
 .divisions-homes{
     display: none;
+}
+
+.divisions-homes-mob{
+    display: block !important; 
 }
 
 }
