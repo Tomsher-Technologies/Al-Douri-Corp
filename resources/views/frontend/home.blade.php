@@ -352,7 +352,10 @@
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
                         <div class="text-center">
-                            <p>{!! $page->getTranslation('content5') !!}</p>
+                            <p style="    display: block;
+    margin-bottom: 10px;    font-size: 20px;    font-weight: 700;
+    color: #A41E36;
+    font-family: 'Manrope', sans-seri">{!! $page->getTranslation('content5') !!}</p>
                             <h1 class="has-black-color"> {!! $page->getTranslation('content6') !!}</h1>
                         </div>
                     </div>
@@ -361,7 +364,7 @@
             <div class="vlt-gap-50"></div>
         </section>
         <!--Section-->
-        <section style="margin-top: -440px;">
+        <section class="divisions-homes-mob" style="margin-top: -400px;">
             <div class="container">
                 <!--Animated block-->
                 <div class="vlt-animated-block" data-aos="fade" data-aos-delay="0">       
