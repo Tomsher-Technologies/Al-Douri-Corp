@@ -144,7 +144,7 @@
                                             file</label>
                                     </div>
                                 </div>
-                                <x-input-error name='image_1' />
+                                <x-input-error name='image_2' />
                             </div>
                             
                            
