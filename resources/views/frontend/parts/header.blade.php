@@ -366,8 +366,8 @@
                          <!--Widget-->
                          <div class="vlt-widget vlt-widget--socials">
                              <a class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="{{ $general->facebook }}"><i class="fa-brands fa-facebook"></i></a><a
-                                 class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="{{ $general->twitter }}"><i class="fa-brands fa-instagram"></i></a><a
-                                 class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="{{ $general->instagram }}"><i class="fa-brands fa-linkedin"></i></a>
+                                 class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="{{ $general->instagram }}"><i class="fa-brands fa-instagram"></i></a><a
+                                 class="vlt-social-icon vlt-social-icon--style-1" target="_blank" href="{{ $general->linkedin }}"><i class="fa-brands fa-linkedin"></i></a>
                                  
                          </div>
                          <!--Widget-->
