@@ -26,6 +26,6 @@ class Branches extends Model
 
     public function locations()
     {
-        return $this->hasMany(BranchLocations::class,'branch_id');
+        return $this->hasMany(BranchLocations::class,'branch_id')->orderBy('location','ASC');
     }
 }
